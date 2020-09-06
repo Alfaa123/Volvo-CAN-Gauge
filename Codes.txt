@@ -1,0 +1,462 @@
+szTextDesc;RequestData;tszScalingDesc;tszTextDesc;tszCompare
+Security Access Mode Request relock immo (Req type AAAA);A3 30      ;*1;Positive response;
+Send Immo PIN;A3 32 43 45 4D 30 30 39;*1;Positive response;
+Send default immo PIN;A3 32 FF FF FF   ;*1;Positive response;
+A/C pressure;A6 10 01 01    ;*13.54-176;kPa;
+A/C compressor active;A6 10 02 01    ;&0b00000001;Off;=0b00000000
+A/C compressor active;A6 10 02 01    ;&0b00000001;On;=0b00000001
+Accelerator pedal, analogue input;A6 10 04 01    ;*100/65535;%;
+Accelerator pedal, pwm input;A6 10 05 01    ;*100/65535;%;
+Ambient air pressure, voltage;A6 10 06 01    ;(X&0x03FF)*5.0/1024;V;
+Ambient air pressure;A6 10 07 01    ;*5;hPa;
+Ambient air temperature;A6 10 09 01    ;X*0.75-48;C;
+Battery voltage;A6 10 0A 01    ;*0.07;V;
+Brake light switch;A6 10 0B 01    ;&0b00000001;On;=0b00000001
+Brake light switch;A6 10 0B 01    ;&0b00000001;Off;=0b00000000
+Brake pedal position, volt;A6 10 0C 01    ;(X&0x03FF)*5.0/1024;V;
+Cruise control on/off;A6 10 10 01    ;&0b00000001;Off;=0b00000000
+Cruise control on/off;A6 10 10 01    ;&0b00000001;On;=0b00000001
+Cruise control resume;A6 10 11 01    ;&0b00000001;Off;=0b00000000
+Cruise control resume;A6 10 11 01    ;&0b00000001;On;=0b00000001
+Cruise +;A6 10 12 01    ;&0b00000001;Off;=0b00000000
+Cruise +;A6 10 12 01    ;&0b00000001;On;=0b00000001
+Cruise -;A6 10 13 01    ;&0b00000001;On;=0b00000001
+Cruise -;A6 10 13 01    ;&0b00000001;Off;=0b00000000
+Engine coolant level switch;A6 10 16 01    ;&0b00000001;Normal;=0b00000000
+Engine coolant level switch;A6 10 16 01    ;&0b00000001;Low;=0b00000001
+Engine cooling fan, 1/2 speed;A6 10 19 01    ;&0b00000001;Off;=0b00000000
+Engine cooling fan, 1/2 speed;A6 10 19 01    ;&0b00000001;On;=0b00000001
+Cooling fan, step 1;A6 10 19 01    ;*1;On;
+Cooling fan, step 1;A6 10 19 01    ;*1;Off;=0x00
+Engine cooling fan, 1/1 speed;A6 10 1A 01    ;&0b00000001;Off;=0b00000000
+Engine cooling fan, 1/1 speed;A6 10 1A 01    ;&0b00000001;On;=0b00000001
+Cooling fan, step 2;A6 10 1A 01    ;*1;Off;=0x00
+Cooling fan, step 2;A6 10 1A 01    ;*1;On;
+Engine speed;A6 10 1D 01    ;*40;rpm;
+Purge valve, dutycycle;A6 10 20 01    ;*100/256;%;
+Fuel tank pressure;A6 10 22 01    ;*0.25;hPa;<32.00
+Fuel tank pressure;A6 10 22 01    ;*0.25-64;hPa;
+Fuel pump relay;A6 10 23 01    ;&0b00000001;Off;=0b00000000
+Fuel pump relay;A6 10 23 01    ;&0b00000001;On;=0b00000001
+Mass air flow;A6 10 29 01    ;*4;kg/h;
+Oil pressure switch;A6 10 2A 01    ;&0b00000001;On;=0b00000001
+Oil pressure switch;A6 10 2A 01    ;&0b00000001;Off;=0b00000000
+Oxygen rear sensor, bank 1;A6 10 2C 01    ;*(1.33/255)-0.2;V;
+Oxygen rear sensor, bank 2;A6 10 30 01    ;*(1.33/255)-0.2;V;
+Oxygen front sensor, bank 1;A6 10 34 01    ;*16.0/65536;;
+Oxygen front sensor, bank 2;A6 10 35 01    ;*16.0/65536;;
+Ignition angle;A6 10 36 01    ;*191.25/255;BTDC;
+Turbo control valve dutycycle;A6 10 37 01    ;*100/256;%;
+5V supply to sensor;A6 10 39 01    ;(X&0x03FF)*10/1024;V;
+Supply, 5V;A6 10 39 01    ;*0.009765;V;
+Injection time, bank 1;A6 10 3D 01    ;*0.002666;ms;
+Injection time;A6 10 3D 01    ;*1.0/375;ms;
+Injection time, bank 2;A6 10 3E 01    ;*1.0/375;ms;
+Lambda control, bank 1;A6 10 46 01    ;*1;O/L;=0x00
+Lambda control, bank 1;A6 10 46 01    ;*1;C/L;>0x00
+Lambda control, bank 2;A6 10 47 01    ;*1;C/L;>0x00
+Lambda control, bank 2;A6 10 47 01    ;*1;O/L;=0x00
+Condition automatic transmission;A6 10 4F 01    ;&0b00000001;Off;=0b00000000
+Condition automatic transmission;A6 10 4F 01    ;&0b00000001;On;=0b00000001
+Air mass, correction factor;A6 10 51 01    ;*0.000061;;
+Correction factor mass flow signal;A6 10 51 01    ;*4.0/65536;;
+Leakage air through throttle blade;A6 10 52 01    ;*0.1;;
+Throttle angle (from ETM);A6 10 58 01    ;*100/256;%;
+Lambda integrator, bank 1;A6 10 5B 01    ;*0.00003052;;
+Lambda controller output;A6 10 5B 01    ;*2.0/65535;;
+Lambda integrator, bank 2;A6 10 5D 01    ;*0.00003052;;
+Charcoal canister charge;A6 10 61 01    ;*(128.0/65536)-128;;
+Charcoal canister charge;A6 10 61 01    ;*128.0/65536;;<64.00
+Short term trim, bank1;A6 10 70 01    ;*2.0/65535;;
+Short term trim, bank2;A6 10 71 01    ;*2.0/65535;;
+Divergence between front and rear oxygen sensor;A6 10 8A 01    ;(2*X/65536)-2;;
+Divergence between front and rear oxygen sensor;A6 10 8A 01    ;*2/65536;;<1
+Divergence between front and rear oxygen sensor 2;A6 10 8B 01    ;(2*X/65536)-2;;
+Divergence between front and rear oxygen sensor 2;A6 10 8B 01    ;*2/65536;;<1
+Mass air flow;A6 10 AE 01    ;*0.1;kg/h;
+Misfire counter;A6 10 CA 01    ;*1;;
+Intake air temperature;A6 10 CE 01    ;X*0.75-48;C;
+Coolant temperature;A6 10 D8 01    ;*0.75-48;C;
+Engine coolant temperature;A6 10 DD 01    ;*0.75-48;C;
+Swifttest running status;A6 11 2B 01    ;&0x01;Not running;=0x01
+Swifttest running status;A6 11 2B 01    ;&0x01;Running;=0x00
+Rear oxygen sensor heating;A6 11 2D 01    ;X*5/256;V;
+Rear oxygen sensor heating 2;A6 11 2E 01    ;X*5/256;V;
+Vehicle speed;A6 11 40 01    ;*1.25;km/h;
+Evap canister close valve;A6 11 4A 01    ;&0b00000001;Open;=0b00000000
+Evap canister close valve;A6 11 4A 01    ;&0b00000001;Closed;=0b00000001
+Swifttest start status;A6 11 4F 01    ;&0x01;Started;=0x01
+Swifttest start status;A6 11 4F 01    ;&0x01;Not started;=0x00
+Swifttest result status;A6 11 53 01    ;&0x01;Not ok;=0x00
+Swifttest result status;A6 11 53 01    ;&0x01;OK;=0x01
+Adaptive lambda control successful;A6 11 5A 01    ;&0b00010000;No;=0b00000000
+Adaptive lambda control successful;A6 11 5A 01    ;&0b00010000;Yes;=0b00010000
+Evap system monitoring ready, no fault;A6 11 66 01    ;&0x0001;Not ready;=0x0000
+Evap system monitoring ready, no fault;A6 11 66 01    ;&0x0001;Ready;=0x0001
+Front oxygen sensor, dynamics 2;A6 11 96 01    ;*16/65536;;
+Front oxygen sensor, dynamics;A6 11 99 01    ;*16/65536;;
+Camshaft control, dutycycle;A6 11 CE 01    ;*100/255;%;
+Lambda adaption bank 1, idle;A6 11 D7 01    ;*0.046875;%;
+Lambda adaption bank 2, idle;A6 11 D8 01    ;*0.046875;%;
+Lambda adaption bank 1, lower part load;A6 11 D9 01    ;*0.00003052;;
+Lambda adaption bank 2, lower part load;A6 11 DA 01    ;*0.00003052;;
+Lambda adaption bank 1, upper part load;A6 11 DB 01    ;*0.00003052;;
+Lambda adaption bank 2, upper part load;A6 11 DC 01    ;*0.00003052;;
+Shifting angle of the camshaft;A6 11 DD 01    ;/256-256;Grad KW;>-128
+Shifting angle of the camshaft;A6 11 DD 01    ;X/256;Grad KW;<128
+Nominal camshaft shifting angle;A6 11 DE 01    ;*0.25;;
+Adaptation camshaft opening 1;A6 11 DF 01    ;/256.0;;<128
+Adaptation camshaft opening 1;A6 11 DF 01    ;/256.0-256.0;;>=-128
+Adaptation camshaft opening 2;A6 11 E0 01    ;/256.0;;<128
+Adaptation camshaft opening 2;A6 11 E0 01    ;/256.0-256.0;;>=-128
+Adaptation camshaft opening 3;A6 11 E1 01    ;/256.0;;<128
+Adaptation camshaft opening 3;A6 11 E1 01    ;/256.0-256.0;;>=-128
+Adaptation camshaft opening 4;A6 11 E2 01    ;/256.0;;<128
+Adaptation camshaft opening 4;A6 11 E2 01    ;/256.0-256.0;;>=-128
+Function identifier for support SAE J1979;A6 11 EA 01    ;*1;;
+Catalyst diagnosis;A6 11 EB 01    ;&0b00000001;Ready;=0b00000000
+Catalyst diagnosis;A6 11 EB 01    ;&0b00000001;Not ready;=0b00000001
+Leakage detection;A6 11 EB 01    ;&0b00000100;Not ready;=0b00000100
+Leakage detection;A6 11 EB 01    ;&0b00000100;Ready;=0b00000000
+Oxygen diagnosis;A6 11 EB 01    ;&0b00100000;Not ready;=0b00100000
+Oxygen diagnosis;A6 11 EB 01    ;&0b00100000;Ready;=0b00000000
+Oxygen sensor heating diagnosis;A6 11 EB 01    ;&0b01000000;Not ready;=0b01000000
+Oxygen sensor heating diagnosis;A6 11 EB 01    ;&0b01000000;Ready;=0b00000000
+Readiness byte;A6 11 EB 01    ;*1;Not ok;>0
+Readiness byte;A6 11 EB 01    ;*1;OK;=0x00
+Status faliure cansiter close valve;A6 11 F0 01    ;&0b0000000000000010;Not ready;=0x0000
+Status faliure cansiter close valve;A6 11 F0 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status faliure cansiter close valve;A6 11 F0 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure long term fuel trim upper;A6 12 15 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure long term fuel trim upper;A6 12 15 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure long term fuel trim upper;A6 12 15 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure long term fuel trim upper 2;A6 12 16 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure long term fuel trim upper 2;A6 12 16 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure long term fuel trim upper 2;A6 12 16 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure long term fuel trim lower;A6 12 17 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure long term fuel trim lower;A6 12 17 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure long term fuel trim lower;A6 12 17 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure long term fuel trim lower 2;A6 12 18 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure long term fuel trim lower 2;A6 12 18 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure long term fuel trim lower 2;A6 12 18 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure rear sensor heating;A6 12 1A 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure rear sensor heating;A6 12 1A 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure rear sensor heating;A6 12 1A 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure rear sensor heating 2;A6 12 1B 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure rear sensor heating 2;A6 12 1B 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure rear sensor heating 2;A6 12 1B 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure front sensor heating;A6 12 1E 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure front sensor heating;A6 12 1E 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure front sensor heating;A6 12 1E 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status faliure front sensor heating 2;A6 12 1F 01    ;&0b0000000000000010;Not ready;=0x0000
+Status faliure front sensor heating 2;A6 12 1F 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status faliure front sensor heating 2;A6 12 1F 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure catalyst monitoring;A6 12 20 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure catalyst monitoring;A6 12 20 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure catalyst monitoring;A6 12 20 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure catalyst monitoring bank 2;A6 12 21 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure catalyst monitoring bank 2;A6 12 21 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure catalyst monitoring bank 2;A6 12 21 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status faliure rear oxygen sensor ageing;A6 12 2A 01    ;&0b0000000000000010;Not ready;=0x0000
+Status faliure rear oxygen sensor ageing;A6 12 2A 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status faliure rear oxygen sensor ageing;A6 12 2A 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status faliure rear oxygen sensor ageing 2;A6 12 2B 01    ;&0b0000000000000010;Not ready;=0x0000
+Status faliure rear oxygen sensor ageing 2;A6 12 2B 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status faliure rear oxygen sensor ageing 2;A6 12 2B 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure overload error;A6 12 31 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure overload error;A6 12 31 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure overload error;A6 12 31 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure boost control deviation;A6 12 33 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure boost control deviation;A6 12 33 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure boost control deviation;A6 12 33 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure rear oxygen sensor;A6 12 36 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure rear oxygen sensor;A6 12 36 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure rear oxygen sensor;A6 12 36 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure rear oxygen sensor 2;A6 12 37 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure rear oxygen sensor 2;A6 12 37 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure rear oxygen sensor 2;A6 12 37 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure front oxygen sensor;A6 12 38 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure front oxygen sensor;A6 12 38 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure front oxygen sensor;A6 12 38 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure front oxygen sensor 2;A6 12 39 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure front oxygen sensor 2;A6 12 39 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure front oxygen sensor 2;A6 12 39 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure phase sensor;A6 12 3E 01    ;&0b0000000000000010;Not ready;=0b0000000000000000
+Status failure phase sensor;A6 12 3E 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure phase sensor;A6 12 3E 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure long term fuel trim idle;A6 12 3F 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure long term fuel trim idle;A6 12 3F 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure long term fuel trim idle;A6 12 3F 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure long term fuel trim idle 2;A6 12 40 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure long term fuel trim idle 2;A6 12 40 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure long term fuel trim idle 2;A6 12 40 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Knocksensor 1;A6 12 4A 01    ;*19.5313/1000;V;
+Status failure PCV defective open;A6 12 60 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure PCV defective open;A6 12 60 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure PCV defective open;A6 12 60 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure small leak;A6 12 61 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure small leak;A6 12 61 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure small leak;A6 12 61 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure smallest leak;A6 12 62 01    ;&0b0000000000000011;Not ready;=0x0000
+Status failure smallest leak;A6 12 62 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure smallest leak;A6 12 62 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Engine cooling fan, top speed;A6 12 9B 01    ;&0b00000001;Off;=0b00000000
+Engine cooling fan, top speed;A6 12 9B 01    ;&0b00000001;On;=0b00000000
+Cooling fan, step 3;A6 12 9B 01    ;*1;On;
+Cooling fan, step 3;A6 12 9B 01    ;*1;Off;=0x00
+Boost pressure sensor, V;A6 12 9C 01    ;*5.0/1024;V;
+Boost pressure;A6 12 9D 01    ;*10;hPa;
+Accelerator pedal, PWM (via ETM);A6 12 A1 01    ;*100/65535;%;
+Brake pedal sensor;A6 12 A5 01    ;&0b00000001;Not Active;=0b00000001
+Brake pedal sensor;A6 12 A5 01    ;&0b00000001;Active;=0b00000000
+Clutch pedal;A6 12 A6 01    ;*100/256;%;
+Clutch pedal sensor;A6 12 A8 01    ;&0b00000001;Not Active;=0b00000001
+Clutch pedal sensor;A6 12 A8 01    ;&0b00000001;Active;=0b00000000
+Knocksensor 2;A6 12 C3 01    ;*19.5313/1000;V;
+Purge valve dutycycle;A6 12 DB 01    ;*100/256;%;
+Flywheel adaption status;A6 12 DC 01    ;&0b00000011;Adaption ready;
+Flywheel adaption status;A6 12 DC 01    ;&0b00000011;Adaption not ready;=0b00000011
+Status failure rough leak;A6 13 17 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure rough leak;A6 13 17 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure rough leak;A6 13 17 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure ignition coil 1;A6 13 21 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure ignition coil 1;A6 13 21 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure ignition coil 1;A6 13 21 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure ignition coil 2;A6 13 22 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure ignition coil 2;A6 13 22 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure ignition coil 2;A6 13 22 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure ignition coil 3;A6 13 23 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure ignition coil 3;A6 13 23 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure ignition coil 3;A6 13 23 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure ignition coil 4;A6 13 24 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure ignition coil 4;A6 13 24 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure ignition coil 4;A6 13 24 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure ignition coil 5;A6 13 25 01    ;&0b0000000000000010;Not ready;=0x0000
+Status failure ignition coil 5;A6 13 25 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Status failure ignition coil 5;A6 13 25 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure ignition coil 6;A6 13 26 01    ;&0b0000000000000010;Not ready;=0b0000000000000000
+Status failure ignition coil 6;A6 13 26 01    ;&0b0000000000000011;Ready fault found;=0x0003
+Status failure ignition coil 6;A6 13 26 01    ;&0b0000000000000011;Ready no fault;=0x0002
+Ambient temperature;A6 13 51 01    ;*0.75-48;C;
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3420 Rear knock sensor (KS);=0x3420
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2A2A Rear heated oxygen sensor (HO2S), bank 1;=0x2A2A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2310 Injector cyl 1;=0x2310
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-901E Control module, internal fault;=0x901E
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3100 Engine speed (RPM) sensor;=0x3100
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-262A Long-term fuel trim, bank 1;=0x262A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4050 Fuel level sensor;=0x4050
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-280A Front heated oxygen sensor (HO2S), bank 1;=0x280A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-273A Long-term fuel trim, bank 2;=0x273A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3502 Misfire, at least one cylinder;=0x3502
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2B1A Rear heated oxygen sensor (HO2S), bank 2;=0x2B1A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3410 Front knock sensor (KS);=0x3410
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-5000 A/C pressure sensor;=0x5000
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6100 Engine cooling fan control module;=0x6100
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3533 Misfire cylinder 3;=0x3533
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-260A Long-term fuel trim, bank 1;=0x260A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-1100 Outside temperature sensor;=0x1100
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-710A Control module, internal fault;=0x710A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4308 Leak diagnostic;=0x4308
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-271A Long-term fuel trim, bank 2;=0x271A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-290A Front heated oxygen sensor (HO2S), bank 2;=0x290A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2A0A Rear heated oxygen sensor (HO2S), bank 1;=0x2A0A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2910 Front heated oxygen sensor (HO2S), bank 2;=0x2910
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3542 Misfire cylinder 4, cat. damage;=0x3542
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-5200 Flywheel signal;=0x5200
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3400 Knock sensor (KS), test pulse;=0x3400
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-268A Long-term fuel trim, bank 1;=0x268A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-270A Long-term fuel trim, bank 2;=0x270A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3000 Camshaft position (CMP) sensor;=0x3000
+Read DTC Request 2 byte DTC;AE 11      ;*1;.;=0x91B7
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-261A Long-term fuel trim, bank 1;=0x261A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-903C Throttle unit, internal fault;=0x903C
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9510 Analog pedal unit;=0x9510
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-1000 Atmospheric pressure sensor;=0x1000
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2B20 Rear heated oxygen sensor (HO2S), bank 2;=0x2B20
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4010 EVAP canister shut-off valve;=0x4010
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-531D Malfunction indicator lamp (MIL) CEM;=0x531D
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-272A Long-term fuel trim, bank 2;=0x272A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4019 EVAP canister shut-off valve closed;=0x4019
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-34F0 Knock sensor (KS), test pulse;=0x34F0
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2B2A Rear heated oxygen sensor (HO2S), bank 2;=0x2B2A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6120 Engine cooling fan (FC) high-speed;=0x6120
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-917F Accelerator pedal (AP) position sensor, internal fault;=0x917F
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-902A Throttle unit communication;=0x902A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-34E0 Control module, internal fault;=0x34E0
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-904D Pedal sensor fault;=0x904D
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4338 Fuel tank filler cap missing;=0x4338
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6310 ETS warning lamp;=0x6310
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6000 A/C relay;=0x6000
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6B00 Malfunction indicator lamp (MIL);=0x6B00
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-912A Engine control module (ECM) communication;=0x912A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3330 Ignition coil cylinder 4, signal;=0x3330
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-00FF No faults detected by OBD system;=0xFFFF
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-928C Communication, Central Electronic Module (CEM);=0x928C
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9180 Accelerator pedal (AP) position sensor;=0x9180
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4B0A Pulsed secondary air injection system (PAIR) valve, bank 2;=0x4B0A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9530 Accelerator pedal (AP) position sensor;=0x9530
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6110 Engine cooling fan (FC) low-speed;=0x6110
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6A00 Interlock;=0x6A00
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9190 Throttle unit, internal fault;=0x9190
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-91F0 Throttle unit, internal fault;=0x91F0
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-910E Throttle unit, internal fault;=0x910E
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-901A CAN-bus;=0x901A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2350 Injector cyl 5;=0x2350
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-958F Analog pedal unit;=0x958F
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-1300 Mass air flow (MAF) sensor;=0x1300
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-990A Idling;=0x990A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9520 Analog pedal unit;=0x9520
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-E000 Control module communication;=0xE000
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-91CF Control module, internal fault;=0x91CF
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-1200 Intake air temperature (IAT) sensor inlet;=0x1200
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2000 Engine coolant temperature (ECT) sensor;=0x2000
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-130A Air leakage intake;=0x130A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-904C MIL requested by throttle unit;=0x904C
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2320 Injector cyl 2;=0x2320
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-201A Thermostat;=0x201A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2330 Injector cyl 3;=0x2330
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2A20 Rear heated oxygen sensor (HO2S), bank 1;=0x2A20
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-980A Control module, internal fault;=0x980A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4A25 Pulsed secondary air injection system (PAIR) valve, bank 1;=0x4A25
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-7180 Temperature sensor control module;=0x7180
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-914F Throttle unit, internal fault;=0x914F
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3300 Ignition coil cylinder 1, signal;=0x3300
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-91DF Stop (brake) lamp switch;=0x91DF
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6300 ETS warning lamp;=0x6300
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-91B7 Throttle unit, internal fault;=0x91B7
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3340 Ignition coil cylinder 5, signal;=0x3340
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-E003 Configuration fault;=0xE003
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9600 Engine cooling fan (FC);=0x9600
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9160 Throttle unit, internal fault;=0x9160
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9150 Throttle unit, internal fault;=0x9150
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3310 Ignition coil cylinder 2, signal;=0x3310
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-91A7 Throttle unit, internal fault;=0x91A7
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3310 Ignition coil cylinder 2, signal;=0x3310
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-913F Control module, internal fault;=0x913F
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-91E0 Battery voltage;=0x91E0
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-982A Control module, internal fault;=0x982A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-170F Boost pressure sensor;=0x170F
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3513 Misfire cylinder 1;=0x3513
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6806 Turbocharger (TC) control valve;=0x6806
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4B25 Pulsed secondary air injection system (PAIR) valve, bank 2;=0x4B25
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9400 Brake position sensor;=0x9400
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4000 Canister purge (CP) valve;=0x4000
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-959F Analog pedal unit;=0x959F
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3553 Misfire cylinder 5;=0x3553
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3552 Misfire cylinder 5, cat. damage;=0x3552
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-530B Malfunction indicator lamp (MIL) communication;=0x530B
+Read DTC Request 2 byte DTC;AE 11      ;*1;.;=0x91B7
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2B0A Rear heated oxygen sensor (HO2S), bank 2;=0x2B0A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3562 Misfire cylinder 6, cat. damage;=0x3562
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3532 Misfire cylinder 3, cat. damage;=0x3532
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-510F Vehicle speed signal (VSS);=0x510F
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3522 Misfire cylinder 2, cat. damage;=0x3522
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3523 Misfire cylinder 2;=0x3523
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3512 Misfire cylinder 1, cat. damage;=0x3512
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-278A Long-term fuel trim, bank 2;=0x278A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3503 Misfire, at least one cylinder;=0x3503
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3543 Misfire cylinder 4;=0x3543
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2340 Injector cyl 4;=0x2340
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2A1A Rear heated oxygen sensor (HO2S), bank 1;=0x2A1A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2360 Injector cyl 6;=0x2360
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2810 Front heated oxygen sensor (HO2S), bank 1;=0x2810
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-1600 Boost pressure sensor;=0x1600
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-263A Long-term fuel trim, bank 1;=0x263A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-2400 Fuel pump (FP) relay;=0x2400
+Read DTC Request 2 byte DTC;AE 11      ;*1;;=0x4008
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4020 Fuel tank pressure sensor;=0x4020
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3800 Accelerometer;=0x3800
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-XXXX Unknown DTC for current control module version;
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4801 Three-way catalytic converter (TWC) efficiency, bank 1;=0x4801
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6805 Turbocharger (TC) control valve;=0x6805
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-6800 Turbocharger (TC) control valve;=0x6800
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-903F Throttle body (TB);=0x903F
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9300 Clutch pedal sensor;=0x9300
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-8410 5 Volt supply;=0x8410
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-8200 System relay;=0x8200
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-8010 Battery voltage;=0x8010
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-3563 Misfire cylinder 6;=0x3563
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-911A Throttle unit communication;=0x911A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-430D Leak diagnostic;=0x430D
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-644A Variable camshaft;=0x644A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4A20 Pulsed secondary air injection system (PAIR) valve;=0x4A20
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4901 Three-way catalytic converter (TWC) efficiency, bank 2;=0x4901
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4A0A Pulsed secondary air injection system (PAIR);=0x4A0A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-720A Immobilizer communication;=0x720A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-4A10 Pulsed secondary air injection system (PAIR) pump relay;=0x4A10
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-530D Malfunction indicator lamp (MIL) lit;=0x530D
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-430C Leak diagnostic;=0x430C
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-716D Temperature sensor control module;=0x716D
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-981A Control module, internal fault;=0x981A
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-715D Temperature sensor control module;=0x715D
+Read DTC Request 2 byte DTC;AE 11      ;*1;ECM-9540 Power supply (5-volt);=0x9540
+Clear DTC Clear all stored 2-byte DTC's ......;AF 11      ;*1;.;
+Injector #1 On;B1 00 01 08 FF   ;&0b00000001;On;=0b00000001
+Injector #1 On;B1 00 01 08 FF   ;*1;Function activated;
+Injector #2 On;B1 00 02 08 FF   ;&0b00000001;On;=0b00000001
+Injector #2 On;B1 00 02 08 FF   ;*1;Function activated;
+Injector #3 On;B1 00 03 08 FF   ;&0b00000001;On;=0b00000001
+Injector #3 On;B1 00 03 08 FF   ;*1;Function activated;
+Injector #4 On;B1 00 04 08 FF   ;&0b00000001;On;=0b00000001
+Injector #4 On;B1 00 04 08 FF   ;*1;Function activated;
+Injector #5 On;B1 00 05 08 FF   ;&0b00000001;On;=0b00000001
+Injector #5 On;B1 00 05 08 FF   ;*1;Function activated;
+Injector #6 On;B1 00 06 08 FF   ;*1;Function activated;
+Ignition cyl #1 On;B1 00 11 08 FF   ;*1;Function activated;
+Ignition cyl #2 On;B1 00 12 08 FF   ;*1;Function activated;
+Ignition cyl #3 On;B1 00 13 08 FF   ;*1;Function activated;
+Ignition cyl #4 On;B1 00 14 08 FF   ;*1;Function activated;
+Ignition cyl #5 On;B1 00 15 08 FF   ;*1;Function activated;
+Ignition cyl #6 On;B1 00 16 08 FF   ;*1;Function activated;
+A/C relay Off;B1 00 21 00    ;*1;Function stopped;
+A/C relay On;B1 00 21 01 FF 00 01 ;*1;Function activated;
+Cruise control signal lamp Off;B1 00 23 00    ;*1;Function stopped;
+Cruise control signal lamp On;B1 00 23 01 FF 00 01 ;&0b00000001;On;=0b00000001
+Cruise control signal lamp On;B1 00 23 01 FF 00 01 ;*1;Function activated;
+Engine cooling fan 1/2 speed Off;B1 00 25 00    ;*1;Function stopped;
+Engine cooling fan 1/2 speed On;B1 00 25 01 FF 00 01 ;&0b00000001;On;=0b00000001
+Engine cooling fan 1/2 speed On;B1 00 25 01 FF 00 01 ;*1;Function activated;
+Engine cooling fan 1/1 speed Off;B1 00 26 00    ;*1;Function stopped;
+Engine cooling fan 1/1 speed On;B1 00 26 01 FF 00 01 ;&0b00000001;On;=0b00000001
+Engine cooling fan 1/1 speed On;B1 00 26 01 FF 00 01 ;*1;Function activated;
+Engine cooling fan, pwm controlled 100%;B1 00 27 00    ;*1;Function stopped;
+Engine cooling fan, pwm controlled 100%;B1 00 27 01 FF 00 FF ;*1;Function activated;
+ETS warning lamp output Off;B1 00 29 00    ;*1;Function stopped;
+ETS warning lamp output On;B1 00 29 01 FF 00 01 ;&0b00000001;On;=0b00000001
+ETS warning lamp output On;B1 00 29 01 FF 00 01 ;*1;Function activated;
+Evap canister close valve Open;B1 00 2A 00    ;*1;Function stopped;
+Evap canister close valve Close;B1 00 2A 31 FF   ;*1;Function activated;
+Evap purge valve % duty cycle;B1 00 2B 00    ;*1;Function stopped;
+Evap purge valve % duty cycle;B1 00 2B 01 FF 00 F0 ;*1;Function activated;
+Evap purge valve % duty cycle;B1 00 2B 31 FF   ;*1;Function activated;
+Fuel pump relay Off;B1 00 2C 00    ;*1;Function stopped;
+Fuel pump relay On;B1 00 2C 01 FF 00 01 ;&0b00000001;On;=0b00000001
+Fuel pump relay On;B1 00 2C 01 FF 00 01 ;*1;Function activated;
+MIL lamp output Off;B1 00 2D 00    ;*1;Function stopped;
+MIL lamp output On;B1 00 2D 01 FF 00 01 ;&0b00000001;On;=0b00000001
+MIL lamp output On;B1 00 2D 01 FF 00 01 ;*1;Function activated;
+Oxygen sensor 1 heating, front On;B1 00 2F 30    ;*1;Function activated;
+Oxygen sensor 2 heating, front On;B1 00 30 30    ;*1;Function activated;
+Oxygen sensor 1 heating, rear On;B1 00 31 30    ;*1;Function activated;
+Oxygen sensor 2 heating, rear On;B1 00 32 30    ;*1;Function activated;
+Secondary air pump relay On;B1 00 33 01 01 FF  ;&0b00000001;On;=0b00000001
+Secondary air pump relay On;B1 00 33 01 01 FF  ;*1;Function activated;
+System relay On;B1 00 35 01 01 FF  ;&0b00000001;On;=0b00000001
+System relay On;B1 00 35 01 01 FF  ;*1;Function activated;
+Turbo control valve Off;B1 00 36 00    ;*1;Function stopped;
+Turbo control valve On;B1 00 36 01 FF 00 F0 ;*1;Function activated;
+Turbo control valve On;B1 00 36 30    ;*1;Function activated;
+Variable valve timing, VVT control valve On;B1 00 37 01 01 FF  ;&0b00000001;On;=0b00000001
+Variable valve timing, VVT control valve On;B1 00 37 01 01 FF  ;*1;Function activated;
+Interlock (start blocking) On;B1 00 40 01 01 FF  ;&0b00000001;On;=0b00000001
+Interlock (start blocking) On;B1 00 40 01 01 FF  ;*1;Function activated;
+Start, swift test for leakage detection;B2 82 01     ;*1;Function stopped;
+Stop, swift test for leakage detection;B2 82 02     ;*1;Function activated
+Write immo PIN;B8 01 43 45 4D 30 30 39;*1;Positive response
+Write immo security code;B8 02 43 45 4D 30 30 38;*1;Positive response
+Immobilizer communication tries;B9 04      ;*1;
+Immobilizer answer tries;B9 05      ;*1;
+ECU Hardware Part Number;B9 F0      ;x;ECM hardware part number
+ECU Diagnostic Part Number;B9 F0      ;x;.
+ECU Software Part Number;B9 F5      ;x;
+ECU Hardware Serial Number;B9 F8      ;x;ECM hardware serial number
