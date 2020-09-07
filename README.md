@@ -7,6 +7,7 @@ Video of the project is here:
 [![Video](http://img.youtube.com/vi/hdAKEG6ggRk/0.jpg)](https://www.youtube.com/watch?v=hdAKEG6ggRk "Video")
 
 </p>
+
 # Hardware:
 - 2011 Volvo C30 T5
 - "generic" 128x64 OLED Display on I^2C protocol
