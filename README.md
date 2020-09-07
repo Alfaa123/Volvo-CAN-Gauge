@@ -3,6 +3,7 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 
 <p align="center">
 Video of the project is here:
+  
 [![Video](http://img.youtube.com/vi/hdAKEG6ggRk/0.jpg)](https://www.youtube.com/watch?v=hdAKEG6ggRk "Video")
 
 </p>
