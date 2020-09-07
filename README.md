@@ -1,16 +1,9 @@
 # Volvo-CAN-Gauge
 Reverse engineering the Volvo VIDA protocol to gather diagnostic information not available via OBD2 on Volvo cars.
 
-<p align="center"> 
-Video of the project is here:
-  
-</p>
-
-<p align="center"> 
+**Video of the project is here:**
   
 [![Video](http://img.youtube.com/vi/hdAKEG6ggRk/0.jpg)](https://www.youtube.com/watch?v=hdAKEG6ggRk "Video")
-
-</p>
 
 # Hardware:
 - 2011 Volvo C30 T5
