@@ -1,18 +1,18 @@
 # Volvo-CAN-Gauge
 Reverse engineering the Volvo VIDA protocol to gather diagnostic information not available via OBD2 on Volvo cars.
 
-Hardware:
+# Hardware:
 - 2011 Volvo C30 T5
 - "generic" 128x64 OLED Display on I^2C protocol
 - Machinna M1.1 (Old, no longer manufactured) (More info here: https://www.macchina.cc/guide/m1/software/software-setup-arduino-ide-1516)
 
 **NOTE: The Machinna M1.1 is basically an Arduino Mega with a buck style regulator and a few built in interfaces. In this project, we're only using the CAN bus interface, which is identical to a regular CAN bus shield based on the MCP2515. The only change you'll need to make in order for this to run on a regular Mega + a CAN shield is to change the CS pin of the CAN shield, as the Machinna uses a 'non-arduino' pin for this purpose.**
 
-Included Libraries:
+# Included Libraries:
 - U8g2: Used to drive the OLED display.
 - Seeed CAN bus shield: CAN shield library with modifications to allow it to work with the Machinna M1.1
 
-Basic Functional Description:
+# Basic Functional Description:
 
 The Volvo VIDA protocol is a basic message/response protocol not very different from ISO 15765-4. However, unlike ISO 15765-4, VIDA can also write controller firmware, activate actuators and run diagnostic tests.
 
@@ -26,7 +26,7 @@ In the display loop, we can show boost pressure, coolant temperature and intake 
 
 For right now, the only button we track is the cruise control cancel button. Holding the button for more than 2 seconds changes the currently displayed page. Perhaps in the future, a menu system could be implemented.
 
-Other notes:
+# Other notes:
 
 - Compatibility with other vehicles is unknown at this point. Most likely, any other cars using the Volvo Bosch ME9 implementation will work with no modifications (although I have heard some reports that the broadcast IDs change from vehicle to vehicle, so that may need to be tweaked)
 - Volvo uses extended IDs for their CAN frames. I am not 100% sure why they do this yet.
