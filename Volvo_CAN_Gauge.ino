@@ -19,46 +19,43 @@ unsigned char len = 0, flagRecv = 0, Page = 0, Index = 0;
 unsigned char buf[8];
 bool NightMode, Ignition;
 
-// the cs pin of the version after v1.1 is default to D9
-// v0.9b and v1.0 is default D10
-U8G2_SSD1306_128X64_VCOMH0_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ 8);
+U8G2_SSD1306_128X64_VCOMH0_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ 8); //Setup for the OLED display
 
-MCP_CAN CAN(10); // Set CS pin
+MCP_CAN CAN(10); // Normally where the CS pin is set. Because the CAN library has been hacked to use direct port manipulation, this no longer matters.
 
 void setup()
 {
   u8g2.setBusClock(400000);
   //Serial.begin(115200);
-  u8g2.begin();
+  u8g2.begin();                                     //Init OLED and display an init message to make sure everything is working correctly
   u8g2.setFont( u8g2_font_fub30_tf);
   u8g2.setCursor(0, 30);
   u8g2.print("INIT");
   u8g2.updateDisplay();
-  delay(1000);
+  delay(700);
   u8g2.clearBuffer();
   u8g2.updateDisplay();
   while (CAN_OK != CAN.begin(CAN_500KBPS))              // init can bus : baudrate = 500k
   {
     delay(100);
   }
-  CAN.init_Mask(0, 1, 0xFFFFFFFF);                         // there are 2 mask in mcp2515, you need to set both of them
+  CAN.init_Mask(0, 1, 0xFFFFFFFF);                         // Masks and filters setup for the can interface. We use these to keep resource usage low by only looking for traffic we care about.
   CAN.init_Mask(1, 1, 0xFFFFFFFF);
-  CAN.init_Filt(0, 1, 0x00400021);                          // there are 6 filter in mcp2515
-  CAN.init_Filt(1, 1, 0x00000000);                          // there are 6 filter in mcp2515
-
-  CAN.init_Filt(2, 1, 0x19E00006);                          // there are 6 filter in mcp2515
-  CAN.init_Filt(3, 1, 0x0100082C);                          // there are 6 filter in mcp2515
-  CAN.init_Filt(4, 1, 0x19000026);                          // there are 6 filter in mcp2515
+  CAN.init_Filt(0, 1, 0x00400021);                          
+  CAN.init_Filt(1, 1, 0x00000000);                          
+  CAN.init_Filt(2, 1, 0x19E00006);                          
+  CAN.init_Filt(3, 1, 0x0100082C);                          
+  CAN.init_Filt(4, 1, 0x19000026);                          
   CAN.init_Filt(5, 1, 0x00000000);
 }
 
-void loop()
+void loop()    //The main loop sends all the various CAN messages to the ECU so we can get data back. It also calls the MessageRecieve and UpdateDisplay functions periodically. This method of 'multitasking' is painful and needs to be rewritten.
 {
   if (Ignition == 0) {
     PowerSaveLoop();
   }
   
-  if ((y > 1000) && (Ignition)) {
+  if ((y > 500) && (Ignition)) {
     UpdateDisplay();
     y = 0;
   }
@@ -81,7 +78,7 @@ void loop()
 MessageRecieveLoop();
 }
 
-void UpdateDisplay() {
+void UpdateDisplay() {               //This function takes the data retrieved in the MessageRecieveLoop and writes it to the OLED. Because the OLED is so slow, this is where we spend the majority of our loop time.
   //Boost Display
   if (Page == 0){
   Boost = Boost - 101.325;
@@ -220,7 +217,7 @@ void UpdateDisplay() {
   
 
 
-void UpdateBrightness() {
+void UpdateBrightness() {                       //This function simply updates the brightness of the OLED when we adjust the dashboard lighting pot in the car. If we set the pot to minimum brightness, it simply turns the display off completely (for safety and night vision).
   u8g2.setContrast(Brightness);
   if (Ignition){
     if (Brightness < 1){
@@ -232,13 +229,13 @@ void UpdateBrightness() {
   }
 }
 
-void PowerSaveLoop(){
+void PowerSaveLoop(){                          // This is where we come if the ignition message goes low. We loop here indefinitely until we sense the ignition has come back on. OLED is off and filters are activated to ignore any traffic except the ignition status broadcast.
   CAN.init_Filt(1, 1, 0x19E00006);
     while (1 == 1) {
       delay(2000);
-      if (CAN_MSGAVAIL == CAN.checkReceive())           // check if data coming
+      if (CAN_MSGAVAIL == CAN.checkReceive())           
       {
-        CAN.readMsgBuf(&len, buf);    // read data,  len: data length, buf: data buf
+        CAN.readMsgBuf(&len, buf);
         unsigned long canId = CAN.getCanId();
         if (canId == 0x19E00006) {
           if ((buf[6] & B01000000) != Ignition) {
@@ -252,11 +249,11 @@ void PowerSaveLoop(){
     }
 }
 
-void MessageRecieveLoop(){
-    while (CAN_MSGAVAIL == CAN.checkReceive())   // check if data coming
+void MessageRecieveLoop(){                                                  //I was never able to get inturrupt based frame handling working, so this loop is here to check if we have any new messages. If we do, update variables.
+    while (CAN_MSGAVAIL == CAN.checkReceive())
   {
     //flagRecv = 0;
-    CAN.readMsgBuf(&len, buf);    // read data,  len: data length, buf: data buf
+    CAN.readMsgBuf(&len, buf);
 
     unsigned long canId = CAN.getCanId();
     if (canId == 0x00400021) {
@@ -321,7 +318,7 @@ void MessageRecieveLoop(){
   }
 }  
 
-void UpdateIgnition() {
+void UpdateIgnition() {               //This is where we go if the ignition status changes. If it goes high to low (car turns off) then we fade the display out, blank it and put it to sleep for the power save loop. If it goes low to high (car turns on) we wake the display and write a welcome message to the display and proceed to the main loop.
   if (Ignition) {
     u8g2.setPowerSave(0);
     u8g2.setContrast(0);
@@ -361,6 +358,3 @@ void UpdateIgnition() {
     u8g2.setPowerSave(1);
   }
 }
-/*********************************************************************************************************
-  END FILE
-*********************************************************************************************************/
