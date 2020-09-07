@@ -33,3 +33,7 @@ For right now, the only button we track is the cruise control cancel button. Hol
 - Volvos of this vintage have 2 CAN networks, a High Speed bus at 500kbps and a Low Speed bus at 125kbps. The high speed bus is connected to the ECU, steering modules, braking and other modules. The low speed bus is connected to the radio, door modules, instrument cluster and other associated accessories. The CEM (Central Electronics Module) acts as a gateway between the high and low speed busses. This project connects directly to the high speed bus.
 - Older vehicles have a diagnostic relay that needs to be activated via K-line in order to access the CAN buses via the OBD2 port. Because mine does not require this, I don't have much information about it.
 - The Arduino Mega is not fast enough to recieve all the traffic on the bus. I strongly suspect that we miss a lot of traffic with this implementation, espically because we don't use inturrupt based message handling.
+
+# Other Resources:
+- http://hackingvolvo.blogspot.com/
+- https://github.com/hackingvolvo
