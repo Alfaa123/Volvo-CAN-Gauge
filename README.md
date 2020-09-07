@@ -26,7 +26,7 @@ In the display loop, we can show boost pressure, coolant temperature and intake 
 
 For right now, the only button we track is the cruise control cancel button. Holding the button for more than 2 seconds changes the currently displayed page. Perhaps in the future, a menu system could be implemented.
 
-# Other notes:
+# Notes:
 
 - Compatibility with other vehicles is unknown at this point. Most likely, any other cars using the Volvo Bosch ME9 implementation will work with no modifications (although I have heard some reports that the broadcast IDs change from vehicle to vehicle, so that may need to be tweaked)
 - Volvo uses extended IDs for their CAN frames. I am not 100% sure why they do this yet.
