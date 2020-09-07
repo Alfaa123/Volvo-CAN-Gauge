@@ -37,3 +37,4 @@ For right now, the only button we track is the cruise control cancel button. Hol
 # Other Resources:
 - http://hackingvolvo.blogspot.com/
 - https://github.com/hackingvolvo
+- http://opengarages.org/handbook/ebook/
