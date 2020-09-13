@@ -5,15 +5,17 @@
 
 //Leave defined if you use native port, comment if using programming port
 #define Serial SerialUSB
-
+int x = 3000;
 void setup()
 {
 
   Serial.begin(115200);
   
   // Initialize CAN0 and CAN1, Set the proper baud rates here
-  Can0.begin(CAN_BPS_500K);
-  Can1.begin(CAN_BPS_500K);
+  Can0.begin(CAN_BPS_125K);
+  Can1.begin(CAN_BPS_125K);
+
+  
   
   //By default there are 7 mailboxes for each device that are RX boxes
   //This sets each mailbox to have an open filter that will accept extended
@@ -29,7 +31,7 @@ void setup()
 	//Can0.setRXFilter(filter, 0, 0, false);
 	//Can1.setRXFilter(filter, 0, 0, false);
   //}  
-  
+  Serial.println("BEGIN");
 }
 
 void printFrame(CAN_FRAME &frame) {
@@ -46,6 +48,7 @@ void printFrame(CAN_FRAME &frame) {
 }
 
 void loop(){
+  
   CAN_FRAME incoming;
 
   if (Can0.available() > 0) {
@@ -55,7 +58,17 @@ void loop(){
    }
   if (Can1.available() > 0) {
 	Can1.read(incoming);
+   if (incoming.id == 0x09C050B8){
+  printFrame(incoming);
+  //Serial.print(incoming.data.bytes[3]);
+  x = x + 100;
+  if (x > 7000){x = 0;}
+  incoming.data.bytes[4] = (byte) (x & 0xFF);
+  incoming.data.bytes[3] = (byte) ((x >> 8) & 0xFF);
+  Serial.println(incoming.data.bytes[3] << 8 | incoming.data.bytes[4]);
+  
+ }
 	Can0.sendFrame(incoming);
-	//printFrame(incoming);
+
   }
 }
