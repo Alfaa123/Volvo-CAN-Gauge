@@ -4,7 +4,7 @@
 #include <genieArduino.h>
 
 
-float Boost;
+long Boost;
 long EngineSpeed, CoolantTemp, IntakeTemp, VehicleSpeed, ButtonHeld;
 unsigned char BP[8] = {0xCD, 0x7a, 0xa6, 0x12, 0x9d, 0x01, 0x00, 0x00};
 unsigned char RPM[8] = {0xCD, 0x7a, 0xa6, 0x10, 0x1d, 0x01, 0x00, 0x00};
@@ -26,6 +26,7 @@ MCP_CAN CAN(10); // Normally where the CS pin is set. Because the CAN library ha
 
 void setup()
 {
+  Serial.begin(115200);
   Serial1.begin(115200);  // Serial1 @ 200000 (200K) Baud
   genie.Begin(Serial1);   // Use Serial1 for talking to the Genie Library, and to the 4D Systems display
    pinMode(RESETLINE, OUTPUT);  // Set D4 on Arduino to Output (4D Arduino Adaptor V2 - Display Reset)
@@ -45,10 +46,12 @@ void setup()
   CAN.init_Filt(3, 1, 0x0100082C);                          
   CAN.init_Filt(4, 1, 0x19000026);                          
   CAN.init_Filt(5, 1, 0x00000000);
+  genie.WriteContrast(0);
 }
 
 void loop()    //The main loop sends all the various CAN messages to the ECU so we can get data back. It also calls the MessageRecieve and UpdateDisplay functions periodically. This method of 'multitasking' is painful and needs to be rewritten.
 {
+  Serial.println(Brightness);
   if (Ignition == 0) {
     PowerSaveLoop();
   }
@@ -76,7 +79,7 @@ MessageRecieveLoop();
 void UpdateDisplay() {               //This function takes the data retrieved in the MessageRecieveLoop and writes it to the OLED. Because the OLED is so slow, this is where we spend the majority of our loop time.
   //Boost Display
   if (Page == 0){
-    gaugeVal = Boost * 0.145
+    gaugeVal = (Boost-100) * 1.45;
     }
   //Boost Graph Display
   else if (Page == 1){}
@@ -112,7 +115,7 @@ void UpdateDisplay() {               //This function takes the data retrieved in
 void UpdateBrightness() {                       //This function simply updates the brightness of the OLED when we adjust the dashboard lighting pot in the car. If we set the pot to minimum brightness, it simply turns the display off completely (for safety and night vision).
 
   if (Ignition){
-   genie.WriteContrast(Brightness);
+   genie.WriteContrast(Brightness/15);
   }
 }
 
@@ -184,14 +187,14 @@ void MessageRecieveLoop(){                                                  //I 
       if ((buf[1] & B10000000) != NightMode) {
         NightMode = buf[1] & B10000000;
         if (!NightMode) {
-          Brightness = Brightness * 0.3;
+          Brightness = Brightness * 0.8;
         }
         UpdateBrightness();
       }
       if ((buf[0] & B00001111) != Brightness) {
         Brightness = (buf[0] & B00001111) * 15;
         if (!NightMode) {
-          Brightness = Brightness * 0.3;
+          Brightness = Brightness * 0.8;
         }
         UpdateBrightness();
       }
@@ -203,13 +206,15 @@ void UpdateIgnition() {               //This is where we go if the ignition stat
   if (Ignition) {
 
     for (int i = 0; i < Brightness; i++) {
-      genie.WriteContrast(i);
+      genie.WriteContrast(i/15);
+      delay(1);
     }
 
   }
   else {
     for (int i = Brightness; i > 1; i--) {
-     genie.WriteContrast(i);
+     genie.WriteContrast(i/15);
+     delay(3);
     }
    
   }
