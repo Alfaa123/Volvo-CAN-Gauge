@@ -60,15 +60,15 @@ void loop()    //The main loop sends all the various CAN messages to the ECU so 
     UpdateDisplay();
   }
   x++;
-  if (x > 1 && (Page==0 || Page==1)){
+  if (x > 1 && (Page==0)){
      CAN.sendMsgBuf(0x000FFFFE, 1, 8, BP); //Give us boost pressure!
      x = 0;
   }
-  if (x > 2000 && (Page==2 || Page==3)){
+  if (x > 1000 && (Page==2)){
      CAN.sendMsgBuf(0x000FFFFE, 1, 8, COL); //Give us coolant temp!
      x = 0;
   }
-    if (x > 100 && (Page==4 || Page==5)){
+    if (x > 10 && (Page==1)){
      CAN.sendMsgBuf(0x000FFFFE, 1, 8, IAT); //Give us intake temp!
      x = 0;
   }
@@ -79,34 +79,40 @@ MessageRecieveLoop();
 void UpdateDisplay() {               //This function takes the data retrieved in the MessageRecieveLoop and writes it to the OLED. Because the OLED is so slow, this is where we spend the majority of our loop time.
   //Boost Display
   if (Page == 0){
-    gaugeVal = (Boost-100) * 1.45;
+    gaugeVal = (Boost-101.352) * 1.45;
+    if (gaugeVal < 0){gaugeVal = 0;}
+      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+        if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
+          if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
+      gaugeCurrentValue += gaugeAddVal;
+      genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 0, gaugeCurrentValue);
+      genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 0, gaugeCurrentValue);
+      updatePeriod = millis() + 2;
+  }
     }
-  //Boost Graph Display
-  else if (Page == 1){}
-  //Coolant Temperature Display
-  else if (Page == 2){}
-  //Coolant temp graph display
-    else if (Page == 3){}
-  //Intake temp display
-  else if (Page == 4){}
-  //Intake temp graph display
-    else if (Page == 5){}
-    if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis()))
-  {
-    // Write to CoolGauge0 with the value in the gaugeVal variable
-    if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
-    if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
-    gaugeCurrentValue += gaugeAddVal;
-    genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 0, gaugeCurrentValue);
-    genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 0, gaugeCurrentValue);
-
-    // Simulation code, just to increment and decrement gauge value each loop, for animation
-   
-
-    updatePeriod = millis() + 2;
-    // The results of this call will be available to myGenieEventHandler() after the display has responded
-   
-     // rerun this code to update Cool Gauge and Slider in another 50ms time.
+  else if (Page == 1){
+    gaugeVal = IntakeTemp;
+    if (gaugeVal < 0){gaugeVal = 0;}
+      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+        if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
+          if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
+      gaugeCurrentValue += gaugeAddVal;
+      genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 1, gaugeCurrentValue);
+      genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 1, gaugeCurrentValue);
+      updatePeriod = millis() + 2;
+    }
+  }
+  else if (Page == 2){
+    gaugeVal = CoolantTemp;
+    if (gaugeVal < 0){gaugeVal = 0;}
+      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+        if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
+          if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
+      gaugeCurrentValue += gaugeAddVal;
+      genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 2, gaugeCurrentValue);
+      genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 2, gaugeCurrentValue);
+      updatePeriod = millis() + 2;
+    }
   }
   }
   
@@ -173,9 +179,10 @@ void MessageRecieveLoop(){                                                  //I 
         }
         if ((millis()-ButtonHeld) > 1000 ){
           Page++;
-          if (Page > 0){
+          if (Page > 2){
             Page = 0;
           }
+          genie.WriteObject(GENIE_OBJ_FORM, Page, 0);
           ButtonHeld = millis();
         }
       }
