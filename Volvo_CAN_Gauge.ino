@@ -1,8 +1,6 @@
 #include <SPI.h>
 #include "src/can/mcp_can.h"
-#include <Wire.h>
 #include <Arduino.h>
-#include "src/U8g2/U8g2lib.h"
 
 
 
@@ -13,28 +11,17 @@ unsigned char RPM[8] = {0xCD, 0x7a, 0xa6, 0x10, 0x1d, 0x01, 0x00, 0x00};
 unsigned char COL[8] = {0xCD, 0x7a, 0xa6, 0x10, 0xd8, 0x01, 0x00, 0x00};
 unsigned char IAT[8] = {0xCD, 0x7a, 0xa6, 0x10, 0xCE, 0x01, 0x00, 0x00};
 unsigned char VHS[8] = {0xCD, 0x7a, 0xa6, 0x11, 0x40, 0x01, 0x00, 0x00};
-unsigned char Graph[128];
 int x, y, Brightness;
 unsigned char len = 0, flagRecv = 0, Page = 0, Index = 0;
 unsigned char buf[8];
 bool NightMode, Ignition;
 
-U8G2_SSD1306_128X64_VCOMH0_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ 8); //Setup for the OLED display
 
 MCP_CAN CAN(10); // Normally where the CS pin is set. Because the CAN library has been hacked to use direct port manipulation, this no longer matters.
 
 void setup()
 {
-  u8g2.setBusClock(400000);
-  //Serial.begin(115200);
-  u8g2.begin();                                     //Init OLED and display an init message to make sure everything is working correctly
-  u8g2.setFont( u8g2_font_fub30_tf);
-  u8g2.setCursor(0, 30);
-  u8g2.print("INIT");
-  u8g2.updateDisplay();
-  delay(700);
-  u8g2.clearBuffer();
-  u8g2.updateDisplay();
+
   while (CAN_OK != CAN.begin(CAN_500KBPS))              // init can bus : baudrate = 500k
   {
     delay(100);
@@ -80,151 +67,29 @@ MessageRecieveLoop();
 
 void UpdateDisplay() {               //This function takes the data retrieved in the MessageRecieveLoop and writes it to the OLED. Because the OLED is so slow, this is where we spend the majority of our loop time.
   //Boost Display
-  if (Page == 0){
-  Boost = Boost - 101.325;
-  Boost = Boost / 6.895;
-  if (Boost < 0) {
-    Boost = 0;
-  }
-  u8g2.setFont( u8g2_font_fub30_tf);
-  u8g2.clearBuffer();
-  u8g2.drawFrame(0, 0, 128, 20);
-  u8g2.drawBox(1, 1, (Boost * 11), 18);
-  u8g2.setCursor(0, 64);
-  u8g2.print(Boost, 1);
-  u8g2.print(" ");
-  u8g2.print("PSI");
-  u8g2.updateDisplay();
-  }
+  if (Page == 0){}
   //Boost Graph Display
-  else if (Page == 1){
-    u8g2.clearBuffer();
-   Graph[Index] = Boost;
-    Index++;
-    if (Index > 128){
-      Index = 0;
-    }
-    for (int i = 0; i < 128; i++){
-      int s = Index + i;
-      if (s > 127){
-        s = s - 128;
-      }
-      if (Graph[s] > 197){
-        Graph [s] = 198;
-      }
-      u8g2.drawLine(i,64,i,64 - ((Graph[s] - 102)/1.5));
-    }
-    u8g2.setDrawColor(2);
-    u8g2.drawLine(0,18,128,18);
-    u8g2.setDrawColor(1);
-    u8g2.updateDisplay();
-  }
+  else if (Page == 1){}
   //Coolant Temperature Display
-  else if (Page == 2){
-  u8g2.setFont( u8g2_font_fub30_tf);
-  u8g2.clearBuffer();
-  u8g2.drawFrame(0, 0, 128, 20);
-  if (CoolantTemp > 70){
-  u8g2.drawBox(1, 1, (CoolantTemp - 70) * 4.2, 18);
-  }
-  u8g2.setCursor(0, 64);
-  u8g2.print(CoolantTemp, 1);
-  u8g2.print(" ");
-  u8g2.print("C");
-  u8g2.updateDisplay();
-  }
+  else if (Page == 2){}
   //Coolant temp graph display
-    else if (Page == 3){
-    u8g2.clearBuffer();
-     /*if (Graph[0] == 0){
-            for (int i = 0; i < 128 ; i++){
-            Graph[i] = CoolantTemp;
-          }
-    }*/
-   Graph[Index] = CoolantTemp;
-       Index++;
-    if (Index > 127){
-      Index = 0;
-    }
-    for (int i = 1; i < 129; i++){
-      int s = Index + i;
-      if (s > 127){
-        s = s - 128;
-      }
-      if (Graph[s] > 0){
-     if (s-1 < 0){
-      u8g2.drawLine(i,64 - ((Graph[s] - 68)*2),i+1,64 - ((Graph[s] - 68)*2));
-      }
-      else{
-      u8g2.drawLine(i,64 - ((Graph[s-1] - 68)*2),i+1,64 - ((Graph[s] - 68)*2));  
-      }
-      }
-    }
-    u8g2.setDrawColor(2);
-    //u8g2.drawLine(0,18,128,18);
-    u8g2.setDrawColor(1);
-    u8g2.updateDisplay();
-  }
+    else if (Page == 3){}
   //Intake temp display
-  else if (Page == 4){
-  u8g2.setFont( u8g2_font_fub30_tf);
-  u8g2.clearBuffer();
-  u8g2.setCursor(0, 64);
-  u8g2.print((IntakeTemp*1.8)+32, 0);
-  u8g2.print(" ");
-  u8g2.print("F");
-  u8g2.updateDisplay();
-  }
+  else if (Page == 4){}
   //Intake temp graph display
-    else if (Page == 5){
-    u8g2.clearBuffer();
-    IntakeTemp = (IntakeTemp*1.8)+32;
-        /*if (Graph[0] == 0){
-            for (int i = 0; i < 128 ; i++){
-            Graph[i] = IntakeTemp;
-          }
-    }*/
-   Graph[Index] = IntakeTemp;
-   //Graph[Index] = random(80,100);
-    Index++;
-    if (Index > 127){
-      Index = 0;
-    }
-    for (int i = 1; i < 129; i++){
-      int s = Index + i;
-      if (s > 127){
-        s = s - 128;
-      }
-      if (Graph[s] > 130){
-        Graph [s] = 130;
-      }
-      if (Graph[s] > 0){
-      if (s-1 < 0){
-       u8g2.drawLine(i,64 - ((Graph[s] - 30)/1.5625),i+1,64 - ((Graph[s] - 30)/1.5625));
-      }
-      else{
-        u8g2.drawLine(i,64 - ((Graph[s-1] - 30)/1.5625),i+1,64 - ((Graph[s] - 30)/1.5625));
-      }
-      }
-      
-    }
-    u8g2.setDrawColor(2);
-    //u8g2.drawLine(0,18,128,18);
-    u8g2.setDrawColor(1);
-    u8g2.updateDisplay();
-  }
+    else if (Page == 5){}
   }
   
 
 
 void UpdateBrightness() {                       //This function simply updates the brightness of the OLED when we adjust the dashboard lighting pot in the car. If we set the pot to minimum brightness, it simply turns the display off completely (for safety and night vision).
-  u8g2.setContrast(Brightness);
+
   if (Ignition){
     if (Brightness < 1){
-    u8g2.setPowerSave(1);
+
   }
   else{
-    u8g2.setPowerSave(0);
+
   }
   }
 }
@@ -285,9 +150,6 @@ void MessageRecieveLoop(){                                                  //I 
            ButtonHeld = millis();
         }
         if ((millis()-ButtonHeld) > 1000 ){
-          for (int i = 0; i < 128 ; i++){
-            Graph[i] = 0;
-          }
           Page++;
           if (Page > 5){
             Page = 0;
@@ -320,41 +182,16 @@ void MessageRecieveLoop(){                                                  //I 
 
 void UpdateIgnition() {               //This is where we go if the ignition status changes. If it goes high to low (car turns off) then we fade the display out, blank it and put it to sleep for the power save loop. If it goes low to high (car turns on) we wake the display and write a welcome message to the display and proceed to the main loop.
   if (Ignition) {
-    u8g2.setPowerSave(0);
-    u8g2.setContrast(0);
-    u8g2.setFont( u8g2_font_fub14_tf);
-    u8g2.clearBuffer();
-    u8g2.setCursor(0, 30);
-    u8g2.print("Key Detected...");
-    u8g2.sendBuffer();
-    delay(250);
+
     for (int i = 0; i < Brightness; i++) {
-      u8g2.setContrast(i);
-      delay(2);
+
     }
-    delay(1000);
-    u8g2.setCursor(0, 55);
-    u8g2.setFont( u8g2_font_fub11_tf);
-    u8g2.print("Welcome Back");
-    u8g2.sendBuffer();
-    delay(400);
-    u8g2.print(".");
-    u8g2.sendBuffer();
-    delay(400);
-    u8g2.print(".");
-    u8g2.sendBuffer();
-    delay(400);
-    u8g2.print(".");
-    u8g2.sendBuffer();
-    delay(400);
-    u8g2.clearBuffer();
-    u8g2.sendBuffer();
+
   }
   else {
     for (int i = Brightness; i > 1; i--) {
-      u8g2.setContrast(i);
-      delay(2);
+     
     }
-    u8g2.setPowerSave(1);
+   
   }
 }
