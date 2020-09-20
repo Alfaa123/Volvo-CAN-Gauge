@@ -1,7 +1,7 @@
 #include <SPI.h>
 #include "src/can/mcp_can.h"
 #include <Arduino.h>
-
+#include <genieArduino.h>
 
 
 float Boost;
@@ -11,17 +11,28 @@ unsigned char RPM[8] = {0xCD, 0x7a, 0xa6, 0x10, 0x1d, 0x01, 0x00, 0x00};
 unsigned char COL[8] = {0xCD, 0x7a, 0xa6, 0x10, 0xd8, 0x01, 0x00, 0x00};
 unsigned char IAT[8] = {0xCD, 0x7a, 0xa6, 0x10, 0xCE, 0x01, 0x00, 0x00};
 unsigned char VHS[8] = {0xCD, 0x7a, 0xa6, 0x11, 0x40, 0x01, 0x00, 0x00};
-int x, y, Brightness;
+int x, Brightness;
 unsigned char len = 0, flagRecv = 0, Page = 0, Index = 0;
 unsigned char buf[8];
 bool NightMode, Ignition;
-
+static long updatePeriod = millis();
+static int gaugeAddVal = 1;
+static int gaugeVal = 0;
+static int gaugeCurrentValue = 0;
+Genie genie;
+#define RESETLINE 8
 
 MCP_CAN CAN(10); // Normally where the CS pin is set. Because the CAN library has been hacked to use direct port manipulation, this no longer matters.
 
 void setup()
 {
-
+  Serial1.begin(115200);  // Serial1 @ 200000 (200K) Baud
+  genie.Begin(Serial1);   // Use Serial1 for talking to the Genie Library, and to the 4D Systems display
+   pinMode(RESETLINE, OUTPUT);  // Set D4 on Arduino to Output (4D Arduino Adaptor V2 - Display Reset)
+  digitalWrite(RESETLINE, 0);  // Reset the Display via D4
+  delay(100);
+  digitalWrite(RESETLINE, 1);  // unReset the Display via D4
+  delay (5000); 
   while (CAN_OK != CAN.begin(CAN_500KBPS))              // init can bus : baudrate = 500k
   {
     delay(100);
@@ -42,12 +53,9 @@ void loop()    //The main loop sends all the various CAN messages to the ECU so 
     PowerSaveLoop();
   }
   
-  if ((y > 500) && (Ignition)) {
+  if (Ignition) {
     UpdateDisplay();
-    y = 0;
   }
-  y++;
-  delay(1);
   x++;
   if (x > 1 && (Page==0 || Page==1)){
      CAN.sendMsgBuf(0x000FFFFE, 1, 8, BP); //Give us boost pressure!
@@ -67,7 +75,9 @@ MessageRecieveLoop();
 
 void UpdateDisplay() {               //This function takes the data retrieved in the MessageRecieveLoop and writes it to the OLED. Because the OLED is so slow, this is where we spend the majority of our loop time.
   //Boost Display
-  if (Page == 0){}
+  if (Page == 0){
+    gaugeVal = Boost * 0.145
+    }
   //Boost Graph Display
   else if (Page == 1){}
   //Coolant Temperature Display
@@ -78,6 +88,23 @@ void UpdateDisplay() {               //This function takes the data retrieved in
   else if (Page == 4){}
   //Intake temp graph display
     else if (Page == 5){}
+    if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis()))
+  {
+    // Write to CoolGauge0 with the value in the gaugeVal variable
+    if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
+    if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
+    gaugeCurrentValue += gaugeAddVal;
+    genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 0, gaugeCurrentValue);
+    genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 0, gaugeCurrentValue);
+
+    // Simulation code, just to increment and decrement gauge value each loop, for animation
+   
+
+    updatePeriod = millis() + 2;
+    // The results of this call will be available to myGenieEventHandler() after the display has responded
+   
+     // rerun this code to update Cool Gauge and Slider in another 50ms time.
+  }
   }
   
 
@@ -85,12 +112,7 @@ void UpdateDisplay() {               //This function takes the data retrieved in
 void UpdateBrightness() {                       //This function simply updates the brightness of the OLED when we adjust the dashboard lighting pot in the car. If we set the pot to minimum brightness, it simply turns the display off completely (for safety and night vision).
 
   if (Ignition){
-    if (Brightness < 1){
-
-  }
-  else{
-
-  }
+   genie.WriteContrast(Brightness);
   }
 }
 
@@ -124,18 +146,15 @@ void MessageRecieveLoop(){                                                  //I 
     if (canId == 0x00400021) {
       if (buf[4] == 0x9d) {
         Boost = buf[5];
-        y = 10001;
       }
       if (buf[4] == 0xd8) {
         CoolantTemp = buf[5];
         CoolantTemp = CoolantTemp*0.75-48;
-        y = 10001;
       }
       if (buf[4] == 0xCE) {
         IntakeTemp = buf[5];
         IntakeTemp = IntakeTemp*0.75-48;
         //IntakeTemp = IntakeTemp*1.8+32;
-        y = 10001;
       }
     }
     if (canId == 0x19E00006) {
@@ -151,7 +170,7 @@ void MessageRecieveLoop(){                                                  //I 
         }
         if ((millis()-ButtonHeld) > 1000 ){
           Page++;
-          if (Page > 5){
+          if (Page > 0){
             Page = 0;
           }
           ButtonHeld = millis();
@@ -184,13 +203,13 @@ void UpdateIgnition() {               //This is where we go if the ignition stat
   if (Ignition) {
 
     for (int i = 0; i < Brightness; i++) {
-
+      genie.WriteContrast(i);
     }
 
   }
   else {
     for (int i = Brightness; i > 1; i--) {
-     
+     genie.WriteContrast(i);
     }
    
   }
