@@ -69,7 +69,7 @@ iAngularMeter
     MinorTicks                   0
     Minvalue                     0
     NeedleCentered               Yes
-    NeedleColor                  SILVER
+    NeedleColor                  clRed
     NeedleLength                 100
     NeedleOffset                 -5
     NeedlePinColor               WHITE
@@ -89,7 +89,7 @@ iAngularMeter
     SectionStepSize              0
     ScaleInnerRadius             100
     ScaleOuterRadius             120
-    TickColor                    GRAY
+    TickColor                    LIME
     TickColorFromScaleColor      No
     TickInnerMajorLength         5
     TickInnerMinorLength         5
@@ -180,7 +180,7 @@ iAngularMeter
     MinorTicks                   0
     Minvalue                     0
     NeedleCentered               Yes
-    NeedleColor                  SILVER
+    NeedleColor                  clRed
     NeedleLength                 100
     NeedleOffset                 -5
     NeedlePinColor               WHITE
@@ -200,7 +200,7 @@ iAngularMeter
     SectionStepSize              0
     ScaleInnerRadius             100
     ScaleOuterRadius             120
-    TickColor                    GRAY
+    TickColor                    LIME
     TickColorFromScaleColor      No
     TickInnerMajorLength         5
     TickInnerMinorLength         5
@@ -291,7 +291,7 @@ iAngularMeter
     MinorTicks                   0
     Minvalue                     0
     NeedleCentered               Yes
-    NeedleColor                  SILVER
+    NeedleColor                  clRed
     NeedleLength                 100
     NeedleOffset                 -5
     NeedlePinColor               WHITE
@@ -311,7 +311,7 @@ iAngularMeter
     SectionStepSize              0
     ScaleInnerRadius             100
     ScaleOuterRadius             120
-    TickColor                    GRAY
+    TickColor                    LIME
     TickColorFromScaleColor      No
     TickInnerMajorLength         5
     TickInnerMinorLength         5
@@ -358,5 +358,116 @@ StaticText
     Top                          180
     Transparent                  Yes
     Width                        13
+    WordWrap                     Yes
+end
+Form
+    Name                         Form3
+    Alias                        Form3
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+iAngularMeter
+    Name                         IAngularMeter3
+    Alias                        IAngularMeter3
+    BGcolor                      BLACK
+    BGtransparent                Yes
+    Caption                      ''
+    CaptionColor                 LIME
+    CaptionFont                  FONT2
+    CaptionXOffset               -60
+    CaptionYOffset               52
+    GaugeEndAngle                360
+    GaugeStartAngle              180
+    Height                       220
+    LabelColor                   WHITE
+    LabelColorFromScale          No
+    LabelCount                   -1
+    LabelDiscrete                No
+    LabelFont                    FONT1
+    LabelOffset                  -40
+    Labels                       ''
+    Left                         0
+    Maxvalue                     150
+    MinorTicks                   0
+    Minvalue                     50
+    NeedleCentered               Yes
+    NeedleColor                  clRed
+    NeedleLength                 100
+    NeedleOffset                 -5
+    NeedlePinColor               WHITE
+    NeedlePinDotColor            SILVER
+    NeedlePinDotRadius           2
+    NeedlePinRadius              2
+    NeedleStyle                  Line
+    NeedleTail                   2
+    NeedleThickess               2
+    NeedleXpos                   0
+    NeedleYpos                   0
+    Sect1Color                   0x080808
+    Sect2Color                   ORANGE
+    Sect2StartingAngle           180
+    Sect3Color                   GREEN
+    Sect3StartingAngle           270
+    SectionStepSize              0
+    ScaleInnerRadius             100
+    ScaleOuterRadius             120
+    TickColor                    LIME
+    TickColorFromScaleColor      No
+    TickInnerMajorLength         0
+    TickInnerMinorLength         0
+    TickOuterMajorLength         0
+    TickOuterMinorLength         0
+    TickWidth                    1
+    Top                          0
+    TotalTicks                   15
+    Width                        220
+    OnChanged                    ILedDigits0Set
+end
+iLedDigits
+    Name                         ILedDigits3
+    Alias                        ILedDigits3
+    ColorActive                  LIME
+    ColorInactive                0x181818
+    DecimalPlace                 2
+    Digits                       4
+    DPisComma                    No
+    Format                       Int16
+    LeadingZero                  No
+    Left                         32
+    ShowDP                       Yes
+    Signed                       Yes
+    Size                         2
+    Spacing                      0
+    Top                          144
+    OnChanged                    ''
+end
+StaticText
+    Name                         Statictext3
+    Alias                        Statictext3
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      °BTDC
+    Color                        LIME
+    Font.Color                   LIME
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    9
+    Font.Style                   []
+    Height                       14
+    Left                         140
+    Top                          172
+    Transparent                  Yes
+    Width                        36
     WordWrap                     Yes
 end
