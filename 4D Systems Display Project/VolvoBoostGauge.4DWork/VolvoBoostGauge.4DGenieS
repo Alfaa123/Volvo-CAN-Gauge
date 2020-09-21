@@ -1,0 +1,747 @@
+#platform "uLCD-220RD"
+
+//#constant OLDCOMPILE
+
+
+// generated 9/20/2020 7:12:25 PM
+// uSDRequired:- 1   InternalRequired:- 1
+
+#MODE FLASHBANK_0
+
+#inherit "4DGL_16bitColours.fnc"
+
+#inherit "VisualConst.inc"
+
+
+#inherit "VolvoBoostGaugeConst.inc"
+
+
+
+#constant IPDatasize 22
+
+#CONST
+    CMDLenMAX   80
+    seroutX     $serout
+    serinX      $serin
+#END
+
+
+
+#CONST
+    ColorBGimage     0x0020
+    ACK         0x06
+    NAK         0x15
+    ReadCmd     0x80
+    WriteCmd    0x00
+//  IPD_TYPE    0 // offsets are doubled as FLASH is byte addressable
+    Ofs_IPD_P1      2
+    Ofs_IPD_P2      4
+    Ofs_IPD_P3      6
+    Ofs_IPD_P4      8
+    Ofs_IPD_P5      10
+    Ofs_IPD_P6      12
+    Ofs_IPD_P7      14
+    Ofs_IPD_DOWN    16
+    Ofs_IPD_RELEASE 18
+    Ofs_IPD_OBJVIDX 20
+// object indexes
+    tDipSwitch      0
+    tKnob           1
+    tRockerSwitch   2
+    tRotarySwitch   3
+    tGSlider        4
+    tTrackbar       5
+    tWinButton      6
+    tAngularmeter   7   // need to implement use of this, inputs must be ordered first
+    tCoolgauge      8
+    tCustomdigits   9
+    tForm           10
+    tGauge          11
+    tImage          12
+    tKeyboard       13  // this is a special input, does not need to be at front
+    tLed            14
+    tLeddigits      15
+    tMeter          16
+    tStrings        17  // also need output strings code
+//    tStringUNI      0x3f | 0x40
+//    tStringANSII    0x3f
+    tThermometer    18
+    tUserled        19
+    tVideo          20
+    tStaticText     21
+// Remove, check for non visual objects instead
+//    MaxVisObjects   21  // objects that have a visual component 
+    tSounds         22
+    tTimer          23
+    tSpectrum       24
+    tScope          25
+    tTank           26
+    tUserImages     27
+    tPinOutput      28
+    tPinInput       29 
+    t4Dbutton       30    // more inputs 
+    tAniButton      31
+    tColorPicker    32 
+    tUserButton     33     
+    tMagicObject    34     
+    tSmartGauge     35 
+    tSmartSlider    36 
+    tSmartKnob      37 
+    tiLedDigitsH       38
+    tiAngularMeter     39
+    tiGauge            40 
+    tiLabelB           41    // Ext
+    tiUserGauge        42    // Ext
+    tiMediaGauge       43    // Ext
+    tiMediaThermometer 44    // Ext
+    tiLed              45 
+    tiMediaLed         46 
+    tiLedDigits        47 
+    tiNeedle           48 
+    tiRuler            49 
+    tiLedDigit         50 
+    tiButtonD          51    // Input
+    tiButtonE          52    // Input, Ext
+    tiMediaButton      53    // Input, Ext
+    tiToggleInput      54    // Input, Ext
+    tiDial             55    // Input
+    tiMediaRotary      56    // Input, Ext
+    tiRotaryInput      57    // Input, Ext
+    tiSwitch           58    // Input
+    tiSwitchB          59    // Input, Ext
+    tiSliderE          60    // Input
+    tiMediaSlider      61    // Input, Ext
+    tiSliderH          62    // Input, Ext
+    tiSliderG          63    // Input, Ext
+    tiSliderF          64    // Input, Ext
+    tiSliderD          65    // Input, Ext
+    tiSliderC          66    // Input, Ext
+    tiLinearInput      67    // Input, Ext
+// tiPanelB, tiScale, tiLabel(ext), have nothing 'settable', nece no object ids
+    MaxTotObjects   67 // objects in objects array
+    MaxIntObjects   27 // objects in Int objects array, excludes tiLedDigitsH which is the High word of LedDigits
+//    OT_DISPLAY      22
+    OT_REPORT       100
+    OT_SETCONST     101
+    OT_SETANOTHER   102
+    OT_ACTIVATE     103
+    OT_NEXTFRAME    104
+    OT_PREVFRAME    105
+    OT_NEXTSTRING   106
+    OT_PREVSTRING   107
+    OT_MAGIC        108
+// other OT_s Form activate,
+// Indexes into LedDigits and CustomDigits arrays
+    Ofs_Digits_Left           0
+    Ofs_Digits_Digits         2
+    Ofs_Digits_MinDigits      4
+    Ofs_Digits_Widthdigit     6
+    Ofs_Digits_LeadingBlanks  8
+// indexes to Strings arrays
+    Ofs_String_StartH        0
+    Ofs_String_StartL        2
+    Ofs_String_Size          4
+    Ofs_String_x1            6
+    Ofs_String_y1            8
+    Ofs_String_x2            10
+    Ofs_String_y2            12
+    Ofs_String_FGColor       14
+    Ofs_String_BGColor       16
+    Ofs_String_FontAttribs   18
+    Ofs_String_Transparent   20 // bit transparent should 'refresh' background, otherwise rectangle out
+    Ofs_String_Ansi          22 // bit defines write/draw routine
+    Ofs_String_Form          24 // form this string can be seen in
+    Ofs_String_GciFSFontIdx  26 // only used/exists for GciFS 
+// Command codes
+    READ_OBJ        0
+    WRITE_OBJ       1
+    WRITE_STR       2
+    WRITE_STRU      3
+    WRITE_CONTRAST  4
+    REPORT_OBJ      5
+    REPORT_EVENT    7
+    WRITE_MAGIC_BYTES 8
+    WRITE_MAGIC_DBYTES  9
+    REPORT_MAGIC_EVENT_BYTES 10
+    REPORT_MAGIC_EVENT_DBYTES 11
+    WRITE_LABEL     12
+
+// End P1.inc
+    nObjects        3
+    nInputs         0
+    nAniTimers      0
+#END
+
+#DATA
+    word gfxInternals gfx_AngularMeter, -1, -1, -1, -1, -1, -1, -1, gfx_LedDigits, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
+    word gfxIntParms -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
+    word gfxIntStrings -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
+    word oiviAngularMeter vIAngularMeter0, vIAngularMeter1, vIAngularMeter2
+    word oiviLedDigits vILedDigits0, vILedDigits1, vILedDigits2
+    word xobj2iobj 0x2700, 0x2F00, 0x2701, 0x2F01, 0x2702, 0x2F02
+    word IIAngularMeter0 120, 100, 15, 0, 0, 0, 5, 5, 1, GRAY, 280, 300,
+        0x0841, YELLOW, MAROON, 0, -1, 1, WHITE, -40, 0, 0x2, 2, LIME, -60, 52,
+        0, 0, 0, 220, 220, 110, 110, BLACK, 90, 360, 0, 150, 100, 0x0, -5, 2,
+        2, SILVER, 2, WHITE, 2, SILVER
+    word IILedDigits0 120, 128, 78, 46, 3, 1, 0, 2, LIME, 0x18C3, 0x10
+    word IIAngularMeter1 120, 100, 15, 0, 0, 0, 5, 5, 1, GRAY, 260, 300,
+        0x0841, YELLOW, MAROON, 0, -1, 1, WHITE, -40, 0, 0x2, 2, LIME, -60, 52,
+        0, 0, 0, 220, 220, 110, 110, BLACK, 90, 360, 0, 150, 100, 0x0, -5, 2,
+        2, SILVER, 2, WHITE, 2, SILVER
+    word IILedDigits1 120, 128, 78, 46, 3, -1, 0, 2, LIME, 0x18C3, 0x10
+    word IIAngularMeter2 120, 100, 15, 0, 0, 0, 5, 5, 1, GRAY, 250, 270,
+        0x0841, LIME, MAROON, 0, -1, 1, WHITE, -40, 0, 0x2, 2, LIME, -60, 52,
+        0, 0, 0, 220, 220, 110, 110, BLACK, 90, 306, 0, 120, 100, 0x0, -5, 2,
+        2, SILVER, 2, WHITE, 2, SILVER
+    word IILedDigits2 120, 128, 78, 46, 3, -1, 0, 2, LIME, 0x18C3, 0x10
+    word FormStartIndex 0, 1, 2
+    word FormEndIndex 1, 2, 3
+    word iFormStartIndex 0, 2, 4
+    word iFormEndIndex 2, 4, 6
+    word iiFormStartIndex 0, 0, 0
+    word iiFormEndIndex 0, 0, 0
+    word InputControls 0
+    word InternalInputControls -1, -1, -1, -1, -1, -1
+    word InputData 0
+    word oDipSwitchs 0
+    word oForms 3, -1, -1, -1
+    word oStaticTexts 3, iStatictext0, iStatictext1, iStatictext2
+    word oiAngularMeters 3, IIAngularMeter0, IIAngularMeter1, IIAngularMeter2
+    word oiLedDigitss 3, IILedDigits0, IILedDigits1, IILedDigits2
+    word FormBGcolors 0x0000, 0x0000, 0x0000
+    word kKeyboardKeystrokes -1
+    word rKeyboardRoutines -1
+#END
+
+    var vIAngularMeter0[WIDGET_RAM_SPACE] ;
+    var vILedDigits0[WIDGET_RAM_SPACE+2] ;
+    var vIAngularMeter1[WIDGET_RAM_SPACE] ;
+    var vILedDigits1[WIDGET_RAM_SPACE+2] ;
+    var vIAngularMeter2[WIDGET_RAM_SPACE] ;
+    var vILedDigits2[WIDGET_RAM_SPACE+2] ;
+// Start P2.inc
+var vObjects[MaxIntObjects+1] ;              // address of RAM objects
+var GObjectIdx, GObjectFunc, GObjectRAM, GObjectDATA, GObjectParms, GObjectStrings ;
+var oObjects[MaxTotObjects+1] ;                 // address of objects
+var CurrentForm, oldn, ImageTouched ;
+var TouchXpos, TouchYpos ;
+var GObjectType, TouchState, CurInputData, pInputIndex ;
+var comRX[40], cmd[CMDLenMAX] ;
+
+var InputCS, OutputCS ;
+
+// > ? Constant/Global/Data ? <
+
+
+func addressInternalWidget(var idx var iponly)
+    var i, j ;
+//to(COM0) ; print("Address Int ", idx, " ") ;
+    GObjectIdx := xobj2iobj[idx] ;
+    GObjectType := (GObjectIdx>>8) ;                          // extract object type
+    i := oObjects[GObjectType] ;                              // i is address of list of all objects of this type
+    GObjectIdx &= 0xff ;
+    //GObjectIdx *= 2 ;
+    j := GObjectIdx * 2 ;
+    GObjectDATA := i[j + 2] ;                                 // address of this object
+    i := vObjects[GObjectType-tiAngularMeter] ;               // i is address of list of all ram objects of his type
+    GObjectRAM := i[j] ;                                      // address of this objects' ram
+    i := GObjectType-tiAngularMeter ;
+    GObjectFunc := gfxInternals[i] ; // address function
+    GObjectParms := gfxIntParms[i] ;
+    GObjectStrings := gfxIntStrings[i] ;
+//to(COM0) ; print([HEX4] GObjectFunc, " ", [HEX4] GObjectRAM, " ", [HEX4] GObjectDATA, " ", GObjectType, " ", GObjectIdx, "\r\n") ;
+//    GObjectFunc(0, GObjectRAM, GObjectDATA) ;
+endfunc
+
+func seroutCS(var op)
+    serout(op) ;
+    OutputCS ^= op ;
+endfunc
+
+func nak0()
+    serout(NAK) ;
+    InputCS := 0 ;
+endfunc
+
+func seroutOcs()
+    serout(OutputCS) ;
+    OutputCS := 0 ;
+endfunc
+
+func SendReport(var id, var objt, var objn, var val)
+    seroutCS(id) ;
+    seroutCS(objt) ;
+    seroutCS(objn) ;
+    seroutCS(val >> 8) ; // first 8 bits
+    seroutCS(val) ;
+    seroutOcs() ;
+endfunc
+
+
+
+func ReadObject(var ObjectType, var ObjectIdx)
+    var j, k, Objects ;
+    if ((ObjectType >= tiLedDigitsH) && (ObjectType <= tiLinearInput))
+        j := ObjectIdx *2 ;
+        k := vObjects[ObjectType-tiAngularMeter] ;               // k is address of list of all ram objects of his type
+        k := k[j] ;                                              // k is address of this objects' ram
+        if (ObjectType == tiLedDigit)
+            k := k[0] ;
+        else 
+            k := k[WIDGET_VAL1] ;
+        endif
+//gfx_MoveTo(0,0); txt_Opacity(OPAQUE) ; print(ObjectType, " ", ObjectIdx, " ", k," ") ;
+    else
+    Objects := *(oObjects+ObjectType) ;
+
+    j := 2 + ObjectIdx * 2 + Objects ;
+     if (ObjectType == tForm)
+        k := CurrentForm ;
+        else
+        k := img_GetWord(hndl, *j, IMAGE_INDEX);
+    endif
+    endif
+    SendReport(REPORT_OBJ, ObjectType, ObjectIdx, k) ;
+endfunc
+
+var wp ;
+
+
+func WriteObject(var ObjectType, var ObjectIdx, var NewVal)
+    var i, j, k, Objects ;
+//    ObjectType &= 0x3f ; Why was his there? Anibuttons? Complex cascades?
+//to(COM0) ; print("WriteObject ", ObjectType, " ", ObjectIdx, " ", NewVal, "\r\n") ;
+    if (ObjectType == tForm)
+        ActivateForm(ObjectIdx) ;
+        return ;
+    endif
+        Objects := *(oObjects+ObjectType)+ObjectIdx*2+2 ;
+        i := *(Objects) ;
+	if ((ObjectType >= tiAngularMeter) && (ObjectType <= tiLinearInput))
+            i := oObjects[ObjectType] ;                              // f is address of list of all objects of this type
+            j := ObjectIdx *2 ;
+            i := i[j + 2] ;                         // f is address of this object
+            k := vObjects[ObjectType-tiAngularMeter] ;               // a is address of list of all ram objects of his type
+            k := k[j] ;                             // a is address of this objects' ram
+                j := ObjectType-tiAngularMeter ;
+                Objects := gfxInternals[j] ;           // locate function address   
+            Objects(NewVal, k, i) ; 
+        return ;
+    endif
+            img_SetWord(hndl, i , IMAGE_INDEX, NewVal); // where state is 0 to 2
+            img_Show(hndl, i) ; // will only display if form is current
+    return ; // compiler bug circumvention!
+endfunc
+
+
+
+
+
+func ActivateForm(var newform)
+    var i, j, *p ;
+
+        widget_Disable(wp, ALL) ;
+    if (CurrentForm != -1) // deactivate old form, by disabling all inputs
+        for (i := FormStartIndex[CurrentForm]; i <= FormEndIndex[CurrentForm]; i++)
+            if (img_GetWord(hndl, i, IMAGE_TAG))
+                img_Disable(hndl,i) ;
+            endif
+        next
+    endif
+    CurrentForm := newform ;
+    // display newform image or clear to image color
+    if (FormBGcolors[CurrentForm] != ColorBGimage)
+        gfx_Set(BACKGROUND_COLOUR,FormBGcolors[CurrentForm]);
+        gfx_Cls() ;
+        DoGFXObjects() ;                                    // display GFX 'widgets'
+    endif
+
+    // enable inputs
+    for (i := FormStartIndex[CurrentForm]; i < FormEndIndex[CurrentForm]; i++)
+        j := img_GetWord(hndl, i, IMAGE_TAG) ;
+        if (j)
+            j-- ;
+            img_SetAttributes(hndl, i, I_STAYONTOP+I_ENABLED);        // make sure this is on top of form, if applicable
+            //if (j != tKeyboard)
+            if (((j <= tWinButton) || (j >= t4Dbutton)) && (j != tSmartGauge) )               // enable inputs
+                img_ClearAttributes(hndl, i, I_TOUCH_DISABLE);        // ensure touch is enabled
+            endif
+            img_Show(hndl,i) ; // show initialy, if required
+            if (j == tForm)
+                DoGFXObjects() ;                                    // display GFX 'widgets' for image backgruobds
+            endif
+        endif
+    next
+
+    // enable inputs
+       var a, f ; 
+/*print("oiviAngularMeter ", [HEX4] oiviAngularMeter, " ", oiviAngularMeter[0], " ", [HEX4]vIAngularMeter0, "\n") ;
+print("oiviGauge ", [HEX4] oiviGauge, " ", [HEX4] oiviGauge[0], " ", [HEX4] vIGauge0, "\n") ;
+print("oiviButtonD ", [HEX4] oiviButtonD, " ", [HEX4] oiviButtonD[0], " ", [HEX4] vIButtonD0, "\n") ;
+print("vIAngularMeter0 ", [HEX4] vIAngularMeter0, "\n") ;
+print("vIButtonD0 ", [HEX4] vIButtonD0, "\n") ;
+print("vIGauge0 ", [HEX4] vIGauge0, "\n") ;
+print("IIAngularMeter0 ", [HEX4] IIAngularMeter0, "\n") ;
+print("IIButtonD0 ", [HEX4] IIButtonD0, "\n") ;
+print("IIGauge0 ", [HEX4] IIGauge0, "\n") ;
+print([HEX4] gfxInternals, " ", [HEX4] gfx_AngularMeter, " ", [HEX4] gfx_Gauge, " ", [HEX4] gfx_Button4, "\n") ;
+*/
+    for (i := iFormStartIndex[CurrentForm]; i < iFormEndIndex[CurrentForm]; i++)
+        addressInternalWidget(i, 0) ;
+        widget_Enable(wp,i) ;
+        if (GObjectType != tiLabelB) widget_ClearAttributes(wp,i,WIDGET_F_INITIALISED) ; // don't clear initialised for tiLabelB
+                j := GObjectRAM[WIDGET_VAL1] ;
+                GObjectFunc(j, GObjectRAM, GObjectDATA) ; 
+    next
+    for (i := iFormStartIndex[CurrentForm]; i < iFormEndIndex[CurrentForm]; i++)
+        if (InternalInputControls[i] != -1)
+            widget_SetAttributes(wp,i,WIDGET_F_TOUCH_ENABLE) ;
+        endif
+    next
+
+
+endfunc
+
+func UpdateObjects(var newval)
+    var IPidx, otherOBJ, oldvalue ;
+    if (GObjectType < tiLedDigitsH)
+        oldvalue := img_GetWord(hndl, *(pInputIndex), IMAGE_INDEX) ;
+    else
+        oldvalue := GObjectRAM[WIDGET_VAL1] ;
+    endif
+    if ( ( oldvalue != newval) || (TouchState == Ofs_IPD_RELEASE) ) // only bother if values changed, or release
+    if (GObjectType < tiLedDigitsH)
+        img_SetWord(hndl, *(pInputIndex), IMAGE_INDEX, newval);
+            img_Show(hndl, *(pInputIndex));      // only shows on current form
+    else
+        WriteObject(GObjectType, GObjectIdx, newval) ;
+    endif
+        IPidx := *(CurInputData+TouchState) ;
+        while(IPidx != 0)
+            otherOBJ := IPidx + InputData;
+            if (*(otherOBJ) == OT_REPORT)
+        SendReport(REPORT_EVENT, GObjectType, *(otherOBJ+Ofs_IPD_OBJVIDX), newval) ;
+            else if (*(otherOBJ) == OT_MAGIC)
+                IPidx := *(otherOBJ+Ofs_IPD_P5) ;
+                IPidx(newval) ;
+//            else if (TouchState == *(otherOBJ+Ofs_IPD_P4))  // test prior to Workshop 6.5.0.0
+            else if ((TouchState == *(otherOBJ+Ofs_IPD_P4)) || (*(CurInputData+Ofs_IPD_P1) && ((GObjectType == t4Dbutton) || (GObjectType == tUserButton) || (GObjectType == tWinButton))))
+                if (*(otherOBJ) == OT_ACTIVATE)
+                    ActivateForm(*(otherOBJ+Ofs_IPD_P2) ) ;
+                    GObjectType := tForm ;
+                else if (*(otherOBJ) == OT_SETCONST)
+                    newval := *(otherOBJ+Ofs_IPD_P3) ;
+                    WriteObject(*(otherOBJ+Ofs_IPD_P1), *(otherOBJ+Ofs_IPD_P2), newval) ;
+                else if (*(otherOBJ) == OT_SETANOTHER)
+                    WriteObject(*(otherOBJ+Ofs_IPD_P1), *(otherOBJ+Ofs_IPD_P2), newval) ;
+                else if (*(otherOBJ) == OT_PREVFRAME)
+                    if (img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX))
+                        WriteObject(*(otherOBJ+Ofs_IPD_P5),*(otherOBJ+Ofs_IPD_P2),img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX)-1) ;
+                    endif
+                    newval := img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX) ;
+                else if (*(otherOBJ) == OT_NEXTFRAME)
+                    if (img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX) < *(otherOBJ+Ofs_IPD_P3))
+                        WriteObject(*(otherOBJ+Ofs_IPD_P5),*(otherOBJ+Ofs_IPD_P2),img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX)+1) ;
+                    endif
+                    newval := img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX) ;
+                endif
+            endif
+            IPidx := *(otherOBJ+TouchState) ;
+        wend
+    endif
+endfunc
+
+// End P2.inc
+func DoGFXObjects()
+endfunc
+
+// Start P3.inc
+func main()
+    var comTX[50], cmdi, i, j, TouchStatus ;
+
+
+    gfx_ScreenMode(PORTRAIT) ;
+
+    putstr("Mounting...\n");
+    if (!(file_Mount()))
+        while(!(file_Mount()))
+            putstr("Drive not mounted...");
+            pause(200);
+            gfx_Cls();
+            pause(200);
+        wend
+    endif
+
+//    gfx_MoveTo(0, 0);
+//    print(mem_Heap()," ") ;
+//    gfx_TransparentColour(0x0020);
+//    gfx_Transparency(ON);
+
+
+    // open image control
+    hndl := file_LoadImageControl("VolvoBoo.dat", "VolvoBoo.gci", 1);
+
+
+    // init 'constants'
+// End P3.inc
+
+    oObjects[tDipSwitch] := oDipSwitchs ; // dummy as no object there
+    oObjects[tKnob] := oDipSwitchs ; // dummy as no object there
+    oObjects[tRockerSwitch] := oDipSwitchs ; // dummy as no object there
+    oObjects[tRotarySwitch] := oDipSwitchs ; // dummy as no object there
+    oObjects[tGSlider] := oDipSwitchs ; // dummy as no object there
+    oObjects[tTrackbar] := oDipSwitchs ; // dummy as no object there
+    oObjects[tWinButton] := oDipSwitchs ; // dummy as no object there
+    oObjects[tAngularmeter] := oDipSwitchs ; // dummy as no object there
+    oObjects[tCoolgauge] := oDipSwitchs ; // dummy as no object there
+    oObjects[tCustomdigits] := oDipSwitchs ; // dummy as no object there
+    oObjects[tForm] := oForms ;
+    oObjects[tGauge] := oDipSwitchs ; // dummy as no object there
+    oObjects[tImage] := oDipSwitchs ; // dummy as no object there
+    oObjects[tKeyboard] := oDipSwitchs ; // dummy as no object there
+    oObjects[tLed] := oDipSwitchs ; // dummy as no object there
+    oObjects[tLeddigits] := oDipSwitchs ; // dummy as no object there
+    oObjects[tMeter] := oDipSwitchs ; // dummy as no object there
+    oObjects[tStrings] := oDipSwitchs ; // dummy as no object there
+    oObjects[tThermometer] := oDipSwitchs ; // dummy as no object there
+    oObjects[tUserled] := oDipSwitchs ; // dummy as no object there
+    oObjects[tVideo] := oDipSwitchs ; // dummy as no object there
+    oObjects[tStaticText] := oStaticTexts ;
+    oObjects[tSounds] := oDipSwitchs ; // dummy as no object there
+    oObjects[tTimer] := oDipSwitchs ; // dummy as no object there
+    oObjects[tSpectrum] := oDipSwitchs ; // dummy as no object there
+    oObjects[tTank] := oDipSwitchs ; // dummy as no object there
+    oObjects[tUserImages] := oDipSwitchs ; // dummy as no object there
+    oObjects[tPinOutput] := oDipSwitchs ; // dummy as no object there
+    oObjects[tPinInput] := oDipSwitchs ; // dummy as no object there
+    oObjects[t4Dbutton] := oDipSwitchs ; // dummy as no object there
+    oObjects[tAniButton] := oDipSwitchs ; // dummy as no object there
+    oObjects[tColorPicker] := oDipSwitchs ; // dummy as no object there
+    oObjects[tUserButton] := oDipSwitchs ; // dummy as no object there
+    oObjects[tMagicObject] := oDipSwitchs ; // dummy as no object there
+    oObjects[tSmartGauge] := oDipSwitchs ; // dummy as no object there
+    oObjects[tSmartSlider] := oDipSwitchs ; // dummy as no object there
+    oObjects[tSmartKnob] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiLedDigitsH] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiAngularMeter] := oiAngularMeters ;
+    oObjects[tiGauge] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiLabelB] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiUserGauge] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiMediaGauge] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiMediaThermometer] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiLed] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiMediaLed] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiLedDigits] := oiLedDigitss ;
+    oObjects[tiNeedle] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiRuler] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiLedDigit] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiButtonD] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiButtonE] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiMediaButton] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiToggleInput] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiDial] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiMediaRotary] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiRotaryInput] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiSwitch] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiSwitchB] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiSliderE] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiMediaSlider] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiSliderH] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiSliderG] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiSliderF] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiSliderD] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiSliderC] := oDipSwitchs ; // dummy as no object there
+    oObjects[tiLinearInput] := oDipSwitchs ; // dummy as no object there
+    vObjects[0] := oiviAngularMeter ;
+    vObjects[8] := oiviLedDigits ;
+// Start P4.inc
+    wp := widget_Create(6) ;
+    for (i := 0; i < 6; i++)
+	addressInternalWidget(i, 0) ;
+        widget_Add(wp, i, GObjectRAM) ;
+//        if (GObjectType == tiLabelB)			// code to cause 'early' allocation of 'buffer' storage in LabelB widgets
+//            widget_Disable(wp, i) ;
+//            img_FunctionCall(hndl, GObjectFunc, j, GObjectRAM, GObjectDATA, GObjectParms, GObjectStrings) ;
+//        endif
+    next
+
+    // init comms
+    com_Init(comRX,CMDLenMAX,0);
+    com_SetBaud(COM0,11520);
+    com_TXbuffer(comTX, 100, 0);
+    // tag 'real' objects
+    for (i := 0; i <= MaxTotObjects; i++)
+        if (   (i != tSounds)
+            && (i != tTimer)
+            && (i != tPinOutput)
+            && (i != tMagicObject)
+            && (i != tPinInput) )
+            TouchXpos := oObjects[i] ;
+            TouchYpos := *(TouchXpos) ;
+            for (ImageTouched := 1; ImageTouched <= TouchYpos; ImageTouched++)
+                oldn := *(TouchXpos+ImageTouched*2) ;
+                img_SetAttributes(hndl, oldn, I_TOUCH_DISABLE);  // ensure touch is enabled
+                if (oldn != -1)
+                    img_SetWord(hndl, oldn, IMAGE_TAG, i+1);
+                    img_Disable(hndl, oldn) ;
+                endif
+            next
+        endif
+    next
+
+
+    // display initial form
+    CurrentForm := -1 ;
+// End P4.inc
+// Start P5.inc
+    ActivateForm(0) ; // need to change this according to first actual form
+
+// End P5.inc
+// Start P6.inc Diablo
+    touch_Set(TOUCH_ENABLE);                            // enable the touch screen
+    oldn := -1 ;
+    repeat
+
+        // check comms for command, how to NAK invalid command
+        if (com_Count() != 0)
+            i := serin() ;
+            InputCS ^= i ;               // update checksum
+                cmd[cmdi++] := i ;
+                 if (   (cmd[0] == READ_OBJ)
+                         && (cmdi == 4)         )
+                    if (InputCS)
+                        nak0() ;
+                    else
+                        ReadObject(cmd[1], cmd[2]) ;
+                    endif
+                    cmdi := 0 ;
+                else if (   (cmd[0] == WRITE_OBJ)    // 6 byte write command (gen option)
+                         && (cmdi == 6)          )
+                    if (InputCS)
+                        nak0() ;
+                    else
+                        WriteObject(cmd[1], cmd[2], cmd[3] << 8 + cmd[4]) ;
+                        serout(ACK) ;
+                    endif
+                    cmdi := 0 ;
+                else if (   (cmd[0] == WRITE_CONTRAST)
+                         && (cmdi == 3)         )
+                    if (InputCS)
+                        nak0() ;
+                    else
+                        gfx_Contrast(cmd[1]) ;
+                        serout(ACK) ;
+                    endif
+                    cmdi := 0 ;
+                else if (cmdi == 6)    // we have 6 bytes and we've gotten here -> something wrong
+                    nak0() ;
+                    cmdi := 0 ;
+                endif
+        endif   // a character is available
+
+
+    // touch code processing
+
+        TouchStatus := touch_Get(TOUCH_STATUS);               // get touchscreen status
+        if ((TouchStatus == TOUCH_PRESSED) || (TouchStatus == TOUCH_RELEASED) || (TouchStatus == TOUCH_MOVING))
+            ImageTouched := img_Touched(hndl,-1) ;
+            if (ImageTouched == -1)
+                ImageTouched := widget_Touched(wp, ALL) ;
+                if (ImageTouched != -1) ImageTouched := -2 - ImageTouched ;
+            endif
+            if ((TouchStatus != TOUCH_RELEASED) && (ImageTouched != oldn) && (oldn != -1))
+                TouchStatus := TOUCH_RELEASED ;       // simulate release if we move off object
+            endif
+            if (TouchStatus != TOUCH_RELEASED)        // if not released
+                if (oldn != -1)
+                    ImageTouched := oldn ;
+                else
+                    if (oldn != ImageTouched)
+                oldn := ImageTouched ;
+                        TouchStatus := TOUCH_PRESSED ;
+                    endif
+                endif
+                TouchXpos  := touch_Get(TOUCH_GETX);
+                TouchYpos  := touch_Get(TOUCH_GETY);
+                TouchState := Ofs_IPD_DOWN ;
+            else
+                ImageTouched := oldn ;                     // simulate release of what we touched
+                oldn := -1 ;                    // prevent double release
+                TouchState := Ofs_IPD_RELEASE ;
+            endif
+            if (ImageTouched >= 0)
+                        CurInputData := InputControls[ImageTouched] + InputData;
+                        GObjectType := *(CurInputData) ;
+                        if (GObjectType == tSmartSlider)
+                            i := tTrackbar ; // GSlider ;
+                        else if (GObjectType == tSmartKnob)
+                            i := tKnob ;
+                        else if (GObjectType >= t4Dbutton) 
+                            i := GObjectType - 23 ; // adjust to ensure next in gosub
+                        else 
+                            i := GObjectType ;
+                        endif
+                        gosub (i), (cDipswitch, cKnob, cRockerswitch, cRotaryswitch, cSlider, cTrackbar, cWinbutton, c4DButton, cAniButton, cColorPicker, cUserButton) ;
+                        ImageTouched := -1 ; // show processed here
+            endif
+            if (ImageTouched != -1) ImageTouched := -2 - ImageTouched ;
+            if (ImageTouched >= 0)
+//print(ImageTouched," ") ;
+//                        CurInputData := InternalInputControls[ImageTouched] + InternalInputData;
+                        CurInputData := InternalInputControls[ImageTouched] + InputData;
+//                        GObjectType := *(CurInputData) ;
+//                        i := GObjectType ;
+//                        if (GObjectType >= t4Dbutton) i -= 23 ; // adjust to ensure next in gosub
+//                        gosub (i), (cDipswitch, cKnob, cRockerswitch, cRotaryswitch, cSlider, cTrackbar, cWinbutton, c4DButton, cAniButton, cColorPicker, cUserButton) ;
+                        addressInternalWidget(ImageTouched, 0) ;
+//                        i := xobj2iiobj[ImageTouched] ;                            // address object type and hash from ram index
+//                        GObjectIdx := i & 0xff ;
+//                        GObjectType := (i>>8) ;                                   // extract object type
+                        if (GObjectType <= tiToggleInput) 
+                            i := 0 ;
+                        else if (GObjectType <= tiRotaryInput) 
+                            i := 1 ;
+                        else if (GObjectType <= tiSwitchB) 
+                            i := 2 ;
+                        else 
+                            i := 3 ;
+                        endif
+//to(COM0) ; print(i, "\r\n") ;  
+
+                        gosub (i), (ciButton, ciDial, ciSwitch, ciSlider) ;
+
+
+//            ImageTouched := widget_Touched(wp, ALL) ;
+            endif
+        endif
+ //       if ((n != -1) && (oldn == -1)) oldn := n ;    // save what we touched in case we move off it
+
+        sys_EventsResume() ;
+    forever
+
+ciSwitch:
+cDipswitch:
+
+cKnob:
+ciDial:
+
+cRockerswitch:
+
+cRotaryswitch:
+
+cSlider:
+cTrackbar:
+ciSlider:
+
+ciButton:
+
+c4DButton:
+cUserButton:
+cWinbutton:
+
+cAniButton:
+
+cColorPicker:
+
+endfunc
+// End P6.inc

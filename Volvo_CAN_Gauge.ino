@@ -118,7 +118,6 @@ void UpdateDisplay() {               //This function takes the data retrieved in
 
 
 void UpdateBrightness() {                       //This function simply updates the brightness of the OLED when we adjust the dashboard lighting pot in the car. If we set the pot to minimum brightness, it simply turns the display off completely (for safety and night vision).
-
   if (Ignition){
    genie.WriteContrast(Brightness/15);
   }
