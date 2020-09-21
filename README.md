@@ -7,13 +7,13 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 
 # Hardware:
 - 2011 Volvo C30 T5
-- "generic" 128x64 OLED Display on I^2C protocol
+- 4D Systems ULCD-220RD round LCD Display (https://4dsystems.com.au/ulcd-220rd)
 - Machinna M1.1 (Old, no longer manufactured) (More info here: https://www.macchina.cc/guide/m1/software/software-setup-arduino-ide-1516)
 
 **NOTE: The Machinna M1.1 is basically an Arduino Mega with a buck style regulator and a few built in interfaces. In this project, we're only using the CAN bus interface, which is identical to a regular CAN bus shield based on the MCP2515. The only change you'll need to make in order for this to run on a regular Mega + a CAN shield is to change the CS pin of the CAN shield, as the Machinna uses a 'non-arduino' pin for this purpose.**
 
-# Included Libraries:
-- U8g2: Used to drive the OLED display.
+# Libraries:
+- geneArduino: Used to send data to the 4D Systems display.
 - Seeed CAN bus shield: CAN shield library with modifications to allow it to work with the Machinna M1.1
 
 # Basic Functional Description:
@@ -26,7 +26,7 @@ We also use data from some broadcasted CAN frames that are used elsewhere in the
 
 The code uses a psudo multi-tasking approach where the message recieve loop is always running if one of the other loops isn't currently running. This allows us to update/check broadcast frames in the background for brightness changes, ignition status changes and button presses and update the global variables accordingly.
 
-In the display loop, we can show boost pressure, coolant temperature and intake temperature. Using the OLEDs massive resolution, we can also graph each of those values for a short amount of time to track dynamic changes.
+In the display loop, we can show boost pressure, coolant temperature and intake temperature.
 
 For right now, the only button we track is the cruise control cancel button. Holding the button for more than 2 seconds changes the currently displayed page. Perhaps in the future, a menu system could be implemented.
 
