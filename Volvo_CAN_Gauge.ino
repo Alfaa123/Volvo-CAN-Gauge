@@ -26,7 +26,7 @@ MCP_CAN CAN(10); // Normally where the CS pin is set. Because the CAN library ha
 
 void setup()
 {
-  Serial.begin(115200);
+  //Serial.begin(115200);
   Serial1.begin(115200);  // Serial1 @ 200000 (200K) Baud
   genie.Begin(Serial1);   // Use Serial1 for talking to the Genie Library, and to the 4D Systems display
    pinMode(RESETLINE, OUTPUT);  // Set D4 on Arduino to Output (4D Arduino Adaptor V2 - Display Reset)
@@ -51,7 +51,6 @@ void setup()
 
 void loop()    //The main loop sends all the various CAN messages to the ECU so we can get data back. It also calls the MessageRecieve and UpdateDisplay functions periodically. This method of 'multitasking' is painful and needs to be rewritten.
 {
-  Serial.println(Brightness);
   if (Ignition == 0) {
     PowerSaveLoop();
   }
@@ -87,7 +86,7 @@ void UpdateDisplay() {               //This function takes the data retrieved in
       gaugeCurrentValue += gaugeAddVal;
       genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 0, gaugeCurrentValue);
       genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 0, gaugeCurrentValue);
-      updatePeriod = millis() + 2;
+      updatePeriod = millis() + 0;
   }
     }
   else if (Page == 1){
@@ -163,7 +162,7 @@ void MessageRecieveLoop(){                                                  //I 
       if (buf[4] == 0xCE) {
         IntakeTemp = buf[5];
         IntakeTemp = IntakeTemp*0.75-48;
-        //IntakeTemp = IntakeTemp*1.8+32;
+        IntakeTemp = IntakeTemp*1.8+32;
       }
     }
     if (canId == 0x19E00006) {
@@ -211,12 +210,21 @@ void MessageRecieveLoop(){                                                  //I 
 
 void UpdateIgnition() {               //This is where we go if the ignition status changes. If it goes high to low (car turns off) then we fade the display out, blank it and put it to sleep for the power save loop. If it goes low to high (car turns on) we wake the display and write a welcome message to the display and proceed to the main loop.
   if (Ignition) {
-
-    for (int i = 0; i < Brightness; i++) {
-      genie.WriteContrast(i/15);
-      delay(1);
+    genie.WriteContrast(11);
+    Page = 0;
+    genie.WriteObject(GENIE_OBJ_FORM, Page, 0);
+    for (int i = 0; i < 150; i++){
+      delay(10);
+      gaugeVal = i;
+      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+        if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
+          if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
+      gaugeCurrentValue += gaugeAddVal;
+      genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 0, gaugeCurrentValue);
+      genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 0, gaugeCurrentValue);
+      
     }
-
+    }
   }
   else {
     for (int i = Brightness; i > 1; i--) {
