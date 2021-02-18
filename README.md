@@ -29,7 +29,13 @@ The code uses a psudo multi-tasking approach where the message recieve loop is a
 
 In the display loop, we can show boost pressure, coolant temperature and intake temperature.
 
+We also react to the dashboard brightness broadcast frame so the display updates it's brightness along with the rest of the dashboard. If the headlights are on, display brightness is multiplied by 0.8.
+
 For right now, the only button we track is the cruise control cancel button. Holding the button for more than 2 seconds changes the currently displayed page. Perhaps in the future, a menu system could be implemented.
+
+In order for the gauge to feel more "analog" the needle and value of the gauge will not change between distant values instantaneously. There is a built in loop that will require the needle to go through all intermediate values if the variable changes by more than 1.
+
+When the gauge switches pages, the needle will smoothly sweep to the next position instead of moving instantaneously. Again, this is for the "analog" feel.
 
 # Notes:
 
