@@ -83,7 +83,7 @@ iAngularMeter
     NeedleYpos                   0
     Sect1Color                   0x080808
     Sect2Color                   YELLOW
-    Sect2StartingAngle           280
+    Sect2StartingAngle           270
     Sect3Color                   MAROON
     Sect3StartingAngle           300
     SectionStepSize              0

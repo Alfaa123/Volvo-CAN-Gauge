@@ -5,11 +5,12 @@
 
 
 long Boost;
-long EngineSpeed, CoolantTemp, IntakeTemp, VehicleSpeed, ButtonHeld;
+long EngineSpeed, CoolantTemp, IntakeTemp, VehicleSpeed, ButtonHeld, IgnitionAngle;
 unsigned char BP[8] = {0xCD, 0x7a, 0xa6, 0x12, 0x9d, 0x01, 0x00, 0x00};
 unsigned char RPM[8] = {0xCD, 0x7a, 0xa6, 0x10, 0x1d, 0x01, 0x00, 0x00};
 unsigned char COL[8] = {0xCD, 0x7a, 0xa6, 0x10, 0xd8, 0x01, 0x00, 0x00};
 unsigned char IAT[8] = {0xCD, 0x7a, 0xa6, 0x10, 0xCE, 0x01, 0x00, 0x00};
+unsigned char IA[8] = {0xCD, 0x7a, 0xa6, 0x10, 0x36, 0x01, 0x00, 0x00};
 unsigned char VHS[8] = {0xCD, 0x7a, 0xa6, 0x11, 0x40, 0x01, 0x00, 0x00};
 int x, Brightness;
 unsigned char len = 0, flagRecv = 0, Page = 0, Index = 0;
@@ -67,8 +68,12 @@ void loop()    //The main loop sends all the various CAN messages to the ECU so 
      CAN.sendMsgBuf(0x000FFFFE, 1, 8, COL); //Give us coolant temp!
      x = 0;
   }
-    if (x > 10 && (Page==1)){
+    if (x > 500 && (Page==1)){
      CAN.sendMsgBuf(0x000FFFFE, 1, 8, IAT); //Give us intake temp!
+     x = 0;
+  }
+      if (x > 1 && (Page==3)){
+     CAN.sendMsgBuf(0x000FFFFE, 1, 8, IA); //Give us intake temp!
      x = 0;
   }
   
@@ -103,6 +108,18 @@ void UpdateDisplay() {               //This function takes the data retrieved in
   }
   else if (Page == 2){
     gaugeVal = CoolantTemp;
+    if (gaugeVal < 0){gaugeVal = 0;}
+      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+        if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
+          if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
+      gaugeCurrentValue += gaugeAddVal;
+      genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 2, gaugeCurrentValue);
+      genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 2, gaugeCurrentValue);
+      updatePeriod = millis() + 2;
+    }
+  }
+    else if (Page == 3){
+    gaugeVal = IgnitionAngle;
     if (gaugeVal < 0){gaugeVal = 0;}
       if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
         if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
@@ -163,6 +180,10 @@ void MessageRecieveLoop(){                                                  //I 
         IntakeTemp = IntakeTemp*0.75-48;
         IntakeTemp = IntakeTemp*1.8+32;
       }
+      if (buf[4] == 0x36) {
+        IgnitionAngle = buf[5];
+        IgnitionAngle = IgnitionAngle*191.25/255;
+      }
     }
     if (canId == 0x19E00006) {
       if ((buf[6] & B01000000) == !Ignition) {
@@ -177,7 +198,7 @@ void MessageRecieveLoop(){                                                  //I 
         }
         if ((millis()-ButtonHeld) > 1000 ){
           Page++;
-          if (Page > 2){
+          if (Page > 3){
             Page = 0;
           }
           genie.WriteObject(GENIE_OBJ_FORM, Page, 0);
