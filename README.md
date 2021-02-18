@@ -3,7 +3,7 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 
 **Old video of the project with the OLED screen is here:**
   
-[![Video](http://img.youtube.com/vi/hdAKEG6ggRk/0.jpg)](https://www.youtube.com/watch?v=hdAKEG6ggRk "Video")
+[![Video](https://raw.githubusercontent.com/Alfaa123/Volvo-CAN-Gauge/4dSystems/IMG_20210218_131628285.jpg)](https://www.youtube.com/watch?v=hdAKEG6ggRk "Video")
 
 # Hardware:
 - 2011 Volvo C30 T5
