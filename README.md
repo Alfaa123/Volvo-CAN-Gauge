@@ -1,7 +1,7 @@
 # Volvo-CAN-Gauge
 Reverse engineering the Volvo VIDA protocol to gather diagnostic information not available via OBD2 on Volvo cars.
 
-**Old video of the project with the OLED screen is here:**
+**Old video of the project with the OLED screen is here:** https://www.youtube.com/watch?v=hdAKEG6ggRk
   
 [![Video](https://raw.githubusercontent.com/Alfaa123/Volvo-CAN-Gauge/4dSystems/IMG_20210218_131628285.jpg)](https://www.youtube.com/watch?v=hdAKEG6ggRk "Video")
 
@@ -9,6 +9,7 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 - 2011 Volvo C30 T5
 - 4D Systems ULCD-220RD round LCD Display (https://4dsystems.com.au/ulcd-220rd)
 - Machinna M1.1 (Old, no longer manufactured) (More info here: https://www.macchina.cc/guide/m1/software/software-setup-arduino-ide-1516)
+- Custom designed 3d-printed LCD mount designed to fit the shape of the bottom left corner of the dashboard bezel. (STL is in the Display Mount folder)
 
 **NOTE: The Machinna M1.1 is basically an Arduino Mega with a buck style regulator and a few built in interfaces. In this project, we're only using the CAN bus interface, which is identical to a regular CAN bus shield based on the MCP2515. The only change you'll need to make in order for this to run on a regular Mega + a CAN shield is to change the CS pin of the CAN shield, as the Machinna uses a 'non-arduino' pin for this purpose.**
 
