@@ -1,4 +1,4 @@
-// File generated 9/20/2020 7:12:24 PM
+// File generated 2/18/2021 5:24:22 PM
 // Warning! This is a generated file, any manual changes will be
 // lost during the next generation.
 
@@ -11,6 +11,8 @@
     iILedDigits1
     iIAngularMeter2
     iILedDigits2
+    iIAngularMeter3
+    iILedDigits3
 #END
 
 // object indexes into ImageControl
@@ -18,6 +20,7 @@
     iStatictext0    // offset 0x0
     iStatictext1    // offset 0x200
     iStatictext2    // offset 0x400
+    iStatictext3    // offset 0x600
 #END
 
 

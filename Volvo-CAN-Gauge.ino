@@ -119,15 +119,14 @@ void UpdateDisplay() {               //This function takes the data retrieved in
     }
   }
     else if (Page == 3){
-    gaugeVal = IgnitionAngle;
-    if (gaugeVal < 0){gaugeVal = 0;}
+    gaugeVal = (IgnitionAngle);
       if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
         if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
           if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
       gaugeCurrentValue += gaugeAddVal;
-      genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 2, gaugeCurrentValue);
-      genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 2, gaugeCurrentValue);
-      updatePeriod = millis() + 2;
+      genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 3, 50 - (gaugeCurrentValue*.55));
+      genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 3, gaugeCurrentValue);
+      updatePeriod = millis() + 0;
     }
   }
   }
@@ -234,7 +233,7 @@ void UpdateIgnition() {               //This is where we go if the ignition stat
     Page = 0;
     genie.WriteObject(GENIE_OBJ_FORM, Page, 0);
     for (int i = 0; i < 150; i++){
-      delay(10);
+      delay(1);
       gaugeVal = i;
       if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
         if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
@@ -245,11 +244,12 @@ void UpdateIgnition() {               //This is where we go if the ignition stat
       
     }
     }
+    
   }
   else {
     for (int i = Brightness; i > 1; i--) {
      genie.WriteContrast(i/15);
-     delay(3);
+     delay(10);
     }
    
   }

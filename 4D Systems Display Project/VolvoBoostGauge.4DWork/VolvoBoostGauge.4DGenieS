@@ -3,7 +3,7 @@
 //#constant OLDCOMPILE
 
 
-// generated 9/20/2020 7:12:25 PM
+// generated 2/18/2021 5:24:22 PM
 // uSDRequired:- 1   InternalRequired:- 1
 
 #MODE FLASHBANK_0
@@ -167,7 +167,7 @@
     WRITE_LABEL     12
 
 // End P1.inc
-    nObjects        3
+    nObjects        4
     nInputs         0
     nAniTimers      0
 #END
@@ -176,39 +176,44 @@
     word gfxInternals gfx_AngularMeter, -1, -1, -1, -1, -1, -1, -1, gfx_LedDigits, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     word gfxIntParms -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     word gfxIntStrings -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
-    word oiviAngularMeter vIAngularMeter0, vIAngularMeter1, vIAngularMeter2
-    word oiviLedDigits vILedDigits0, vILedDigits1, vILedDigits2
-    word xobj2iobj 0x2700, 0x2F00, 0x2701, 0x2F01, 0x2702, 0x2F02
-    word IIAngularMeter0 120, 100, 15, 0, 0, 0, 5, 5, 1, GRAY, 280, 300,
+    word oiviAngularMeter vIAngularMeter0, vIAngularMeter1, vIAngularMeter2, vIAngularMeter3
+    word oiviLedDigits vILedDigits0, vILedDigits1, vILedDigits2, vILedDigits3
+    word xobj2iobj 0x2700, 0x2F00, 0x2701, 0x2F01, 0x2702, 0x2F02, 0x2703, 0x2F03
+    word IIAngularMeter0 120, 100, 15, 0, 0, 0, 5, 5, 1, LIME, 270, 300,
         0x0841, YELLOW, MAROON, 0, -1, 1, WHITE, -40, 0, 0x2, 2, LIME, -60, 52,
         0, 0, 0, 220, 220, 110, 110, BLACK, 90, 360, 0, 150, 100, 0x0, -5, 2,
-        2, SILVER, 2, WHITE, 2, SILVER
+        2, 0xF800, 2, WHITE, 2, SILVER
     word IILedDigits0 120, 128, 78, 46, 3, 1, 0, 2, LIME, 0x18C3, 0x10
-    word IIAngularMeter1 120, 100, 15, 0, 0, 0, 5, 5, 1, GRAY, 260, 300,
+    word IIAngularMeter1 120, 100, 15, 0, 0, 0, 5, 5, 1, LIME, 260, 300,
         0x0841, YELLOW, MAROON, 0, -1, 1, WHITE, -40, 0, 0x2, 2, LIME, -60, 52,
         0, 0, 0, 220, 220, 110, 110, BLACK, 90, 360, 0, 150, 100, 0x0, -5, 2,
-        2, SILVER, 2, WHITE, 2, SILVER
+        2, 0xF800, 2, WHITE, 2, SILVER
     word IILedDigits1 120, 128, 78, 46, 3, -1, 0, 2, LIME, 0x18C3, 0x10
-    word IIAngularMeter2 120, 100, 15, 0, 0, 0, 5, 5, 1, GRAY, 250, 270,
+    word IIAngularMeter2 120, 100, 15, 0, 0, 0, 5, 5, 1, LIME, 250, 270,
         0x0841, LIME, MAROON, 0, -1, 1, WHITE, -40, 0, 0x2, 2, LIME, -60, 52,
         0, 0, 0, 220, 220, 110, 110, BLACK, 90, 306, 0, 120, 100, 0x0, -5, 2,
-        2, SILVER, 2, WHITE, 2, SILVER
+        2, 0xF800, 2, WHITE, 2, SILVER
     word IILedDigits2 120, 128, 78, 46, 3, -1, 0, 2, LIME, 0x18C3, 0x10
-    word FormStartIndex 0, 1, 2
-    word FormEndIndex 1, 2, 3
-    word iFormStartIndex 0, 2, 4
-    word iFormEndIndex 2, 4, 6
-    word iiFormStartIndex 0, 0, 0
-    word iiFormEndIndex 0, 0, 0
+    word IIAngularMeter3 120, 100, 15, 0, 0, 0, 0, 0, 1, LIME, 180, 270,
+        0x0841, ORANGE, GREEN, 0, -1, 1, WHITE, -40, 0, 0x2, 2, LIME, -60, 52,
+        0, 0, 0, 220, 220, 110, 110, BLACK, 180, 360, 50, 150, 100, 0x0, -5, 2,
+        2, 0xF800, 2, WHITE, 2, SILVER
+    word IILedDigits3 32, 144, 104, 46, 4, 2, 0, 2, LIME, 0x18C3, 0x10
+    word FormStartIndex 0, 1, 2, 3
+    word FormEndIndex 1, 2, 3, 4
+    word iFormStartIndex 0, 2, 4, 6
+    word iFormEndIndex 2, 4, 6, 8
+    word iiFormStartIndex 0, 0, 0, 0
+    word iiFormEndIndex 0, 0, 0, 0
     word InputControls 0
-    word InternalInputControls -1, -1, -1, -1, -1, -1
+    word InternalInputControls -1, -1, -1, -1, -1, -1, -1, -1
     word InputData 0
     word oDipSwitchs 0
-    word oForms 3, -1, -1, -1
-    word oStaticTexts 3, iStatictext0, iStatictext1, iStatictext2
-    word oiAngularMeters 3, IIAngularMeter0, IIAngularMeter1, IIAngularMeter2
-    word oiLedDigitss 3, IILedDigits0, IILedDigits1, IILedDigits2
-    word FormBGcolors 0x0000, 0x0000, 0x0000
+    word oForms 4, -1, -1, -1, -1
+    word oStaticTexts 4, iStatictext0, iStatictext1, iStatictext2, iStatictext3
+    word oiAngularMeters 4, IIAngularMeter0, IIAngularMeter1, IIAngularMeter2, IIAngularMeter3
+    word oiLedDigitss 4, IILedDigits0, IILedDigits1, IILedDigits2, IILedDigits3
+    word FormBGcolors 0x0000, 0x0000, 0x0000, 0x0000
     word kKeyboardKeystrokes -1
     word rKeyboardRoutines -1
 #END
@@ -219,6 +224,8 @@
     var vILedDigits1[WIDGET_RAM_SPACE+2] ;
     var vIAngularMeter2[WIDGET_RAM_SPACE] ;
     var vILedDigits2[WIDGET_RAM_SPACE+2] ;
+    var vIAngularMeter3[WIDGET_RAM_SPACE] ;
+    var vILedDigits3[WIDGET_RAM_SPACE+2] ;
 // Start P2.inc
 var vObjects[MaxIntObjects+1] ;              // address of RAM objects
 var GObjectIdx, GObjectFunc, GObjectRAM, GObjectDATA, GObjectParms, GObjectStrings ;
@@ -479,7 +486,7 @@ func main()
 
 
     // open image control
-    hndl := file_LoadImageControl("VolvoBoo.dat", "VolvoBoo.gci", 1);
+    hndl := file_LoadImageControl("VOLVOB~2.dat", "VOLVOB~2.gci", 1);
 
 
     // init 'constants'
@@ -555,8 +562,8 @@ func main()
     vObjects[0] := oiviAngularMeter ;
     vObjects[8] := oiviLedDigits ;
 // Start P4.inc
-    wp := widget_Create(6) ;
-    for (i := 0; i < 6; i++)
+    wp := widget_Create(8) ;
+    for (i := 0; i < 8; i++)
 	addressInternalWidget(i, 0) ;
         widget_Add(wp, i, GObjectRAM) ;
 //        if (GObjectType == tiLabelB)			// code to cause 'early' allocation of 'buffer' storage in LabelB widgets

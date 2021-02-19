@@ -1,4 +1,4 @@
-file R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS
+file C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS
 
 file C:\Program Files (x86)\4D Labs\4D Workshop 4 IDE\include\uLCD-220RD.fnc
 
@@ -5753,7 +5753,7 @@ file C:\Program Files (x86)\4D Labs\4D Workshop 4 IDE\include\Diablo16_Functions
 005747  000003  //#constant OLDCOMPILE
 005748  000004        
 005749  000005        
-005750  000006  // generated 9/20/2020 7:12:25 PM
+005750  000006  // generated 2/18/2021 5:24:22 PM
 005751  000007  // uSDRequired:- 1   InternalRequired:- 1
 005752  000008        
 005753  000009  #MODE FLASHBANK_0
@@ -5789,11 +5789,11 @@ file C:\Program Files (x86)\4D Labs\4D Workshop 4 IDE\include\VisualConst.inc
 005779  000007  #constant  LPSOLID     0x0000
 005780  000014        
 005781  000015        
-file R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGaugeConst.inc
+file C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGaugeConst.inc
 
 005782  000016  #inherit "VolvoBoostGaugeConst.inc"
 005783  000016  #inherit "VolvoBoostGaugeConst.inc"
-005784  000001  // File generated 9/20/2020 7:12:24 PM
+005784  000001  // File generated 2/18/2021 5:24:22 PM
 005785  000002  // Warning! This is a generated file, any manual changes will be
 005786  000003  // lost during the next generation.
 005787  000004        
@@ -5801,17 +5801,17 @@ file R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGaugeConst.inc
 005789  000005  #constant  IFONT_OFFSET     0
 005790  000006  // object indexes into WIDGET pointer
 005791  000007  #CONST
-005792  000014  #END
-005793  000015        
-005794  000016  // object indexes into ImageControl
-005795  000017  #CONST
-005796  000021  #END
-005797  000022        
-005798  000023        
-005799  000024        
-005800  000025  #IFNOT EXISTS NOGLOBALS
-005801  000026  var hndl ;
-005802  000027  #ENDIF
+005792  000016  #END
+005793  000017        
+005794  000018  // object indexes into ImageControl
+005795  000019  #CONST
+005796  000024  #END
+005797  000025        
+005798  000026        
+005799  000027        
+005800  000028  #IFNOT EXISTS NOGLOBALS
+005801  000029  var hndl ;
+005802  000030  #ENDIF
 005803  000017        
 005804  000018        
 005805  000019        
@@ -5826,1194 +5826,1348 @@ file R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGaugeConst.inc
 005814  000030  #CONST
 005815  000173  #END
 005816  000174        
-005817  000214  #END
-5818  028E
-5819  028F
-5820  0290
-5821  0291
-5822  0292
-5823  0293
-5824  0294
-5825  0295
-5826  0296
-5827  0297
-5828  0298
-5829  0299
-5830  029A
-5831  029B
-5832  029C
-5833  029D
-5834  029E
-5835  029F
-5836  02A0
-5837  02A1
-5838  02A2
-5839  02A3
-5840  02A4
-5841  02A5
-5842  02A6
-5843  02A7
-5844  02A8
-5845  02A9
-5846  02AA
-5847  02AB
-5848  02AC
-5849  02AD
-5850  02AE
-5851  02AF
-5852  02B0
-5853  02B1
-5854  02B2
-5855  02B3
-5856  02B4
-5857  02B5
-5858  02B6
-5859  02B7
-5860  02B8
-5861  02B9
-5862  02BA
-5863  02BB
-5864  02BC
-5865  02BD
-5866  02BE
-5867  02BF
-5868  02C0
-5869  02C1
-5870  02C2
-5871  02C3
-5872  02C4
-5873  02C5
-5874  02C6
-5875  02C7
-5876  02C8
-5877  02C9
-5878  02CA
-5879  02CB
-5880  02CC
-5881  02CD
-5882  02CE
-5883  02CF
-5884  02D0
-5885  02D1
-5886  02D2
-5887  02D3
-5888  02D4
-5889  02D5
-5890  02D6
-5891  02D7
-5892  02D8
-5893  02D9
-5894  02DA
-5895  02DB
-5896  02DC
-5897  02DD
-5898  02DE
-5899  02DF
-5900  02E0
-5901  02E1
-5902  02E2
-5903  02E3
-5904  02E4
-5905  02E5
-5906  02E6
-5907  02E7
-5908  02E8
-5909  02E9
-5910  02EA
-5911  02EB
-5912  02EC
-5913  02ED
-5914  02EE
-5915  02EF
-5916  02F0
-5917  02F1
-5918  02F2
-5919  02F3
-5920  02F4
-5921  02F5
-5922  02F6
-5923  02F7
-5924  02F8
-5925  02F9
-5926  02FA
-5927  02FB
-5928  02FC
-5929  02FD
-5930  02FE
-5931  02FF
-5932  0300
-5933  0301
-5934  0302
-5935  0303
-5936  0304
-5937  0305
-5938  0306
-5939  0307
-5940  0308
-5941  0309
-5942  030A
-5943  030B
-5944  030C
-5945  030D
-5946  030E
-5947  030F
-5948  0310
-5949  0311
-5950  0312
-5951  0313
-5952  0314
-5953  0315
-5954  0316
-5955  0317
-5956  0318
-5957  0319
-5958  031A
-5959  031B
-5960  031C
-5961  031D
-5962  031E
-5963  031F
-5964  0320
-5965  0321
-5966  0322
-5967  0323
-5968  0324
-5969  0325
-5970  0326
-5971  0327
-5972  0328
-5973  0329
-5974  032A
-5975  032B
-5976  032C
-5977  032D
-5978  032E
-5979  032F
-5980  0330
-5981  0331
-5982  0332
-5983  0333
-5984  0334
-5985  0335
-5986  0336
-5987  0337
-5988  0338
-5989  0339
-5990  033A
-5991  033B
-5992  033C
-5993  033D
-5994  033E
-5995  033F
-5996  0340
-5997  0341
-5998  0342
-5999  0343
-6000  0344
-6001  0345
-6002  0346
-6003  0347
-6004  0348
-6005  0349
-6006  034A
-6007  034B
-6008  034C
-6009  034D
-6010  034E
-6011  034F
-6012  0350
-6013  0351
-6014  0352
-6015  0353
-6016  0354
-6017  0355
-6018  0356
-6019  0357
-6020  0358
-6021  0359
-6022  035A
-6023  035B
-6024  035C
-6025  035D
-6026  035E
-6027  035F
-6028  0360
-6029  0361
-6030  0362
-6031  0363
-6032  0364
-6033  0365
-6034  0366
-6035  0367
-6036  0368
-6037  0369
-6038  036A
-6039  036B
-6040  036C
-6041  036D
-6042  036E
-6043  036F
-6044  0370
-6045  0371
-6046  0372
-6047  0373
-6048  0374
-6049  0375
-6050  0376
-6051  0377
-6052  0378
-6053  0379
-6054  037A
-6055  037B
-6056  037C
-6057  037D
-6058  037E
-6059  037F
-6060  0380
-6061  0381
-6062  0382
-6063  0383
-6064  0384
-6065  0385
-6066  0386
-6067  0387
-6068  0388
-6069  0389
-6070  038A
-6071  038B
-6072  038C
-6073  038D
-6074  038E
-6075  038F
-6076  0390
-6077  0391
-6078  0392
-6079  0393
-6080  0394
-6081  0395
-6082  0396
-6083  0397
-6084  0398
-6085  0399
-6086  039A
-6087  039B
-6088  039C
-6089  039D
-6090  039E
-6091  039F
-6092  03A0
-6093  03A1
-6094  03A2
-6095  03A3
-6096  03A4
-6097  03A5
-6098  03A6
-6099  03A7
-6100  03A8
-6101  03A9
-6102  03AA
-6103  03AB
-6104  03AC
-6105  03AD
-6106  03AE
-6107  03AF
-6108  03B0
-6109  03B1
-6110  03B2
-6111  03B3
-6112  03B4
-6113  03B5
-6114  03B6
-6115  03B7
-6116  03B8
-6117  03B9
-6118  03BA
-6119  03BB
-6120  03BC
-6121  03BD
-6122  03BE
-6123  03BF
-6124  03C0
-6125  03C1
-6126  03C2
-6127  03C3
-6128  03C4
-6129  03C5
-6130  03C6
-6131  03C7
-6132  03C8
-6133  03C9
-6134  03CA
-6135  03CB
-6136  03CC
-6137  03CD
-6138  03CE
-6139  03CF
-6140  03D0
-6141  03D1
-6142  03D2
-6143  03D3
-6144  03D4
-6145  03D5
-6146  03D6
-6147  03D7
-6148  03D8
-6149  03D9
-6150  03DA
-6151  03DB
-6152  03DC
-6153  03DD
-6154  03DE
-6155  03DF
-6156  03E0
-6157  03E1
-6158  03E2
-6159  03E3
-6160  03E4
-6161  03E5
-6162  03E6
-6163  03E7
-6164  03E8
-6165  03E9
-6166  03EA
-6167  03EB
-6168  03EC
-6169  03ED
-6170  03EE
-6171  03EF
-6172  03F0
-6173  03F1
-6174  03F2
-6175  03F3
-6176  03F4
-6177  03F5
-6178  03F6
-6179  03F7
-6180  03F8
-6181  03F9
-6182  03FA
-6183  03FB
-6184  03FC
-6185  03FD
-6186  03FE
-6187  03FF
-6188  0400
-6189  0401
-6190  0402
-6191  0403
-6192  0404
-6193  0405
-6194  0406
-6195  0407
-6196  0408
-6197  0409
-6198  040A
-6199  040B
-6200  040C
-6201  040D
-6202  040E
-6203  040F
-6204  0410
-6205  0411
-6206  0412
-6207  0413
-6208  0414
-6209  0415
-6210  0416
-6211  0417
-6212  0418
-6213  0419
-6214  041A
-6215  041B
-6216  041C
-6217  041D
-6218  041E
-6219  041F
-6220  0420
-6221  0421
-6222  0422
-6223  0423
-6224  0424
-6225  0425
-6226  0426
-6227  0427
-6228  0428
-6229  0429
-6230  042A
-6231  042B
-6232  042C
-6233  042D
-6234  042E
-6235  042F
-6236  0430
-6237  0431
-6238  0432
-6239  0433
-6240  0434
-6241  0435
-6242  0436
-6243  0437
-6244  0438
-6245  0439
-6246  043A
-6247  043B
-6248  043C
-6249  043D
-6250  043E
-6251  043F
-6252  0440
-6253  0441
-6254  0442
-6255  0443
-6256  0444
-6257  0445
-6258  0446
-6259  0447
-6260  0448
-6261  0449
-6262  044A
-6263  044B
-6264  044C
-6265  044D
-6266  044E
-6267  044F
-6268  0450
-6269  0451
-6270  0452
-6271  0453
-6272  0454
-6273  0455
-6274  0456
-6275  0457
-6276  0458
-6277  0459
-6278  045A
-6279  045B
-6280  045C
-6281  045D
-6282  045E
-6283  045F
-6284  0460
-6285  0461
-6286  0462
-6287  0463
-6288  0464
-6289  0465
-6290  0466
-6291  0467
-6292  0468
-6293  0469
-6294  046A
-6295  046B
-6296  046C
-6297  046D
-6298  046E
-6299  046F
-6300  0470
-6301  0471
-6302  0472
-6303  0473
-6304  0474
-6305  0475
-6306  0476
-6307  0477
-6308  0478
-6309  0479
-6310  047A
-6311  047B
-6312  047C
-6313  047D
-6314  047E
-6315  047F
-6316  0480
-6317  0481
-6318  0482
-6319  0483
-6320  0484
-6321  0485
-6322  0486
-6323  0487
-6324  0488
-6325  0489
-6326  048A
-6327  048B
-6328  048C
-6329  048D
-6330  048E
-6331  048F
-6332  0490
-6333  0491
-6334  0492
-6335  0493
-6336  0494
-6337  0495
-6338  0496
-6339  0497
-6340  0498
-6341  0499
-6342  049A
-6343  049B
-6344  049C
-6345  049D
-6346  049E
-6347  049F
-6348  04A0
-6349  04A1
-6350  04A2
-6351  04A3
-6352  04A4
-6353  04A5
-6354  04A6
-6355  04A7
-6356  04A8
-6357  04A9
-6358  04AA
-6359  04AB
-6360  04AC
-6361  04AD
-6362  04AE
-6363  04AF
-6364  04B0
-6365  04B1
-6366  04B2
-6367  04B3
-6368  04B4
-6369  04B5
-6370  04B6
-6371  04B7
-6372  04B8
-6373  04B9
-6374  04BA
-6375  04BB
-6376  04BC
-6377  04BD
-6378  04BE
-6379  04BF
-6380  04C0
-6381  04C1
-6382  04C2
-6383  04C3
-6384  04C4
-6385  04C5
-6386  04C6
-6387  04C7
-6388  04C8
-6389  04C9
-6390  04CA
-6391  04CB
-6392  04CC
-6393  04CD
-6394  04CE
-6395  04CF
-6396  04D0
-6397  04D1
-6398  04D2
-6399  04D3
-6400  04D4
-6401  04D5
-6402  04D6
-6403  04D7
-6404  04D8
-6405  04D9
-6406  04DA
-6407  04DB
-6408  04DC
-6409  04DD
-6410  04DE
-6411  04DF
-6412  04E0
-6413  04E1
-6414  04E2
-6415  04E3
-6416  04E4
-6417  04E5
-6418  04E6
-6419  04E7
-6420  04E8
-6421  04E9
-6422  04EA
-6423  04EB
-6424  04EC
-6425  04ED
-6426  04EE
-6427  04EF
-6428  04F0
-6429  04F1
-6430  04F2
-6431  04F3
-6432  04F4
-6433  04F5
-6434  04F6
-6435  04F7
-6436  04F8
-6437  04F9
-6438  04FA
-6439  04FB
-6440  04FC
-6441  04FD
-6442  04FE
-6443  04FF
-6444  0500
-6445  0501
-6446  0502
-6447  0503
-6448  0504
-6449  0505
-6450  0506
-6451  0507
-6452  0508
-6453  0509
-6454  050A
-6455  050B
-6456  050C
-6457  050D
-6458  050E
-6459  050F
-6460  0510
-6461  0511
-6462  0512
-6463  0513
-6464  0514
-6465  0515
-006466  000215        
-006467  000216      var vIAngularMeter0[WIDGET_RAM_SPACE] ;
-006468  000217      var vILedDigits0[WIDGET_RAM_SPACE+2] ;
-006469  000218      var vIAngularMeter1[WIDGET_RAM_SPACE] ;
-006470  000219      var vILedDigits1[WIDGET_RAM_SPACE+2] ;
-006471  000220      var vIAngularMeter2[WIDGET_RAM_SPACE] ;
-006472  000221      var vILedDigits2[WIDGET_RAM_SPACE+2] ;
-006473  000222  // Start P2.inc
-006474  000223  var vObjects[MaxIntObjects+1] ;              // address of RAM objects
-006475  000224  var GObjectIdx, GObjectFunc, GObjectRAM, GObjectDATA, GObjectParms, GObjectStrings ;
-006476  000225  var oObjects[MaxTotObjects+1] ;                 // address of objects
-006477  000226  var CurrentForm, oldn, ImageTouched ;
-006478  000227  var TouchXpos, TouchYpos ;
-006479  000228  var GObjectType, TouchState, CurInputData, pInputIndex ;
-006480  000229  var comRX[40], cmd[CMDLenMAX] ;
-006481  000230        
-006482  000231  var InputCS, OutputCS ;
-006483  000232        
-006484  000233  // > ? Constant/Global/Data ? <
-006485  000234        
-006486  000235        
-006487  000236  func addressInternalWidget(var idx var iponly)
-006488  000237      var i, j ;
-006489  000238  //to(COM0) ; print("Address Int ", idx, " ") ;
-006490  000239      GObjectIdx := xobj2iobj[idx] ;
-006491  000240      GObjectType := (GObjectIdx>>8) ;                          // extract object type
-006492  000241      i := oObjects[GObjectType] ;                              // i is address of list of all objects of this type
-006493  000242      GObjectIdx &= 0xff ;
-006494  000243      //GObjectIdx *= 2 ;
-006495  000244      j := GObjectIdx * 2 ;
-006496  000245      GObjectDATA := i[j + 2] ;                                 // address of this object
-006497  000246      i := vObjects[GObjectType-tiAngularMeter] ;               // i is address of list of all ram objects of his type
-006498  000247      GObjectRAM := i[j] ;                                      // address of this objects' ram
-006499  000248      i := GObjectType-tiAngularMeter ;
-006500  000249      GObjectFunc := gfxInternals[i] ; // address function
-006501  000250      GObjectParms := gfxIntParms[i] ;
-006502  000251      GObjectStrings := gfxIntStrings[i] ;
-006503  000252  //to(COM0) ; print([HEX4] GObjectFunc, " ", [HEX4] GObjectRAM, " ", [HEX4] GObjectDATA, " ", GObjectType, " ", GObjectIdx, "\r\n") ;
-006504  000253  //    GObjectFunc(0, GObjectRAM, GObjectDATA) ;
-006505  000254  endfunc
-006506  000255        
-006507  000256  func seroutCS(var op)
-006508  000257      serout(op) ;
-006509  000258      OutputCS ^= op ;
-006510  000259  endfunc
-006511  000260        
-006512  000261  func nak0()
-006513  000262      serout(NAK) ;
-006514  000263      InputCS := 0 ;
-006515  000264  endfunc
-006516  000265        
-006517  000266  func seroutOcs()
-006518  000267      serout(OutputCS) ;
-006519  000268      OutputCS := 0 ;
-006520  000269  endfunc
-006521  000270        
-006522  000271  func SendReport(var id, var objt, var objn, var val)
-006523  000272      seroutCS(id) ;
-006524  000273      seroutCS(objt) ;
-006525  000274      seroutCS(objn) ;
-006526  000275      seroutCS(val >> 8) ; // first 8 bits
-006527  000276      seroutCS(val) ;
-006528  000277      seroutOcs() ;
-006529  000278  endfunc
-006530  000279        
-006531  000280        
-006532  000281        
-006533  000282  func ReadObject(var ObjectType, var ObjectIdx)
-006534  000283      var j, k, Objects ;
-006535  000284      if ((ObjectType >= tiLedDigitsH) && (ObjectType <= tiLinearInput))
-006536  000285          j := ObjectIdx *2 ;
-006537  000286          k := vObjects[ObjectType-tiAngularMeter] ;               // k is address of list of all ram objects of his type
-006538  000287          k := k[j] ;                                              // k is address of this objects' ram
-006539  000288          if (ObjectType == tiLedDigit)
-006540  000289              k := k[0] ;
-006541  000290          else 
-006542  000291              k := k[WIDGET_VAL1] ;
-006543  000292          endif
-006544  000293  //gfx_MoveTo(0,0); txt_Opacity(OPAQUE) ; print(ObjectType, " ", ObjectIdx, " ", k," ") ;
-006545  000294      else
-006546  000295      Objects := *(oObjects+ObjectType) ;
-006547  000296        
-006548  000297      j := 2 + ObjectIdx * 2 + Objects ;
-006549  000298       if (ObjectType == tForm)
-006550  000299          k := CurrentForm ;
-006551  000300          else
-006552  000301          k := img_GetWord(hndl, *j, IMAGE_INDEX);
-006553  000302      endif
-006554  000303      endif
-006555  000304      SendReport(REPORT_OBJ, ObjectType, ObjectIdx, k) ;
-006556  000305  endfunc
-006557  000306        
-006558  000307  var wp ;
-006559  000308        
-006560  000309        
-006561  000310  func WriteObject(var ObjectType, var ObjectIdx, var NewVal)
-006562  000311      var i, j, k, Objects ;
-006563  000312  //    ObjectType &= 0x3f ; Why was his there? Anibuttons? Complex cascades?
-006564  000313  //to(COM0) ; print("WriteObject ", ObjectType, " ", ObjectIdx, " ", NewVal, "\r\n") ;
-006565  000314      if (ObjectType == tForm)
-006566  000315          ActivateForm(ObjectIdx) ;
-006567  000316          return ;
-006568  000317      endif
-006569  000318          Objects := *(oObjects+ObjectType)+ObjectIdx*2+2 ;
-006570  000319          i := *(Objects) ;
-006571  000320  	if ((ObjectType >= tiAngularMeter) && (ObjectType <= tiLinearInput))
-006572  000321              i := oObjects[ObjectType] ;                              // f is address of list of all objects of this type
-006573  000322              j := ObjectIdx *2 ;
-006574  000323              i := i[j + 2] ;                         // f is address of this object
-006575  000324              k := vObjects[ObjectType-tiAngularMeter] ;               // a is address of list of all ram objects of his type
-006576  000325              k := k[j] ;                             // a is address of this objects' ram
-006577  000326                  j := ObjectType-tiAngularMeter ;
-006578  000327                  Objects := gfxInternals[j] ;           // locate function address   
-006579  000328              Objects(NewVal, k, i) ; 
-006580  000329          return ;
-006581  000330      endif
-006582  000331              img_SetWord(hndl, i , IMAGE_INDEX, NewVal); // where state is 0 to 2
-006583  000332              img_Show(hndl, i) ; // will only display if form is current
-006584  000333      return ; // compiler bug circumvention!
-006585  000334  endfunc
-006586  000335        
-006587  000336        
-006588  000337        
-006589  000338        
-006590  000339        
-006591  000340  func ActivateForm(var newform)
-006592  000341      var i, j, *p ;
-006593  000342        
-006594  000343          widget_Disable(wp, ALL) ;
-006595  000344      if (CurrentForm != -1) // deactivate old form, by disabling all inputs
-006596  000345          for (i := FormStartIndex[CurrentForm]; i <= FormEndIndex[CurrentForm]; i++)
-006597  000346              if (img_GetWord(hndl, i, IMAGE_TAG))
-006598  000347                  img_Disable(hndl,i) ;
-006599  000348              endif
-006600  000349          next
-006601  000350      endif
-006602  000351      CurrentForm := newform ;
-006603  000352      // display newform image or clear to image color
-006604  000353      if (FormBGcolors[CurrentForm] != ColorBGimage)
-006605  000354          gfx_Set(BACKGROUND_COLOUR,FormBGcolors[CurrentForm]);
-006606  000355          gfx_Cls() ;
-006607  000356          DoGFXObjects() ;                                    // display GFX 'widgets'
-006608  000357      endif
-006609  000358        
-006610  000359      // enable inputs
-006611  000360      for (i := FormStartIndex[CurrentForm]; i < FormEndIndex[CurrentForm]; i++)
-006612  000361          j := img_GetWord(hndl, i, IMAGE_TAG) ;
-006613  000362          if (j)
-006614  000363              j-- ;
-006615  000364              img_SetAttributes(hndl, i, I_STAYONTOP+I_ENABLED);        // make sure this is on top of form, if applicable
-006616  000365              //if (j != tKeyboard)
-006617  000366              if (((j <= tWinButton) || (j >= t4Dbutton)) && (j != tSmartGauge) )               // enable inputs
-006618  000367                  img_ClearAttributes(hndl, i, I_TOUCH_DISABLE);        // ensure touch is enabled
-006619  000368              endif
-006620  000369              img_Show(hndl,i) ; // show initialy, if required
-006621  000370              if (j == tForm)
-006622  000371                  DoGFXObjects() ;                                    // display GFX 'widgets' for image backgruobds
-006623  000372              endif
-006624  000373          endif
-006625  000374      next
-006626  000375        
-006627  000376      // enable inputs
-006628  000377         var a, f ; 
-006629  000388  */
-006630  000389      for (i := iFormStartIndex[CurrentForm]; i < iFormEndIndex[CurrentForm]; i++)
-006631  000390          addressInternalWidget(i, 0) ;
-006632  000391          widget_Enable(wp,i) ;
-006633  000392          if (GObjectType != tiLabelB) widget_ClearAttributes(wp,i,WIDGET_F_INITIALISED) ; // don't clear initialised for tiLabelB
-006634  000393                  j := GObjectRAM[WIDGET_VAL1] ;
-006635  000394                  GObjectFunc(j, GObjectRAM, GObjectDATA) ; 
-006636  000395      next
-006637  000396      for (i := iFormStartIndex[CurrentForm]; i < iFormEndIndex[CurrentForm]; i++)
-006638  000397          if (InternalInputControls[i] != -1)
-006639  000398              widget_SetAttributes(wp,i,WIDGET_F_TOUCH_ENABLE) ;
-006640  000399          endif
-006641  000400      next
-006642  000401        
-006643  000402        
-006644  000403  endfunc
-006645  000404        
-006646  000405  func UpdateObjects(var newval)
-006647  000406      var IPidx, otherOBJ, oldvalue ;
-006648  000407      if (GObjectType < tiLedDigitsH)
-006649  000408          oldvalue := img_GetWord(hndl, *(pInputIndex), IMAGE_INDEX) ;
-006650  000409      else
-006651  000410          oldvalue := GObjectRAM[WIDGET_VAL1] ;
-006652  000411      endif
-006653  000412      if ( ( oldvalue != newval) || (TouchState == Ofs_IPD_RELEASE) ) // only bother if values changed, or release
-006654  000413      if (GObjectType < tiLedDigitsH)
-006655  000414          img_SetWord(hndl, *(pInputIndex), IMAGE_INDEX, newval);
-006656  000415              img_Show(hndl, *(pInputIndex));      // only shows on current form
-006657  000416      else
-006658  000417          WriteObject(GObjectType, GObjectIdx, newval) ;
-006659  000418      endif
-006660  000419          IPidx := *(CurInputData+TouchState) ;
-006661  000420          while(IPidx != 0)
-006662  000421              otherOBJ := IPidx + InputData;
-006663  000422              if (*(otherOBJ) == OT_REPORT)
-006664  000423          SendReport(REPORT_EVENT, GObjectType, *(otherOBJ+Ofs_IPD_OBJVIDX), newval) ;
-006665  000424              else if (*(otherOBJ) == OT_MAGIC)
-006666  000425                  IPidx := *(otherOBJ+Ofs_IPD_P5) ;
-006667  000426                  IPidx(newval) ;
-006668  000427  //            else if (TouchState == *(otherOBJ+Ofs_IPD_P4))  // test prior to Workshop 6.5.0.0
-006669  000428              else if ((TouchState == *(otherOBJ+Ofs_IPD_P4)) || (*(CurInputData+Ofs_IPD_P1) && ((GObjectType == t4Dbutton) || (GObjectType == tUserButton) || (GObjectType == tWinButton))))
-006670  000429                  if (*(otherOBJ) == OT_ACTIVATE)
-006671  000430                      ActivateForm(*(otherOBJ+Ofs_IPD_P2) ) ;
-006672  000431                      GObjectType := tForm ;
-006673  000432                  else if (*(otherOBJ) == OT_SETCONST)
-006674  000433                      newval := *(otherOBJ+Ofs_IPD_P3) ;
-006675  000434                      WriteObject(*(otherOBJ+Ofs_IPD_P1), *(otherOBJ+Ofs_IPD_P2), newval) ;
-006676  000435                  else if (*(otherOBJ) == OT_SETANOTHER)
-006677  000436                      WriteObject(*(otherOBJ+Ofs_IPD_P1), *(otherOBJ+Ofs_IPD_P2), newval) ;
-006678  000437                  else if (*(otherOBJ) == OT_PREVFRAME)
-006679  000438                      if (img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX))
-006680  000439                          WriteObject(*(otherOBJ+Ofs_IPD_P5),*(otherOBJ+Ofs_IPD_P2),img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX)-1) ;
-006681  000440                      endif
-006682  000441                      newval := img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX) ;
-006683  000442                  else if (*(otherOBJ) == OT_NEXTFRAME)
-006684  000443                      if (img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX) < *(otherOBJ+Ofs_IPD_P3))
-006685  000444                          WriteObject(*(otherOBJ+Ofs_IPD_P5),*(otherOBJ+Ofs_IPD_P2),img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX)+1) ;
-006686  000445                      endif
-006687  000446                      newval := img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX) ;
-006688  000447                  endif
-006689  000448              endif
-006690  000449              IPidx := *(otherOBJ+TouchState) ;
-006691  000450          wend
-006692  000451      endif
-006693  000452  endfunc
-006694  000453        
-006695  000454  // End P2.inc
-006696  000455  func DoGFXObjects()
-006697  000456  endfunc
-006698  000457        
-006699  000458  // Start P3.inc
-006700  000459  func main()
-006701  000460      var comTX[50], cmdi, i, j, TouchStatus ;
-006702  000461        
-006703  000462        
-006704  000463      gfx_ScreenMode(PORTRAIT) ;
-006705  000464        
-006706  000465      putstr("Mounting...\n");
-006707  000466      if (!(file_Mount()))
-006708  000467          while(!(file_Mount()))
-006709  000468              putstr("Drive not mounted...");
-006710  000469              pause(200);
-006711  000470              gfx_Cls();
-006712  000471              pause(200);
-006713  000472          wend
-006714  000473      endif
-006715  000474        
-006716  000475  //    gfx_MoveTo(0, 0);
-006717  000476  //    print(mem_Heap()," ") ;
-006718  000477  //    gfx_TransparentColour(0x0020);
-006719  000478  //    gfx_Transparency(ON);
-006720  000479        
-006721  000480        
-006722  000481      // open image control
-006723  000482      hndl := file_LoadImageControl("VolvoBoo.dat", "VolvoBoo.gci", 1);
-006724  000483        
-006725  000484        
-006726  000485      // init 'constants'
-006727  000486  // End P3.inc
-006728  000487        
-006729  000488      oObjects[tDipSwitch] := oDipSwitchs ; // dummy as no object there
-006730  000489      oObjects[tKnob] := oDipSwitchs ; // dummy as no object there
-006731  000490      oObjects[tRockerSwitch] := oDipSwitchs ; // dummy as no object there
-006732  000491      oObjects[tRotarySwitch] := oDipSwitchs ; // dummy as no object there
-006733  000492      oObjects[tGSlider] := oDipSwitchs ; // dummy as no object there
-006734  000493      oObjects[tTrackbar] := oDipSwitchs ; // dummy as no object there
-006735  000494      oObjects[tWinButton] := oDipSwitchs ; // dummy as no object there
-006736  000495      oObjects[tAngularmeter] := oDipSwitchs ; // dummy as no object there
-006737  000496      oObjects[tCoolgauge] := oDipSwitchs ; // dummy as no object there
-006738  000497      oObjects[tCustomdigits] := oDipSwitchs ; // dummy as no object there
-006739  000498      oObjects[tForm] := oForms ;
-006740  000499      oObjects[tGauge] := oDipSwitchs ; // dummy as no object there
-006741  000500      oObjects[tImage] := oDipSwitchs ; // dummy as no object there
-006742  000501      oObjects[tKeyboard] := oDipSwitchs ; // dummy as no object there
-006743  000502      oObjects[tLed] := oDipSwitchs ; // dummy as no object there
-006744  000503      oObjects[tLeddigits] := oDipSwitchs ; // dummy as no object there
-006745  000504      oObjects[tMeter] := oDipSwitchs ; // dummy as no object there
-006746  000505      oObjects[tStrings] := oDipSwitchs ; // dummy as no object there
-006747  000506      oObjects[tThermometer] := oDipSwitchs ; // dummy as no object there
-006748  000507      oObjects[tUserled] := oDipSwitchs ; // dummy as no object there
-006749  000508      oObjects[tVideo] := oDipSwitchs ; // dummy as no object there
-006750  000509      oObjects[tStaticText] := oStaticTexts ;
-006751  000510      oObjects[tSounds] := oDipSwitchs ; // dummy as no object there
-006752  000511      oObjects[tTimer] := oDipSwitchs ; // dummy as no object there
-006753  000512      oObjects[tSpectrum] := oDipSwitchs ; // dummy as no object there
-006754  000513      oObjects[tTank] := oDipSwitchs ; // dummy as no object there
-006755  000514      oObjects[tUserImages] := oDipSwitchs ; // dummy as no object there
-006756  000515      oObjects[tPinOutput] := oDipSwitchs ; // dummy as no object there
-006757  000516      oObjects[tPinInput] := oDipSwitchs ; // dummy as no object there
-006758  000517      oObjects[t4Dbutton] := oDipSwitchs ; // dummy as no object there
-006759  000518      oObjects[tAniButton] := oDipSwitchs ; // dummy as no object there
-006760  000519      oObjects[tColorPicker] := oDipSwitchs ; // dummy as no object there
-006761  000520      oObjects[tUserButton] := oDipSwitchs ; // dummy as no object there
-006762  000521      oObjects[tMagicObject] := oDipSwitchs ; // dummy as no object there
-006763  000522      oObjects[tSmartGauge] := oDipSwitchs ; // dummy as no object there
-006764  000523      oObjects[tSmartSlider] := oDipSwitchs ; // dummy as no object there
-006765  000524      oObjects[tSmartKnob] := oDipSwitchs ; // dummy as no object there
-006766  000525      oObjects[tiLedDigitsH] := oDipSwitchs ; // dummy as no object there
-006767  000526      oObjects[tiAngularMeter] := oiAngularMeters ;
-006768  000527      oObjects[tiGauge] := oDipSwitchs ; // dummy as no object there
-006769  000528      oObjects[tiLabelB] := oDipSwitchs ; // dummy as no object there
-006770  000529      oObjects[tiUserGauge] := oDipSwitchs ; // dummy as no object there
-006771  000530      oObjects[tiMediaGauge] := oDipSwitchs ; // dummy as no object there
-006772  000531      oObjects[tiMediaThermometer] := oDipSwitchs ; // dummy as no object there
-006773  000532      oObjects[tiLed] := oDipSwitchs ; // dummy as no object there
-006774  000533      oObjects[tiMediaLed] := oDipSwitchs ; // dummy as no object there
-006775  000534      oObjects[tiLedDigits] := oiLedDigitss ;
-006776  000535      oObjects[tiNeedle] := oDipSwitchs ; // dummy as no object there
-006777  000536      oObjects[tiRuler] := oDipSwitchs ; // dummy as no object there
-006778  000537      oObjects[tiLedDigit] := oDipSwitchs ; // dummy as no object there
-006779  000538      oObjects[tiButtonD] := oDipSwitchs ; // dummy as no object there
-006780  000539      oObjects[tiButtonE] := oDipSwitchs ; // dummy as no object there
-006781  000540      oObjects[tiMediaButton] := oDipSwitchs ; // dummy as no object there
-006782  000541      oObjects[tiToggleInput] := oDipSwitchs ; // dummy as no object there
-006783  000542      oObjects[tiDial] := oDipSwitchs ; // dummy as no object there
-006784  000543      oObjects[tiMediaRotary] := oDipSwitchs ; // dummy as no object there
-006785  000544      oObjects[tiRotaryInput] := oDipSwitchs ; // dummy as no object there
-006786  000545      oObjects[tiSwitch] := oDipSwitchs ; // dummy as no object there
-006787  000546      oObjects[tiSwitchB] := oDipSwitchs ; // dummy as no object there
-006788  000547      oObjects[tiSliderE] := oDipSwitchs ; // dummy as no object there
-006789  000548      oObjects[tiMediaSlider] := oDipSwitchs ; // dummy as no object there
-006790  000549      oObjects[tiSliderH] := oDipSwitchs ; // dummy as no object there
-006791  000550      oObjects[tiSliderG] := oDipSwitchs ; // dummy as no object there
-006792  000551      oObjects[tiSliderF] := oDipSwitchs ; // dummy as no object there
-006793  000552      oObjects[tiSliderD] := oDipSwitchs ; // dummy as no object there
-006794  000553      oObjects[tiSliderC] := oDipSwitchs ; // dummy as no object there
-006795  000554      oObjects[tiLinearInput] := oDipSwitchs ; // dummy as no object there
-006796  000555      vObjects[0] := oiviAngularMeter ;
-006797  000556      vObjects[8] := oiviLedDigits ;
-006798  000557  // Start P4.inc
-006799  000558      wp := widget_Create(6) ;
-006800  000559      for (i := 0; i < 6; i++)
-006801  000560  	addressInternalWidget(i, 0) ;
-006802  000561          widget_Add(wp, i, GObjectRAM) ;
-006803  000562  //        if (GObjectType == tiLabelB)			// code to cause 'early' allocation of 'buffer' storage in LabelB widgets
-006804  000563  //            widget_Disable(wp, i) ;
-006805  000564  //            img_FunctionCall(hndl, GObjectFunc, j, GObjectRAM, GObjectDATA, GObjectParms, GObjectStrings) ;
-006806  000565  //        endif
-006807  000566      next
-006808  000567        
-006809  000568      // init comms
-006810  000569      com_Init(comRX,CMDLenMAX,0);
-006811  000570      com_SetBaud(COM0,11520);
-006812  000571      com_TXbuffer(comTX, 100, 0);
-006813  000572      // tag 'real' objects
-006814  000573      for (i := 0; i <= MaxTotObjects; i++)
-006815  000574          if (   (i != tSounds)
-006816  000575              && (i != tTimer)
-006817  000576              && (i != tPinOutput)
-006818  000577              && (i != tMagicObject)
-006819  000578              && (i != tPinInput) )
-006820  000579              TouchXpos := oObjects[i] ;
-006821  000580              TouchYpos := *(TouchXpos) ;
-006822  000581              for (ImageTouched := 1; ImageTouched <= TouchYpos; ImageTouched++)
-006823  000582                  oldn := *(TouchXpos+ImageTouched*2) ;
-006824  000583                  img_SetAttributes(hndl, oldn, I_TOUCH_DISABLE);  // ensure touch is enabled
-006825  000584                  if (oldn != -1)
-006826  000585                      img_SetWord(hndl, oldn, IMAGE_TAG, i+1);
-006827  000586                      img_Disable(hndl, oldn) ;
-006828  000587                  endif
-006829  000588              next
-006830  000589          endif
-006831  000590      next
-006832  000591        
-006833  000592        
-006834  000593      // display initial form
-006835  000594      CurrentForm := -1 ;
-006836  000595  // End P4.inc
-006837  000596  // Start P5.inc
-006838  000597      ActivateForm(0) ; // need to change this according to first actual form
-006839  000598        
-006840  000599  // End P5.inc
-006841  000600  // Start P6.inc Diablo
-006842  000601      touch_Set(TOUCH_ENABLE);                            // enable the touch screen
-006843  000602      oldn := -1 ;
-006844  000603      repeat
-006845  000604        
-006846  000605          // check comms for command, how to NAK invalid command
-006847  000606          if (com_Count() != 0)
-006848  000607              i := serin() ;
-006849  000608              InputCS ^= i ;               // update checksum
-006850  000609                  cmd[cmdi++] := i ;
-006851  000610                   if (   (cmd[0] == READ_OBJ)
-006852  000611                           && (cmdi == 4)         )
-006853  000612                      if (InputCS)
-006854  000613                          nak0() ;
-006855  000614                      else
-006856  000615                          ReadObject(cmd[1], cmd[2]) ;
-006857  000616                      endif
-006858  000617                      cmdi := 0 ;
-006859  000618                  else if (   (cmd[0] == WRITE_OBJ)    // 6 byte write command (gen option)
-006860  000619                           && (cmdi == 6)          )
-006861  000620                      if (InputCS)
-006862  000621                          nak0() ;
-006863  000622                      else
-006864  000623                          WriteObject(cmd[1], cmd[2], cmd[3] << 8 + cmd[4]) ;
-006865  000624                          serout(ACK) ;
-006866  000625                      endif
-006867  000626                      cmdi := 0 ;
-006868  000627                  else if (   (cmd[0] == WRITE_CONTRAST)
-006869  000628                           && (cmdi == 3)         )
-006870  000629                      if (InputCS)
-006871  000630                          nak0() ;
-006872  000631                      else
-006873  000632                          gfx_Contrast(cmd[1]) ;
-006874  000633                          serout(ACK) ;
-006875  000634                      endif
-006876  000635                      cmdi := 0 ;
-006877  000636                  else if (cmdi == 6)    // we have 6 bytes and we've gotten here -> something wrong
-006878  000637                      nak0() ;
-006879  000638                      cmdi := 0 ;
-006880  000639                  endif
-006881  000640          endif   // a character is available
-006882  000641        
-006883  000642        
-006884  000643      // touch code processing
-006885  000644        
-006886  000645          TouchStatus := touch_Get(TOUCH_STATUS);               // get touchscreen status
-006887  000646          if ((TouchStatus == TOUCH_PRESSED) || (TouchStatus == TOUCH_RELEASED) || (TouchStatus == TOUCH_MOVING))
-006888  000647              ImageTouched := img_Touched(hndl,-1) ;
-006889  000648              if (ImageTouched == -1)
-006890  000649                  ImageTouched := widget_Touched(wp, ALL) ;
-006891  000650                  if (ImageTouched != -1) ImageTouched := -2 - ImageTouched ;
-006892  000651              endif
-006893  000652              if ((TouchStatus != TOUCH_RELEASED) && (ImageTouched != oldn) && (oldn != -1))
-006894  000653                  TouchStatus := TOUCH_RELEASED ;       // simulate release if we move off object
-006895  000654              endif
-006896  000655              if (TouchStatus != TOUCH_RELEASED)        // if not released
-006897  000656                  if (oldn != -1)
-006898  000657                      ImageTouched := oldn ;
-006899  000658                  else
-006900  000659                      if (oldn != ImageTouched)
-006901  000660                  oldn := ImageTouched ;
-006902  000661                          TouchStatus := TOUCH_PRESSED ;
-006903  000662                      endif
-006904  000663                  endif
-006905  000664                  TouchXpos  := touch_Get(TOUCH_GETX);
-006906  000665                  TouchYpos  := touch_Get(TOUCH_GETY);
-006907  000666                  TouchState := Ofs_IPD_DOWN ;
-006908  000667              else
-006909  000668                  ImageTouched := oldn ;                     // simulate release of what we touched
-006910  000669                  oldn := -1 ;                    // prevent double release
-006911  000670                  TouchState := Ofs_IPD_RELEASE ;
-006912  000671              endif
-006913  000672              if (ImageTouched >= 0)
-006914  000673                          CurInputData := InputControls[ImageTouched] + InputData;
-006915  000674                          GObjectType := *(CurInputData) ;
-006916  000675                          if (GObjectType == tSmartSlider)
-006917  000676                              i := tTrackbar ; // GSlider ;
-006918  000677                          else if (GObjectType == tSmartKnob)
-006919  000678                              i := tKnob ;
-006920  000679                          else if (GObjectType >= t4Dbutton) 
-006921  000680                              i := GObjectType - 23 ; // adjust to ensure next in gosub
-006922  000681                          else 
-006923  000682                              i := GObjectType ;
-006924  000683                          endif
-006925  000684                          gosub (i), (cDipswitch, cKnob, cRockerswitch, cRotaryswitch, cSlider, cTrackbar, cWinbutton, c4DButton, cAniButton, cColorPicker, cUserButton) ;
-006926  000685                          ImageTouched := -1 ; // show processed here
-006927  000686              endif
-006928  000687              if (ImageTouched != -1) ImageTouched := -2 - ImageTouched ;
-006929  000688              if (ImageTouched >= 0)
-006930  000689  //print(ImageTouched," ") ;
-006931  000690  //                        CurInputData := InternalInputControls[ImageTouched] + InternalInputData;
-006932  000691                          CurInputData := InternalInputControls[ImageTouched] + InputData;
-006933  000692  //                        GObjectType := *(CurInputData) ;
-006934  000693  //                        i := GObjectType ;
-006935  000694  //                        if (GObjectType >= t4Dbutton) i -= 23 ; // adjust to ensure next in gosub
-006936  000695  //                        gosub (i), (cDipswitch, cKnob, cRockerswitch, cRotaryswitch, cSlider, cTrackbar, cWinbutton, c4DButton, cAniButton, cColorPicker, cUserButton) ;
-006937  000696                          addressInternalWidget(ImageTouched, 0) ;
-006938  000697  //                        i := xobj2iiobj[ImageTouched] ;                            // address object type and hash from ram index
-006939  000698  //                        GObjectIdx := i & 0xff ;
-006940  000699  //                        GObjectType := (i>>8) ;                                   // extract object type
-006941  000700                          if (GObjectType <= tiToggleInput) 
-006942  000701                              i := 0 ;
-006943  000702                          else if (GObjectType <= tiRotaryInput) 
-006944  000703                              i := 1 ;
-006945  000704                          else if (GObjectType <= tiSwitchB) 
-006946  000705                              i := 2 ;
-006947  000706                          else 
-006948  000707                              i := 3 ;
-006949  000708                          endif
-006950  000709  //to(COM0) ; print(i, "\r\n") ;  
-006951  000710        
-006952  000711                          gosub (i), (ciButton, ciDial, ciSwitch, ciSlider) ;
-006953  000712        
-006954  000713        
-006955  000714  //            ImageTouched := widget_Touched(wp, ALL) ;
-006956  000715              endif
-006957  000716          endif
-006958  000717   //       if ((n != -1) && (oldn == -1)) oldn := n ;    // save what we touched in case we move off it
-006959  000718        
-006960  000719          sys_EventsResume() ;
-006961  000720      forever
-006962  000721        
-006963  000722  ciSwitch:
-006964  000723  cDipswitch:
-006965  000724        
-006966  000725  cKnob:
-006967  000726  ciDial:
-006968  000727        
-006969  000728  cRockerswitch:
-006970  000729        
-006971  000730  cRotaryswitch:
-006972  000731        
-006973  000732  cSlider:
-006974  000733  cTrackbar:
-006975  000734  ciSlider:
-006976  000735        
-006977  000736  ciButton:
-006978  000737        
-006979  000738  c4DButton:
-006980  000739  cUserButton:
-006981  000740  cWinbutton:
-006982  000741        
-006983  000742  cAniButton:
-006984  000743        
-006985  000744  cColorPicker:
-006986  000745        
-006987  000746  endfunc
-006988  000747  // End P6.inc
-Notice: local var 'j' in func 'main' is never used (line 460 file:VolvoBoostGauge.4DGenieS)
+005817  000219  #END
+5818  0326
+5819  0327
+5820  0328
+5821  0329
+5822  032A
+5823  032B
+5824  032C
+5825  032D
+5826  032E
+5827  032F
+5828  0330
+5829  0331
+5830  0332
+5831  0333
+5832  0334
+5833  0335
+5834  0336
+5835  0337
+5836  0338
+5837  0339
+5838  033A
+5839  033B
+5840  033C
+5841  033D
+5842  033E
+5843  033F
+5844  0340
+5845  0341
+5846  0342
+5847  0343
+5848  0344
+5849  0345
+5850  0346
+5851  0347
+5852  0348
+5853  0349
+5854  034A
+5855  034B
+5856  034C
+5857  034D
+5858  034E
+5859  034F
+5860  0350
+5861  0351
+5862  0352
+5863  0353
+5864  0354
+5865  0355
+5866  0356
+5867  0357
+5868  0358
+5869  0359
+5870  035A
+5871  035B
+5872  035C
+5873  035D
+5874  035E
+5875  035F
+5876  0360
+5877  0361
+5878  0362
+5879  0363
+5880  0364
+5881  0365
+5882  0366
+5883  0367
+5884  0368
+5885  0369
+5886  036A
+5887  036B
+5888  036C
+5889  036D
+5890  036E
+5891  036F
+5892  0370
+5893  0371
+5894  0372
+5895  0373
+5896  0374
+5897  0375
+5898  0376
+5899  0377
+5900  0378
+5901  0379
+5902  037A
+5903  037B
+5904  037C
+5905  037D
+5906  037E
+5907  037F
+5908  0380
+5909  0381
+5910  0382
+5911  0383
+5912  0384
+5913  0385
+5914  0386
+5915  0387
+5916  0388
+5917  0389
+5918  038A
+5919  038B
+5920  038C
+5921  038D
+5922  038E
+5923  038F
+5924  0390
+5925  0391
+5926  0392
+5927  0393
+5928  0394
+5929  0395
+5930  0396
+5931  0397
+5932  0398
+5933  0399
+5934  039A
+5935  039B
+5936  039C
+5937  039D
+5938  039E
+5939  039F
+5940  03A0
+5941  03A1
+5942  03A2
+5943  03A3
+5944  03A4
+5945  03A5
+5946  03A6
+5947  03A7
+5948  03A8
+5949  03A9
+5950  03AA
+5951  03AB
+5952  03AC
+5953  03AD
+5954  03AE
+5955  03AF
+5956  03B0
+5957  03B1
+5958  03B2
+5959  03B3
+5960  03B4
+5961  03B5
+5962  03B6
+5963  03B7
+5964  03B8
+5965  03B9
+5966  03BA
+5967  03BB
+5968  03BC
+5969  03BD
+5970  03BE
+5971  03BF
+5972  03C0
+5973  03C1
+5974  03C2
+5975  03C3
+5976  03C4
+5977  03C5
+5978  03C6
+5979  03C7
+5980  03C8
+5981  03C9
+5982  03CA
+5983  03CB
+5984  03CC
+5985  03CD
+5986  03CE
+5987  03CF
+5988  03D0
+5989  03D1
+5990  03D2
+5991  03D3
+5992  03D4
+5993  03D5
+5994  03D6
+5995  03D7
+5996  03D8
+5997  03D9
+5998  03DA
+5999  03DB
+6000  03DC
+6001  03DD
+6002  03DE
+6003  03DF
+6004  03E0
+6005  03E1
+6006  03E2
+6007  03E3
+6008  03E4
+6009  03E5
+6010  03E6
+6011  03E7
+6012  03E8
+6013  03E9
+6014  03EA
+6015  03EB
+6016  03EC
+6017  03ED
+6018  03EE
+6019  03EF
+6020  03F0
+6021  03F1
+6022  03F2
+6023  03F3
+6024  03F4
+6025  03F5
+6026  03F6
+6027  03F7
+6028  03F8
+6029  03F9
+6030  03FA
+6031  03FB
+6032  03FC
+6033  03FD
+6034  03FE
+6035  03FF
+6036  0400
+6037  0401
+6038  0402
+6039  0403
+6040  0404
+6041  0405
+6042  0406
+6043  0407
+6044  0408
+6045  0409
+6046  040A
+6047  040B
+6048  040C
+6049  040D
+6050  040E
+6051  040F
+6052  0410
+6053  0411
+6054  0412
+6055  0413
+6056  0414
+6057  0415
+6058  0416
+6059  0417
+6060  0418
+6061  0419
+6062  041A
+6063  041B
+6064  041C
+6065  041D
+6066  041E
+6067  041F
+6068  0420
+6069  0421
+6070  0422
+6071  0423
+6072  0424
+6073  0425
+6074  0426
+6075  0427
+6076  0428
+6077  0429
+6078  042A
+6079  042B
+6080  042C
+6081  042D
+6082  042E
+6083  042F
+6084  0430
+6085  0431
+6086  0432
+6087  0433
+6088  0434
+6089  0435
+6090  0436
+6091  0437
+6092  0438
+6093  0439
+6094  043A
+6095  043B
+6096  043C
+6097  043D
+6098  043E
+6099  043F
+6100  0440
+6101  0441
+6102  0442
+6103  0443
+6104  0444
+6105  0445
+6106  0446
+6107  0447
+6108  0448
+6109  0449
+6110  044A
+6111  044B
+6112  044C
+6113  044D
+6114  044E
+6115  044F
+6116  0450
+6117  0451
+6118  0452
+6119  0453
+6120  0454
+6121  0455
+6122  0456
+6123  0457
+6124  0458
+6125  0459
+6126  045A
+6127  045B
+6128  045C
+6129  045D
+6130  045E
+6131  045F
+6132  0460
+6133  0461
+6134  0462
+6135  0463
+6136  0464
+6137  0465
+6138  0466
+6139  0467
+6140  0468
+6141  0469
+6142  046A
+6143  046B
+6144  046C
+6145  046D
+6146  046E
+6147  046F
+6148  0470
+6149  0471
+6150  0472
+6151  0473
+6152  0474
+6153  0475
+6154  0476
+6155  0477
+6156  0478
+6157  0479
+6158  047A
+6159  047B
+6160  047C
+6161  047D
+6162  047E
+6163  047F
+6164  0480
+6165  0481
+6166  0482
+6167  0483
+6168  0484
+6169  0485
+6170  0486
+6171  0487
+6172  0488
+6173  0489
+6174  048A
+6175  048B
+6176  048C
+6177  048D
+6178  048E
+6179  048F
+6180  0490
+6181  0491
+6182  0492
+6183  0493
+6184  0494
+6185  0495
+6186  0496
+6187  0497
+6188  0498
+6189  0499
+6190  049A
+6191  049B
+6192  049C
+6193  049D
+6194  049E
+6195  049F
+6196  04A0
+6197  04A1
+6198  04A2
+6199  04A3
+6200  04A4
+6201  04A5
+6202  04A6
+6203  04A7
+6204  04A8
+6205  04A9
+6206  04AA
+6207  04AB
+6208  04AC
+6209  04AD
+6210  04AE
+6211  04AF
+6212  04B0
+6213  04B1
+6214  04B2
+6215  04B3
+6216  04B4
+6217  04B5
+6218  04B6
+6219  04B7
+6220  04B8
+6221  04B9
+6222  04BA
+6223  04BB
+6224  04BC
+6225  04BD
+6226  04BE
+6227  04BF
+6228  04C0
+6229  04C1
+6230  04C2
+6231  04C3
+6232  04C4
+6233  04C5
+6234  04C6
+6235  04C7
+6236  04C8
+6237  04C9
+6238  04CA
+6239  04CB
+6240  04CC
+6241  04CD
+6242  04CE
+6243  04CF
+6244  04D0
+6245  04D1
+6246  04D2
+6247  04D3
+6248  04D4
+6249  04D5
+6250  04D6
+6251  04D7
+6252  04D8
+6253  04D9
+6254  04DA
+6255  04DB
+6256  04DC
+6257  04DD
+6258  04DE
+6259  04DF
+6260  04E0
+6261  04E1
+6262  04E2
+6263  04E3
+6264  04E4
+6265  04E5
+6266  04E6
+6267  04E7
+6268  04E8
+6269  04E9
+6270  04EA
+6271  04EB
+6272  04EC
+6273  04ED
+6274  04EE
+6275  04EF
+6276  04F0
+6277  04F1
+6278  04F2
+6279  04F3
+6280  04F4
+6281  04F5
+6282  04F6
+6283  04F7
+6284  04F8
+6285  04F9
+6286  04FA
+6287  04FB
+6288  04FC
+6289  04FD
+6290  04FE
+6291  04FF
+6292  0500
+6293  0501
+6294  0502
+6295  0503
+6296  0504
+6297  0505
+6298  0506
+6299  0507
+6300  0508
+6301  0509
+6302  050A
+6303  050B
+6304  050C
+6305  050D
+6306  050E
+6307  050F
+6308  0510
+6309  0511
+6310  0512
+6311  0513
+6312  0514
+6313  0515
+6314  0516
+6315  0517
+6316  0518
+6317  0519
+6318  051A
+6319  051B
+6320  051C
+6321  051D
+6322  051E
+6323  051F
+6324  0520
+6325  0521
+6326  0522
+6327  0523
+6328  0524
+6329  0525
+6330  0526
+6331  0527
+6332  0528
+6333  0529
+6334  052A
+6335  052B
+6336  052C
+6337  052D
+6338  052E
+6339  052F
+6340  0530
+6341  0531
+6342  0532
+6343  0533
+6344  0534
+6345  0535
+6346  0536
+6347  0537
+6348  0538
+6349  0539
+6350  053A
+6351  053B
+6352  053C
+6353  053D
+6354  053E
+6355  053F
+6356  0540
+6357  0541
+6358  0542
+6359  0543
+6360  0544
+6361  0545
+6362  0546
+6363  0547
+6364  0548
+6365  0549
+6366  054A
+6367  054B
+6368  054C
+6369  054D
+6370  054E
+6371  054F
+6372  0550
+6373  0551
+6374  0552
+6375  0553
+6376  0554
+6377  0555
+6378  0556
+6379  0557
+6380  0558
+6381  0559
+6382  055A
+6383  055B
+6384  055C
+6385  055D
+6386  055E
+6387  055F
+6388  0560
+6389  0561
+6390  0562
+6391  0563
+6392  0564
+6393  0565
+6394  0566
+6395  0567
+6396  0568
+6397  0569
+6398  056A
+6399  056B
+6400  056C
+6401  056D
+6402  056E
+6403  056F
+6404  0570
+6405  0571
+6406  0572
+6407  0573
+6408  0574
+6409  0575
+6410  0576
+6411  0577
+6412  0578
+6413  0579
+6414  057A
+6415  057B
+6416  057C
+6417  057D
+6418  057E
+6419  057F
+6420  0580
+6421  0581
+6422  0582
+6423  0583
+6424  0584
+6425  0585
+6426  0586
+6427  0587
+6428  0588
+6429  0589
+6430  058A
+6431  058B
+6432  058C
+6433  058D
+6434  058E
+6435  058F
+6436  0590
+6437  0591
+6438  0592
+6439  0593
+6440  0594
+6441  0595
+6442  0596
+6443  0597
+6444  0598
+6445  0599
+6446  059A
+6447  059B
+6448  059C
+6449  059D
+6450  059E
+6451  059F
+6452  05A0
+6453  05A1
+6454  05A2
+6455  05A3
+6456  05A4
+6457  05A5
+6458  05A6
+6459  05A7
+6460  05A8
+6461  05A9
+6462  05AA
+6463  05AB
+6464  05AC
+6465  05AD
+6466  05AE
+6467  05AF
+6468  05B0
+6469  05B1
+6470  05B2
+6471  05B3
+6472  05B4
+6473  05B5
+6474  05B6
+6475  05B7
+6476  05B8
+6477  05B9
+6478  05BA
+6479  05BB
+6480  05BC
+6481  05BD
+6482  05BE
+6483  05BF
+6484  05C0
+6485  05C1
+6486  05C2
+6487  05C3
+6488  05C4
+6489  05C5
+6490  05C6
+6491  05C7
+6492  05C8
+6493  05C9
+6494  05CA
+6495  05CB
+6496  05CC
+6497  05CD
+6498  05CE
+6499  05CF
+6500  05D0
+6501  05D1
+6502  05D2
+6503  05D3
+6504  05D4
+6505  05D5
+6506  05D6
+6507  05D7
+6508  05D8
+6509  05D9
+6510  05DA
+6511  05DB
+6512  05DC
+6513  05DD
+6514  05DE
+6515  05DF
+6516  05E0
+6517  05E1
+6518  05E2
+6519  05E3
+6520  05E4
+6521  05E5
+6522  05E6
+6523  05E7
+6524  05E8
+6525  05E9
+6526  05EA
+6527  05EB
+6528  05EC
+6529  05ED
+6530  05EE
+6531  05EF
+6532  05F0
+6533  05F1
+6534  05F2
+6535  05F3
+6536  05F4
+6537  05F5
+6538  05F6
+6539  05F7
+6540  05F8
+6541  05F9
+6542  05FA
+6543  05FB
+6544  05FC
+6545  05FD
+6546  05FE
+6547  05FF
+6548  0600
+6549  0601
+6550  0602
+6551  0603
+6552  0604
+6553  0605
+6554  0606
+6555  0607
+6556  0608
+6557  0609
+6558  060A
+6559  060B
+6560  060C
+6561  060D
+6562  060E
+6563  060F
+6564  0610
+6565  0611
+6566  0612
+6567  0613
+6568  0614
+6569  0615
+6570  0616
+6571  0617
+6572  0618
+6573  0619
+6574  061A
+6575  061B
+6576  061C
+6577  061D
+6578  061E
+6579  061F
+6580  0620
+6581  0621
+6582  0622
+6583  0623
+6584  0624
+6585  0625
+6586  0626
+6587  0627
+6588  0628
+6589  0629
+6590  062A
+6591  062B
+6592  062C
+6593  062D
+6594  062E
+6595  062F
+6596  0630
+6597  0631
+6598  0632
+6599  0633
+6600  0634
+6601  0635
+6602  0636
+6603  0637
+6604  0638
+6605  0639
+6606  063A
+6607  063B
+6608  063C
+6609  063D
+6610  063E
+6611  063F
+6612  0640
+6613  0641
+6614  0642
+6615  0643
+6616  0644
+6617  0645
+006618  000220        
+006619  000221      var vIAngularMeter0[WIDGET_RAM_SPACE] ;
+006620  000222      var vILedDigits0[WIDGET_RAM_SPACE+2] ;
+006621  000223      var vIAngularMeter1[WIDGET_RAM_SPACE] ;
+006622  000224      var vILedDigits1[WIDGET_RAM_SPACE+2] ;
+006623  000225      var vIAngularMeter2[WIDGET_RAM_SPACE] ;
+006624  000226      var vILedDigits2[WIDGET_RAM_SPACE+2] ;
+006625  000227      var vIAngularMeter3[WIDGET_RAM_SPACE] ;
+006626  000228      var vILedDigits3[WIDGET_RAM_SPACE+2] ;
+006627  000229  // Start P2.inc
+006628  000230  var vObjects[MaxIntObjects+1] ;              // address of RAM objects
+006629  000231  var GObjectIdx, GObjectFunc, GObjectRAM, GObjectDATA, GObjectParms, GObjectStrings ;
+006630  000232  var oObjects[MaxTotObjects+1] ;                 // address of objects
+006631  000233  var CurrentForm, oldn, ImageTouched ;
+006632  000234  var TouchXpos, TouchYpos ;
+006633  000235  var GObjectType, TouchState, CurInputData, pInputIndex ;
+006634  000236  var comRX[40], cmd[CMDLenMAX] ;
+006635  000237        
+006636  000238  var InputCS, OutputCS ;
+006637  000239        
+006638  000240  // > ? Constant/Global/Data ? <
+006639  000241        
+006640  000242        
+006641  000243  func addressInternalWidget(var idx var iponly)
+006642  000244      var i, j ;
+006643  000245  //to(COM0) ; print("Address Int ", idx, " ") ;
+006644  000246      GObjectIdx := xobj2iobj[idx] ;
+006645  000247      GObjectType := (GObjectIdx>>8) ;                          // extract object type
+006646  000248      i := oObjects[GObjectType] ;                              // i is address of list of all objects of this type
+006647  000249      GObjectIdx &= 0xff ;
+006648  000250      //GObjectIdx *= 2 ;
+006649  000251      j := GObjectIdx * 2 ;
+006650  000252      GObjectDATA := i[j + 2] ;                                 // address of this object
+006651  000253      i := vObjects[GObjectType-tiAngularMeter] ;               // i is address of list of all ram objects of his type
+006652  000254      GObjectRAM := i[j] ;                                      // address of this objects' ram
+006653  000255      i := GObjectType-tiAngularMeter ;
+006654  000256      GObjectFunc := gfxInternals[i] ; // address function
+006655  000257      GObjectParms := gfxIntParms[i] ;
+006656  000258      GObjectStrings := gfxIntStrings[i] ;
+006657  000259  //to(COM0) ; print([HEX4] GObjectFunc, " ", [HEX4] GObjectRAM, " ", [HEX4] GObjectDATA, " ", GObjectType, " ", GObjectIdx, "\r\n") ;
+006658  000260  //    GObjectFunc(0, GObjectRAM, GObjectDATA) ;
+006659  000261  endfunc
+006660  000262        
+006661  000263  func seroutCS(var op)
+006662  000264      serout(op) ;
+006663  000265      OutputCS ^= op ;
+006664  000266  endfunc
+006665  000267        
+006666  000268  func nak0()
+006667  000269      serout(NAK) ;
+006668  000270      InputCS := 0 ;
+006669  000271  endfunc
+006670  000272        
+006671  000273  func seroutOcs()
+006672  000274      serout(OutputCS) ;
+006673  000275      OutputCS := 0 ;
+006674  000276  endfunc
+006675  000277        
+006676  000278  func SendReport(var id, var objt, var objn, var val)
+006677  000279      seroutCS(id) ;
+006678  000280      seroutCS(objt) ;
+006679  000281      seroutCS(objn) ;
+006680  000282      seroutCS(val >> 8) ; // first 8 bits
+006681  000283      seroutCS(val) ;
+006682  000284      seroutOcs() ;
+006683  000285  endfunc
+006684  000286        
+006685  000287        
+006686  000288        
+006687  000289  func ReadObject(var ObjectType, var ObjectIdx)
+006688  000290      var j, k, Objects ;
+006689  000291      if ((ObjectType >= tiLedDigitsH) && (ObjectType <= tiLinearInput))
+006690  000292          j := ObjectIdx *2 ;
+006691  000293          k := vObjects[ObjectType-tiAngularMeter] ;               // k is address of list of all ram objects of his type
+006692  000294          k := k[j] ;                                              // k is address of this objects' ram
+006693  000295          if (ObjectType == tiLedDigit)
+006694  000296              k := k[0] ;
+006695  000297          else 
+006696  000298              k := k[WIDGET_VAL1] ;
+006697  000299          endif
+006698  000300  //gfx_MoveTo(0,0); txt_Opacity(OPAQUE) ; print(ObjectType, " ", ObjectIdx, " ", k," ") ;
+006699  000301      else
+006700  000302      Objects := *(oObjects+ObjectType) ;
+006701  000303        
+006702  000304      j := 2 + ObjectIdx * 2 + Objects ;
+006703  000305       if (ObjectType == tForm)
+006704  000306          k := CurrentForm ;
+006705  000307          else
+006706  000308          k := img_GetWord(hndl, *j, IMAGE_INDEX);
+006707  000309      endif
+006708  000310      endif
+006709  000311      SendReport(REPORT_OBJ, ObjectType, ObjectIdx, k) ;
+006710  000312  endfunc
+006711  000313        
+006712  000314  var wp ;
+006713  000315        
+006714  000316        
+006715  000317  func WriteObject(var ObjectType, var ObjectIdx, var NewVal)
+006716  000318      var i, j, k, Objects ;
+006717  000319  //    ObjectType &= 0x3f ; Why was his there? Anibuttons? Complex cascades?
+006718  000320  //to(COM0) ; print("WriteObject ", ObjectType, " ", ObjectIdx, " ", NewVal, "\r\n") ;
+006719  000321      if (ObjectType == tForm)
+006720  000322          ActivateForm(ObjectIdx) ;
+006721  000323          return ;
+006722  000324      endif
+006723  000325          Objects := *(oObjects+ObjectType)+ObjectIdx*2+2 ;
+006724  000326          i := *(Objects) ;
+006725  000327  	if ((ObjectType >= tiAngularMeter) && (ObjectType <= tiLinearInput))
+006726  000328              i := oObjects[ObjectType] ;                              // f is address of list of all objects of this type
+006727  000329              j := ObjectIdx *2 ;
+006728  000330              i := i[j + 2] ;                         // f is address of this object
+006729  000331              k := vObjects[ObjectType-tiAngularMeter] ;               // a is address of list of all ram objects of his type
+006730  000332              k := k[j] ;                             // a is address of this objects' ram
+006731  000333                  j := ObjectType-tiAngularMeter ;
+006732  000334                  Objects := gfxInternals[j] ;           // locate function address   
+006733  000335              Objects(NewVal, k, i) ; 
+006734  000336          return ;
+006735  000337      endif
+006736  000338              img_SetWord(hndl, i , IMAGE_INDEX, NewVal); // where state is 0 to 2
+006737  000339              img_Show(hndl, i) ; // will only display if form is current
+006738  000340      return ; // compiler bug circumvention!
+006739  000341  endfunc
+006740  000342        
+006741  000343        
+006742  000344        
+006743  000345        
+006744  000346        
+006745  000347  func ActivateForm(var newform)
+006746  000348      var i, j, *p ;
+006747  000349        
+006748  000350          widget_Disable(wp, ALL) ;
+006749  000351      if (CurrentForm != -1) // deactivate old form, by disabling all inputs
+006750  000352          for (i := FormStartIndex[CurrentForm]; i <= FormEndIndex[CurrentForm]; i++)
+006751  000353              if (img_GetWord(hndl, i, IMAGE_TAG))
+006752  000354                  img_Disable(hndl,i) ;
+006753  000355              endif
+006754  000356          next
+006755  000357      endif
+006756  000358      CurrentForm := newform ;
+006757  000359      // display newform image or clear to image color
+006758  000360      if (FormBGcolors[CurrentForm] != ColorBGimage)
+006759  000361          gfx_Set(BACKGROUND_COLOUR,FormBGcolors[CurrentForm]);
+006760  000362          gfx_Cls() ;
+006761  000363          DoGFXObjects() ;                                    // display GFX 'widgets'
+006762  000364      endif
+006763  000365        
+006764  000366      // enable inputs
+006765  000367      for (i := FormStartIndex[CurrentForm]; i < FormEndIndex[CurrentForm]; i++)
+006766  000368          j := img_GetWord(hndl, i, IMAGE_TAG) ;
+006767  000369          if (j)
+006768  000370              j-- ;
+006769  000371              img_SetAttributes(hndl, i, I_STAYONTOP+I_ENABLED);        // make sure this is on top of form, if applicable
+006770  000372              //if (j != tKeyboard)
+006771  000373              if (((j <= tWinButton) || (j >= t4Dbutton)) && (j != tSmartGauge) )               // enable inputs
+006772  000374                  img_ClearAttributes(hndl, i, I_TOUCH_DISABLE);        // ensure touch is enabled
+006773  000375              endif
+006774  000376              img_Show(hndl,i) ; // show initialy, if required
+006775  000377              if (j == tForm)
+006776  000378                  DoGFXObjects() ;                                    // display GFX 'widgets' for image backgruobds
+006777  000379              endif
+006778  000380          endif
+006779  000381      next
+006780  000382        
+006781  000383      // enable inputs
+006782  000384         var a, f ; 
+006783  000395  */
+006784  000396      for (i := iFormStartIndex[CurrentForm]; i < iFormEndIndex[CurrentForm]; i++)
+006785  000397          addressInternalWidget(i, 0) ;
+006786  000398          widget_Enable(wp,i) ;
+006787  000399          if (GObjectType != tiLabelB) widget_ClearAttributes(wp,i,WIDGET_F_INITIALISED) ; // don't clear initialised for tiLabelB
+006788  000400                  j := GObjectRAM[WIDGET_VAL1] ;
+006789  000401                  GObjectFunc(j, GObjectRAM, GObjectDATA) ; 
+006790  000402      next
+006791  000403      for (i := iFormStartIndex[CurrentForm]; i < iFormEndIndex[CurrentForm]; i++)
+006792  000404          if (InternalInputControls[i] != -1)
+006793  000405              widget_SetAttributes(wp,i,WIDGET_F_TOUCH_ENABLE) ;
+006794  000406          endif
+006795  000407      next
+006796  000408        
+006797  000409        
+006798  000410  endfunc
+006799  000411        
+006800  000412  func UpdateObjects(var newval)
+006801  000413      var IPidx, otherOBJ, oldvalue ;
+006802  000414      if (GObjectType < tiLedDigitsH)
+006803  000415          oldvalue := img_GetWord(hndl, *(pInputIndex), IMAGE_INDEX) ;
+006804  000416      else
+006805  000417          oldvalue := GObjectRAM[WIDGET_VAL1] ;
+006806  000418      endif
+006807  000419      if ( ( oldvalue != newval) || (TouchState == Ofs_IPD_RELEASE) ) // only bother if values changed, or release
+006808  000420      if (GObjectType < tiLedDigitsH)
+006809  000421          img_SetWord(hndl, *(pInputIndex), IMAGE_INDEX, newval);
+006810  000422              img_Show(hndl, *(pInputIndex));      // only shows on current form
+006811  000423      else
+006812  000424          WriteObject(GObjectType, GObjectIdx, newval) ;
+006813  000425      endif
+006814  000426          IPidx := *(CurInputData+TouchState) ;
+006815  000427          while(IPidx != 0)
+006816  000428              otherOBJ := IPidx + InputData;
+006817  000429              if (*(otherOBJ) == OT_REPORT)
+006818  000430          SendReport(REPORT_EVENT, GObjectType, *(otherOBJ+Ofs_IPD_OBJVIDX), newval) ;
+006819  000431              else if (*(otherOBJ) == OT_MAGIC)
+006820  000432                  IPidx := *(otherOBJ+Ofs_IPD_P5) ;
+006821  000433                  IPidx(newval) ;
+006822  000434  //            else if (TouchState == *(otherOBJ+Ofs_IPD_P4))  // test prior to Workshop 6.5.0.0
+006823  000435              else if ((TouchState == *(otherOBJ+Ofs_IPD_P4)) || (*(CurInputData+Ofs_IPD_P1) && ((GObjectType == t4Dbutton) || (GObjectType == tUserButton) || (GObjectType == tWinButton))))
+006824  000436                  if (*(otherOBJ) == OT_ACTIVATE)
+006825  000437                      ActivateForm(*(otherOBJ+Ofs_IPD_P2) ) ;
+006826  000438                      GObjectType := tForm ;
+006827  000439                  else if (*(otherOBJ) == OT_SETCONST)
+006828  000440                      newval := *(otherOBJ+Ofs_IPD_P3) ;
+006829  000441                      WriteObject(*(otherOBJ+Ofs_IPD_P1), *(otherOBJ+Ofs_IPD_P2), newval) ;
+006830  000442                  else if (*(otherOBJ) == OT_SETANOTHER)
+006831  000443                      WriteObject(*(otherOBJ+Ofs_IPD_P1), *(otherOBJ+Ofs_IPD_P2), newval) ;
+006832  000444                  else if (*(otherOBJ) == OT_PREVFRAME)
+006833  000445                      if (img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX))
+006834  000446                          WriteObject(*(otherOBJ+Ofs_IPD_P5),*(otherOBJ+Ofs_IPD_P2),img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX)-1) ;
+006835  000447                      endif
+006836  000448                      newval := img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX) ;
+006837  000449                  else if (*(otherOBJ) == OT_NEXTFRAME)
+006838  000450                      if (img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX) < *(otherOBJ+Ofs_IPD_P3))
+006839  000451                          WriteObject(*(otherOBJ+Ofs_IPD_P5),*(otherOBJ+Ofs_IPD_P2),img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX)+1) ;
+006840  000452                      endif
+006841  000453                      newval := img_GetWord(hndl, *(otherOBJ+Ofs_IPD_P6), IMAGE_INDEX) ;
+006842  000454                  endif
+006843  000455              endif
+006844  000456              IPidx := *(otherOBJ+TouchState) ;
+006845  000457          wend
+006846  000458      endif
+006847  000459  endfunc
+006848  000460        
+006849  000461  // End P2.inc
+006850  000462  func DoGFXObjects()
+006851  000463  endfunc
+006852  000464        
+006853  000465  // Start P3.inc
+006854  000466  func main()
+006855  000467      var comTX[50], cmdi, i, j, TouchStatus ;
+006856  000468        
+006857  000469        
+006858  000470      gfx_ScreenMode(PORTRAIT) ;
+006859  000471        
+006860  000472      putstr("Mounting...\n");
+006861  000473      if (!(file_Mount()))
+006862  000474          while(!(file_Mount()))
+006863  000475              putstr("Drive not mounted...");
+006864  000476              pause(200);
+006865  000477              gfx_Cls();
+006866  000478              pause(200);
+006867  000479          wend
+006868  000480      endif
+006869  000481        
+006870  000482  //    gfx_MoveTo(0, 0);
+006871  000483  //    print(mem_Heap()," ") ;
+006872  000484  //    gfx_TransparentColour(0x0020);
+006873  000485  //    gfx_Transparency(ON);
+006874  000486        
+006875  000487        
+006876  000488      // open image control
+006877  000489      hndl := file_LoadImageControl("VOLVOB~2.dat", "VOLVOB~2.gci", 1);
+006878  000490        
+006879  000491        
+006880  000492      // init 'constants'
+006881  000493  // End P3.inc
+006882  000494        
+006883  000495      oObjects[tDipSwitch] := oDipSwitchs ; // dummy as no object there
+006884  000496      oObjects[tKnob] := oDipSwitchs ; // dummy as no object there
+006885  000497      oObjects[tRockerSwitch] := oDipSwitchs ; // dummy as no object there
+006886  000498      oObjects[tRotarySwitch] := oDipSwitchs ; // dummy as no object there
+006887  000499      oObjects[tGSlider] := oDipSwitchs ; // dummy as no object there
+006888  000500      oObjects[tTrackbar] := oDipSwitchs ; // dummy as no object there
+006889  000501      oObjects[tWinButton] := oDipSwitchs ; // dummy as no object there
+006890  000502      oObjects[tAngularmeter] := oDipSwitchs ; // dummy as no object there
+006891  000503      oObjects[tCoolgauge] := oDipSwitchs ; // dummy as no object there
+006892  000504      oObjects[tCustomdigits] := oDipSwitchs ; // dummy as no object there
+006893  000505      oObjects[tForm] := oForms ;
+006894  000506      oObjects[tGauge] := oDipSwitchs ; // dummy as no object there
+006895  000507      oObjects[tImage] := oDipSwitchs ; // dummy as no object there
+006896  000508      oObjects[tKeyboard] := oDipSwitchs ; // dummy as no object there
+006897  000509      oObjects[tLed] := oDipSwitchs ; // dummy as no object there
+006898  000510      oObjects[tLeddigits] := oDipSwitchs ; // dummy as no object there
+006899  000511      oObjects[tMeter] := oDipSwitchs ; // dummy as no object there
+006900  000512      oObjects[tStrings] := oDipSwitchs ; // dummy as no object there
+006901  000513      oObjects[tThermometer] := oDipSwitchs ; // dummy as no object there
+006902  000514      oObjects[tUserled] := oDipSwitchs ; // dummy as no object there
+006903  000515      oObjects[tVideo] := oDipSwitchs ; // dummy as no object there
+006904  000516      oObjects[tStaticText] := oStaticTexts ;
+006905  000517      oObjects[tSounds] := oDipSwitchs ; // dummy as no object there
+006906  000518      oObjects[tTimer] := oDipSwitchs ; // dummy as no object there
+006907  000519      oObjects[tSpectrum] := oDipSwitchs ; // dummy as no object there
+006908  000520      oObjects[tTank] := oDipSwitchs ; // dummy as no object there
+006909  000521      oObjects[tUserImages] := oDipSwitchs ; // dummy as no object there
+006910  000522      oObjects[tPinOutput] := oDipSwitchs ; // dummy as no object there
+006911  000523      oObjects[tPinInput] := oDipSwitchs ; // dummy as no object there
+006912  000524      oObjects[t4Dbutton] := oDipSwitchs ; // dummy as no object there
+006913  000525      oObjects[tAniButton] := oDipSwitchs ; // dummy as no object there
+006914  000526      oObjects[tColorPicker] := oDipSwitchs ; // dummy as no object there
+006915  000527      oObjects[tUserButton] := oDipSwitchs ; // dummy as no object there
+006916  000528      oObjects[tMagicObject] := oDipSwitchs ; // dummy as no object there
+006917  000529      oObjects[tSmartGauge] := oDipSwitchs ; // dummy as no object there
+006918  000530      oObjects[tSmartSlider] := oDipSwitchs ; // dummy as no object there
+006919  000531      oObjects[tSmartKnob] := oDipSwitchs ; // dummy as no object there
+006920  000532      oObjects[tiLedDigitsH] := oDipSwitchs ; // dummy as no object there
+006921  000533      oObjects[tiAngularMeter] := oiAngularMeters ;
+006922  000534      oObjects[tiGauge] := oDipSwitchs ; // dummy as no object there
+006923  000535      oObjects[tiLabelB] := oDipSwitchs ; // dummy as no object there
+006924  000536      oObjects[tiUserGauge] := oDipSwitchs ; // dummy as no object there
+006925  000537      oObjects[tiMediaGauge] := oDipSwitchs ; // dummy as no object there
+006926  000538      oObjects[tiMediaThermometer] := oDipSwitchs ; // dummy as no object there
+006927  000539      oObjects[tiLed] := oDipSwitchs ; // dummy as no object there
+006928  000540      oObjects[tiMediaLed] := oDipSwitchs ; // dummy as no object there
+006929  000541      oObjects[tiLedDigits] := oiLedDigitss ;
+006930  000542      oObjects[tiNeedle] := oDipSwitchs ; // dummy as no object there
+006931  000543      oObjects[tiRuler] := oDipSwitchs ; // dummy as no object there
+006932  000544      oObjects[tiLedDigit] := oDipSwitchs ; // dummy as no object there
+006933  000545      oObjects[tiButtonD] := oDipSwitchs ; // dummy as no object there
+006934  000546      oObjects[tiButtonE] := oDipSwitchs ; // dummy as no object there
+006935  000547      oObjects[tiMediaButton] := oDipSwitchs ; // dummy as no object there
+006936  000548      oObjects[tiToggleInput] := oDipSwitchs ; // dummy as no object there
+006937  000549      oObjects[tiDial] := oDipSwitchs ; // dummy as no object there
+006938  000550      oObjects[tiMediaRotary] := oDipSwitchs ; // dummy as no object there
+006939  000551      oObjects[tiRotaryInput] := oDipSwitchs ; // dummy as no object there
+006940  000552      oObjects[tiSwitch] := oDipSwitchs ; // dummy as no object there
+006941  000553      oObjects[tiSwitchB] := oDipSwitchs ; // dummy as no object there
+006942  000554      oObjects[tiSliderE] := oDipSwitchs ; // dummy as no object there
+006943  000555      oObjects[tiMediaSlider] := oDipSwitchs ; // dummy as no object there
+006944  000556      oObjects[tiSliderH] := oDipSwitchs ; // dummy as no object there
+006945  000557      oObjects[tiSliderG] := oDipSwitchs ; // dummy as no object there
+006946  000558      oObjects[tiSliderF] := oDipSwitchs ; // dummy as no object there
+006947  000559      oObjects[tiSliderD] := oDipSwitchs ; // dummy as no object there
+006948  000560      oObjects[tiSliderC] := oDipSwitchs ; // dummy as no object there
+006949  000561      oObjects[tiLinearInput] := oDipSwitchs ; // dummy as no object there
+006950  000562      vObjects[0] := oiviAngularMeter ;
+006951  000563      vObjects[8] := oiviLedDigits ;
+006952  000564  // Start P4.inc
+006953  000565      wp := widget_Create(8) ;
+006954  000566      for (i := 0; i < 8; i++)
+006955  000567  	addressInternalWidget(i, 0) ;
+006956  000568          widget_Add(wp, i, GObjectRAM) ;
+006957  000569  //        if (GObjectType == tiLabelB)			// code to cause 'early' allocation of 'buffer' storage in LabelB widgets
+006958  000570  //            widget_Disable(wp, i) ;
+006959  000571  //            img_FunctionCall(hndl, GObjectFunc, j, GObjectRAM, GObjectDATA, GObjectParms, GObjectStrings) ;
+006960  000572  //        endif
+006961  000573      next
+006962  000574        
+006963  000575      // init comms
+006964  000576      com_Init(comRX,CMDLenMAX,0);
+006965  000577      com_SetBaud(COM0,11520);
+006966  000578      com_TXbuffer(comTX, 100, 0);
+006967  000579      // tag 'real' objects
+006968  000580      for (i := 0; i <= MaxTotObjects; i++)
+006969  000581          if (   (i != tSounds)
+006970  000582              && (i != tTimer)
+006971  000583              && (i != tPinOutput)
+006972  000584              && (i != tMagicObject)
+006973  000585              && (i != tPinInput) )
+006974  000586              TouchXpos := oObjects[i] ;
+006975  000587              TouchYpos := *(TouchXpos) ;
+006976  000588              for (ImageTouched := 1; ImageTouched <= TouchYpos; ImageTouched++)
+006977  000589                  oldn := *(TouchXpos+ImageTouched*2) ;
+006978  000590                  img_SetAttributes(hndl, oldn, I_TOUCH_DISABLE);  // ensure touch is enabled
+006979  000591                  if (oldn != -1)
+006980  000592                      img_SetWord(hndl, oldn, IMAGE_TAG, i+1);
+006981  000593                      img_Disable(hndl, oldn) ;
+006982  000594                  endif
+006983  000595              next
+006984  000596          endif
+006985  000597      next
+006986  000598        
+006987  000599        
+006988  000600      // display initial form
+006989  000601      CurrentForm := -1 ;
+006990  000602  // End P4.inc
+006991  000603  // Start P5.inc
+006992  000604      ActivateForm(0) ; // need to change this according to first actual form
+006993  000605        
+006994  000606  // End P5.inc
+006995  000607  // Start P6.inc Diablo
+006996  000608      touch_Set(TOUCH_ENABLE);                            // enable the touch screen
+006997  000609      oldn := -1 ;
+006998  000610      repeat
+006999  000611        
+007000  000612          // check comms for command, how to NAK invalid command
+007001  000613          if (com_Count() != 0)
+007002  000614              i := serin() ;
+007003  000615              InputCS ^= i ;               // update checksum
+007004  000616                  cmd[cmdi++] := i ;
+007005  000617                   if (   (cmd[0] == READ_OBJ)
+007006  000618                           && (cmdi == 4)         )
+007007  000619                      if (InputCS)
+007008  000620                          nak0() ;
+007009  000621                      else
+007010  000622                          ReadObject(cmd[1], cmd[2]) ;
+007011  000623                      endif
+007012  000624                      cmdi := 0 ;
+007013  000625                  else if (   (cmd[0] == WRITE_OBJ)    // 6 byte write command (gen option)
+007014  000626                           && (cmdi == 6)          )
+007015  000627                      if (InputCS)
+007016  000628                          nak0() ;
+007017  000629                      else
+007018  000630                          WriteObject(cmd[1], cmd[2], cmd[3] << 8 + cmd[4]) ;
+007019  000631                          serout(ACK) ;
+007020  000632                      endif
+007021  000633                      cmdi := 0 ;
+007022  000634                  else if (   (cmd[0] == WRITE_CONTRAST)
+007023  000635                           && (cmdi == 3)         )
+007024  000636                      if (InputCS)
+007025  000637                          nak0() ;
+007026  000638                      else
+007027  000639                          gfx_Contrast(cmd[1]) ;
+007028  000640                          serout(ACK) ;
+007029  000641                      endif
+007030  000642                      cmdi := 0 ;
+007031  000643                  else if (cmdi == 6)    // we have 6 bytes and we've gotten here -> something wrong
+007032  000644                      nak0() ;
+007033  000645                      cmdi := 0 ;
+007034  000646                  endif
+007035  000647          endif   // a character is available
+007036  000648        
+007037  000649        
+007038  000650      // touch code processing
+007039  000651        
+007040  000652          TouchStatus := touch_Get(TOUCH_STATUS);               // get touchscreen status
+007041  000653          if ((TouchStatus == TOUCH_PRESSED) || (TouchStatus == TOUCH_RELEASED) || (TouchStatus == TOUCH_MOVING))
+007042  000654              ImageTouched := img_Touched(hndl,-1) ;
+007043  000655              if (ImageTouched == -1)
+007044  000656                  ImageTouched := widget_Touched(wp, ALL) ;
+007045  000657                  if (ImageTouched != -1) ImageTouched := -2 - ImageTouched ;
+007046  000658              endif
+007047  000659              if ((TouchStatus != TOUCH_RELEASED) && (ImageTouched != oldn) && (oldn != -1))
+007048  000660                  TouchStatus := TOUCH_RELEASED ;       // simulate release if we move off object
+007049  000661              endif
+007050  000662              if (TouchStatus != TOUCH_RELEASED)        // if not released
+007051  000663                  if (oldn != -1)
+007052  000664                      ImageTouched := oldn ;
+007053  000665                  else
+007054  000666                      if (oldn != ImageTouched)
+007055  000667                  oldn := ImageTouched ;
+007056  000668                          TouchStatus := TOUCH_PRESSED ;
+007057  000669                      endif
+007058  000670                  endif
+007059  000671                  TouchXpos  := touch_Get(TOUCH_GETX);
+007060  000672                  TouchYpos  := touch_Get(TOUCH_GETY);
+007061  000673                  TouchState := Ofs_IPD_DOWN ;
+007062  000674              else
+007063  000675                  ImageTouched := oldn ;                     // simulate release of what we touched
+007064  000676                  oldn := -1 ;                    // prevent double release
+007065  000677                  TouchState := Ofs_IPD_RELEASE ;
+007066  000678              endif
+007067  000679              if (ImageTouched >= 0)
+007068  000680                          CurInputData := InputControls[ImageTouched] + InputData;
+007069  000681                          GObjectType := *(CurInputData) ;
+007070  000682                          if (GObjectType == tSmartSlider)
+007071  000683                              i := tTrackbar ; // GSlider ;
+007072  000684                          else if (GObjectType == tSmartKnob)
+007073  000685                              i := tKnob ;
+007074  000686                          else if (GObjectType >= t4Dbutton) 
+007075  000687                              i := GObjectType - 23 ; // adjust to ensure next in gosub
+007076  000688                          else 
+007077  000689                              i := GObjectType ;
+007078  000690                          endif
+007079  000691                          gosub (i), (cDipswitch, cKnob, cRockerswitch, cRotaryswitch, cSlider, cTrackbar, cWinbutton, c4DButton, cAniButton, cColorPicker, cUserButton) ;
+007080  000692                          ImageTouched := -1 ; // show processed here
+007081  000693              endif
+007082  000694              if (ImageTouched != -1) ImageTouched := -2 - ImageTouched ;
+007083  000695              if (ImageTouched >= 0)
+007084  000696  //print(ImageTouched," ") ;
+007085  000697  //                        CurInputData := InternalInputControls[ImageTouched] + InternalInputData;
+007086  000698                          CurInputData := InternalInputControls[ImageTouched] + InputData;
+007087  000699  //                        GObjectType := *(CurInputData) ;
+007088  000700  //                        i := GObjectType ;
+007089  000701  //                        if (GObjectType >= t4Dbutton) i -= 23 ; // adjust to ensure next in gosub
+007090  000702  //                        gosub (i), (cDipswitch, cKnob, cRockerswitch, cRotaryswitch, cSlider, cTrackbar, cWinbutton, c4DButton, cAniButton, cColorPicker, cUserButton) ;
+007091  000703                          addressInternalWidget(ImageTouched, 0) ;
+007092  000704  //                        i := xobj2iiobj[ImageTouched] ;                            // address object type and hash from ram index
+007093  000705  //                        GObjectIdx := i & 0xff ;
+007094  000706  //                        GObjectType := (i>>8) ;                                   // extract object type
+007095  000707                          if (GObjectType <= tiToggleInput) 
+007096  000708                              i := 0 ;
+007097  000709                          else if (GObjectType <= tiRotaryInput) 
+007098  000710                              i := 1 ;
+007099  000711                          else if (GObjectType <= tiSwitchB) 
+007100  000712                              i := 2 ;
+007101  000713                          else 
+007102  000714                              i := 3 ;
+007103  000715                          endif
+007104  000716  //to(COM0) ; print(i, "\r\n") ;  
+007105  000717        
+007106  000718                          gosub (i), (ciButton, ciDial, ciSwitch, ciSlider) ;
+007107  000719        
+007108  000720        
+007109  000721  //            ImageTouched := widget_Touched(wp, ALL) ;
+007110  000722              endif
+007111  000723          endif
+007112  000724   //       if ((n != -1) && (oldn == -1)) oldn := n ;    // save what we touched in case we move off it
+007113  000725        
+007114  000726          sys_EventsResume() ;
+007115  000727      forever
+007116  000728        
+007117  000729  ciSwitch:
+007118  000730  cDipswitch:
+007119  000731        
+007120  000732  cKnob:
+007121  000733  ciDial:
+007122  000734        
+007123  000735  cRockerswitch:
+007124  000736        
+007125  000737  cRotaryswitch:
+007126  000738        
+007127  000739  cSlider:
+007128  000740  cTrackbar:
+007129  000741  ciSlider:
+007130  000742        
+007131  000743  ciButton:
+007132  000744        
+007133  000745  c4DButton:
+007134  000746  cUserButton:
+007135  000747  cWinbutton:
+007136  000748        
+007137  000749  cAniButton:
+007138  000750        
+007139  000751  cColorPicker:
+007140  000752        
+007141  000753  endfunc
+007142  000754  // End P6.inc
+Notice: local var 'j' in func 'main' is never used (line 467 file:VolvoBoostGauge.4DGenieS)
 Notice: no execution path to func 'UpdateObjects'
-Notice: variable 'GObjectRAM' is being indexed (line 393 file:VolvoBoostGauge.4DGenieS)
-Notice: Check that the function called via pointer  'GObjectFunc' requires 3 arguments (line 394 file:VolvoBoostGauge.4DGenieS)
-Notice: local var 'p' in func 'ActivateForm' is never used (line 341 file:VolvoBoostGauge.4DGenieS)
-Notice: local var 'a' in func 'ActivateForm' is never used (line 377 file:VolvoBoostGauge.4DGenieS)
-Notice: local var 'f' in func 'ActivateForm' is never used (line 377 file:VolvoBoostGauge.4DGenieS)
-Notice: variable 'i' is being indexed (line 323 file:VolvoBoostGauge.4DGenieS)
-Notice: variable 'k' is being indexed (line 325 file:VolvoBoostGauge.4DGenieS)
-Notice: Check that the function called via pointer  'Objects' requires 3 arguments (line 328 file:VolvoBoostGauge.4DGenieS)
-Notice: variable 'k' is being indexed (line 287 file:VolvoBoostGauge.4DGenieS)
-Notice: variable 'k' is being indexed (line 289 file:VolvoBoostGauge.4DGenieS)
-Notice: variable 'k' is being indexed (line 291 file:VolvoBoostGauge.4DGenieS)
-Notice: variable 'i' is being indexed (line 245 file:VolvoBoostGauge.4DGenieS)
-Notice: variable 'i' is being indexed (line 247 file:VolvoBoostGauge.4DGenieS)
-Notice: function argument 'iponly' in func 'addressInternalWidget' is never used (line 236 file:VolvoBoostGauge.4DGenieS)
+Notice: variable 'GObjectRAM' is being indexed (line 400 file:VolvoBoostGauge.4DGenieS)
+Notice: Check that the function called via pointer  'GObjectFunc' requires 3 arguments (line 401 file:VolvoBoostGauge.4DGenieS)
+Notice: local var 'p' in func 'ActivateForm' is never used (line 348 file:VolvoBoostGauge.4DGenieS)
+Notice: local var 'a' in func 'ActivateForm' is never used (line 384 file:VolvoBoostGauge.4DGenieS)
+Notice: local var 'f' in func 'ActivateForm' is never used (line 384 file:VolvoBoostGauge.4DGenieS)
+Notice: variable 'i' is being indexed (line 330 file:VolvoBoostGauge.4DGenieS)
+Notice: variable 'k' is being indexed (line 332 file:VolvoBoostGauge.4DGenieS)
+Notice: Check that the function called via pointer  'Objects' requires 3 arguments (line 335 file:VolvoBoostGauge.4DGenieS)
+Notice: variable 'k' is being indexed (line 294 file:VolvoBoostGauge.4DGenieS)
+Notice: variable 'k' is being indexed (line 296 file:VolvoBoostGauge.4DGenieS)
+Notice: variable 'k' is being indexed (line 298 file:VolvoBoostGauge.4DGenieS)
+Notice: variable 'i' is being indexed (line 252 file:VolvoBoostGauge.4DGenieS)
+Notice: variable 'i' is being indexed (line 254 file:VolvoBoostGauge.4DGenieS)
+Notice: function argument 'iponly' in func 'addressInternalWidget' is never used (line 243 file:VolvoBoostGauge.4DGenieS)
 
 
 Symbol Table:
@@ -7073,8 +7227,8 @@ __reserved9                         -110  0xffffff92 (PmmC func) args[0] r=0  (n
 __translate                           -8  0xfffffff8 (PmmC func) args[4] r=1  (not used)
 ABS                                  -53  0xffffffcb (PmmC func) args[1] r=1  (not used)
 ACK                                    6  0x00000006 (const dword)  (usage 6)
-ActivateForm                        2373  0x00000945 (User func) args[1] r=0  (usage 8)
-addressInternalWidget               3269  0x00000cc5 (User func) args[2] r=0  (usage 9)
+ActivateForm                        2525  0x000009dd (User func) args[1] r=0  (usage 8)
+addressInternalWidget               3421  0x00000d5d (User func) args[2] r=0  (usage 9)
 ALICEBLUE                          63455  0x0000f7df (const dword)  (not used)
 ALL                                65535  0x0000ffff (const dword)  (usage 6)
 ana_HS                              -533  0xfffffdeb (PmmC func) args[7] r=0  (not used)
@@ -7203,7 +7357,7 @@ BIN9ZB                             10498  0x00002902 (const dword)  (not used)
 BINZ                                4098  0x00001002 (const dword)  (not used)
 BINZB                               8194  0x00002002 (const dword)  (not used)
 BISQUE                             65336  0x0000ff38 (const dword)  (not used)
-BLACK                                  0  0x00000000 (const dword)  (usage 9)
+BLACK                                  0  0x00000000 (const dword)  (usage 12)
 BLANCHEDALMOND                     65369  0x0000ff59 (const dword)  (not used)
 BLUE                                  31  0x0000001f (const dword)  (not used)
 BLUEVIOLET                         35164  0x0000895c (const dword)  (not used)
@@ -7245,6 +7399,7 @@ BUTTON_DOWN                            0  0x00000000 (const dword)  (not used)
 BUTTON_UP                              1  0x00000001 (const dword)  (not used)
 ByteSwap                             -49  0xffffffcf (PmmC func) args[1] r=1  (not used)
 c4DButton                         UNRESOLVED  (not used)
+C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS    2806  0x00000af6 (const ??? 0)  (not used)
 CADETBLUE                          23796  0x00005cf4 (const dword)  (not used)
 cAniButton                        UNRESOLVED  (not used)
 cColorPicker                      UNRESOLVED  (not used)
@@ -7269,7 +7424,7 @@ ciSlider                          UNRESOLVED  (not used)
 ciSwitch                          UNRESOLVED  (not used)
 cKnob                             UNRESOLVED  (not used)
 CLIPPING                              19  0x00000013 (const dword)  (not used)
-cmd                                  436  0x000001b4 (mem) word[80] (global)  (usage 33)
+cmd                                  480  0x000001e0 (mem) word[80] (global)  (usage 33)
 CMDLenMAX                             80  0x00000050 (const dword)  (usage 6)
 ColorBGimage                          32  0x00000020 (const dword)  (usage 3)
 COLOUR16                               0  0x00000000 (const dword)  (not used)
@@ -7342,7 +7497,7 @@ com_TXbufferBrk                     -573  0xfffffdc3 (PmmC func) args[3] r=0  (n
 com_TXbufferHold                    -276  0xfffffeec (PmmC func) args[1] r=1  (not used)
 com_TXcount                         -268  0xfffffef4 (PmmC func) args[0] r=1  (not used)
 com_TXemptyEvent                    -272  0xfffffef0 (PmmC func) args[1] r=1  (not used)
-comRX                                356  0x00000164 (mem) word[40] (global)  (usage 3)
+comRX                                400  0x00000190 (mem) word[40] (global)  (usage 3)
 CONTRAST                              25  0x00000019 (const dword)  (not used)
 CORAL                              64490  0x0000fbea (const dword)  (not used)
 CORNFLOWERBLUE                     25789  0x000064bd (const dword)  (not used)
@@ -7361,8 +7516,8 @@ cRockerswitch                     UNRESOLVED  (not used)
 cRotaryswitch                     UNRESOLVED  (not used)
 cSlider                           UNRESOLVED  (not used)
 cTrackbar                         UNRESOLVED  (not used)
-CurInputData                         352  0x00000160 (mem) word (global)  (usage 13)
-CurrentForm                          338  0x00000152 (mem) word (global)  (usage 42)
+CurInputData                         396  0x0000018c (mem) word (global)  (usage 13)
+CurrentForm                          382  0x0000017e (mem) word (global)  (usage 42)
 cUserButton                       UNRESOLVED  (not used)
 cWinbutton                        UNRESOLVED  (not used)
 CY                                   -64  0xffffffc0 (PmmC func) args[0] r=1  (not used)
@@ -7491,7 +7646,7 @@ disp_WrGRAM                         -364  0xfffffe94 (PmmC func) args[1] r=0  (n
 disp_WriteControl                   -365  0xfffffe93 (PmmC func) args[1] r=0  (not used)
 disp_WriteWord                      -366  0xfffffe92 (PmmC func) args[1] r=0  (not used)
 DODGERBLUE                          7327  0x00001c9f (const dword)  (not used)
-DoGFXObjects                        2372  0x00000944 (User func) args[0] r=0  (usage 6)
+DoGFXObjects                        2524  0x000009dc (User func) args[0] r=0  (usage 6)
 DOWN                                   0  0x00000000 (const dword)  (not used)
 DSK                                63490  0x0000f802 (const dword)  (not used)
 ENABLE                                 1  0x00000001 (const dword)  (not used)
@@ -7688,9 +7843,9 @@ FONT_9                                 9  0x00000009 (const dword)  (not used)
 FONT_ID                                2  0x00000002 (const dword)  (not used)
 FONT_SIZE                              2  0x00000002 (const dword)  (not used)
 FORESTGREEN                         9284  0x00002444 (const dword)  (not used)
-FormBGcolors                         645  0x00000285FormBGcolors                         645  0x00000285 (mem) word[3] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
-FormEndIndex                         565  0x00000235FormEndIndex                         565  0x00000235 (mem) word[3] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
-FormStartIndex                       559  0x0000022fFormStartIndex                       559  0x0000022f (mem) word[3] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
+FormBGcolors                         795  0x0000031bFormBGcolors                         795  0x0000031b (mem) word[4] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
+FormEndIndex                         693  0x000002b5FormEndIndex                         693  0x000002b5 (mem) word[4] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
+FormStartIndex                       685  0x000002adFormStartIndex                       685  0x000002ad (mem) word[4] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
 FRAME_DELAY                           22  0x00000016 (const dword)  (not used)
 FUCHSIA                            63519  0x0000f81f (const dword)  (not used)
 GAINSBORO                          57083  0x0000defb (const dword)  (not used)
@@ -7843,17 +7998,17 @@ GFX_Y2                                55  0x00000037 (const dword)  (not used)
 GFX_Y_ORG                             57  0x00000039 (const dword)  (not used)
 GFX_YMAX                              47  0x0000002f (const dword)  (not used)
 gfx_Yorigin                         -198  0xffffff3a (PmmC func) args[1] r=1  (not used)
-gfxInternals                           7  0x00000007gfxInternals                           7  0x00000007 (mem) word[29] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
-gfxIntParms                           65  0x00000041gfxIntParms                           65  0x00000041 (mem) word[29] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
-gfxIntStrings                        123  0x0000007bgfxIntStrings                        123  0x0000007b (mem) word[29] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+gfxInternals                           7  0x00000007gfxInternals                           7  0x00000007 (mem) word[29] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
+gfxIntParms                           65  0x00000041gfxIntParms                           65  0x00000041 (mem) word[29] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+gfxIntStrings                        123  0x0000007bgfxIntStrings                        123  0x0000007b (mem) word[29] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 GHOSTWHITE                         65503  0x0000ffdf (const dword)  (not used)
-GObjectDATA                          196  0x000000c4 (mem) word (global)  (usage 6)
-GObjectFunc                          192  0x000000c0 (mem) word (global)  (usage 6)
-GObjectIdx                           190  0x000000be (mem) word (global)  (usage 14)
-GObjectParms                         198  0x000000c6 (mem) word (global)  (usage 3)
-GObjectRAM                           194  0x000000c2 (mem) word (global)  (usage 14)
-GObjectStrings                       200  0x000000c8 (mem) word (global)  (usage 3)
-GObjectType                          348  0x0000015c (mem) word (global)  (usage 58)
+GObjectDATA                          240  0x000000f0 (mem) word (global)  (usage 6)
+GObjectFunc                          236  0x000000ec (mem) word (global)  (usage 6)
+GObjectIdx                           234  0x000000ea (mem) word (global)  (usage 14)
+GObjectParms                         242  0x000000f2 (mem) word (global)  (usage 3)
+GObjectRAM                           238  0x000000ee (mem) word (global)  (usage 14)
+GObjectStrings                       244  0x000000f4 (mem) word (global)  (usage 3)
+GObjectType                          392  0x00000188 (mem) word (global)  (usage 58)
 GOLD                               65184  0x0000fea0 (const dword)  (not used)
 GOLDENROD                          56612  0x0000dd24 (const dword)  (not used)
 GRAD_DOWN                             32  0x00000020 (const dword)  (not used)
@@ -7864,8 +8019,8 @@ GRAD_WAVE_HOR                        112  0x00000070 (const dword)  (not used)
 GRAD_WAVE_VER                         96  0x00000060 (const dword)  (not used)
 GRAM_PIXEL_COUNT_HI                  116  0x00000074 (const dword)  (not used)
 GRAM_PIXEL_COUNT_LO                  115  0x00000073 (const dword)  (not used)
-GRAY                               33808  0x00008410 (const dword)  (usage 9)
-GREEN                               1024  0x00000400 (const dword)  (not used)
+GRAY                               33808  0x00008410 (const dword)  (not used)
+GREEN                               1024  0x00000400 (const dword)  (usage 3)
 GREENYELLOW                        45029  0x0000afe5 (const dword)  (not used)
 HEX                                 5136  0x00001410 (const dword)  (not used)
 HEX1                                4368  0x00001110 (const dword)  (not used)
@@ -7960,22 +8115,26 @@ I_TOUCHED                           4096  0x00001000 (const dword)  (not used)
 I_X_LOCK                            1024  0x00000400 (const dword)  (not used)
 I_Y_LOCK                            2048  0x00000800 (const dword)  (not used)
 IFONT_OFFSET                           0  0x00000000 (const dword)  (not used)
-iFormEndIndex                        577  0x00000241iFormEndIndex                        577  0x00000241 (mem) word[3] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
-iFormStartIndex                      571  0x0000023biFormStartIndex                      571  0x0000023b (mem) word[3] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
+iFormEndIndex                        709  0x000002c5iFormEndIndex                        709  0x000002c5 (mem) word[4] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
+iFormStartIndex                      701  0x000002bdiFormStartIndex                      701  0x000002bd (mem) word[4] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
 iIAngularMeter0                        0  0x00000000 (const ??? 0)  (not used)
-IIAngularMeter0                      205  0x000000cdIIAngularMeter0                      205  0x000000cd (mem) word[48] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+IIAngularMeter0                      213  0x000000d5IIAngularMeter0                      213  0x000000d5 (mem) word[48] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 iIAngularMeter1                        2  0x00000002 (const ??? 0)  (not used)
-IIAngularMeter1                      323  0x00000143IIAngularMeter1                      323  0x00000143 (mem) word[48] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+IIAngularMeter1                      331  0x0000014bIIAngularMeter1                      331  0x0000014b (mem) word[48] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 iIAngularMeter2                        4  0x00000004 (const ??? 0)  (not used)
-IIAngularMeter2                      441  0x000001b9IIAngularMeter2                      441  0x000001b9 (mem) word[48] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
-iiFormEndIndex                       589  0x0000024diiFormEndIndex                       589  0x0000024d (mem) word[3] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (not used)
-iiFormStartIndex                     583  0x00000247iiFormStartIndex                     583  0x00000247 (mem) word[3] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (not used)
+IIAngularMeter2                      449  0x000001c1IIAngularMeter2                      449  0x000001c1 (mem) word[48] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+iIAngularMeter3                        6  0x00000006 (const ??? 0)  (not used)
+IIAngularMeter3                      567  0x00000237IIAngularMeter3                      567  0x00000237 (mem) word[48] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+iiFormEndIndex                       725  0x000002d5iiFormEndIndex                       725  0x000002d5 (mem) word[4] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (not used)
+iiFormStartIndex                     717  0x000002cdiiFormStartIndex                     717  0x000002cd (mem) word[4] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (not used)
 iILedDigits0                           1  0x00000001 (const ??? 0)  (not used)
-IILedDigits0                         301  0x0000012dIILedDigits0                         301  0x0000012d (mem) word[11] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+IILedDigits0                         309  0x00000135IILedDigits0                         309  0x00000135 (mem) word[11] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 iILedDigits1                           3  0x00000003 (const ??? 0)  (not used)
-IILedDigits1                         419  0x000001a3IILedDigits1                         419  0x000001a3 (mem) word[11] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+IILedDigits1                         427  0x000001abIILedDigits1                         427  0x000001ab (mem) word[11] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 iILedDigits2                           5  0x00000005 (const ??? 0)  (not used)
-IILedDigits2                         537  0x00000219IILedDigits2                         537  0x00000219 (mem) word[11] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+IILedDigits2                         545  0x00000221IILedDigits2                         545  0x00000221 (mem) word[11] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+iILedDigits3                           7  0x00000007 (const ??? 0)  (not used)
+IILedDigits3                         663  0x00000297IILedDigits3                         663  0x00000297 (mem) word[11] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 ILINEARIP_COLOR1                      12  0x0000000c (const dword)  (not used)
 ILINEARIP_COLOR2                      14  0x0000000e (const dword)  (not used)
 ILINEARIP_COLOR3                      16  0x00000010 (const dword)  (not used)
@@ -8015,7 +8174,7 @@ IMAGE_TAG2                            13  0x0000000d (const dword)  (not used)
 IMAGE_WIDTH                            4  0x00000004 (const dword)  (not used)
 IMAGE_XPOS                             2  0x00000002 (const dword)  (not used)
 IMAGE_YPOS                             3  0x00000003 (const dword)  (not used)
-ImageTouched                         342  0x00000156 (mem) word (global)  (usage 72)
+ImageTouched                         386  0x00000182 (mem) word (global)  (usage 72)
 img_ClearAttributes                 -383  0xfffffe81 (PmmC func) args[3] r=1  (usage 3)
 IMG_COUNT                              0  0x00000000 (const dword)  (not used)
 IMG_CURRENT_FRAME                     89  0x00000059 (const dword)  (not used)
@@ -8059,10 +8218,10 @@ img_TxtFontID                       -621  0xfffffd93 (PmmC func) args[2] r=1  (n
 IMG_WIDTH                             82  0x00000052 (const dword)  (not used)
 INDIANRED                          51947  0x0000caeb (const dword)  (not used)
 INDIGO                             18448  0x00004810 (const dword)  (not used)
-InputControls                        595  0x00000253InputControls                        595  0x00000253 (mem) word[1] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
-InputCS                              596  0x00000254 (mem) word (global)  (usage 15)
-InputData                            609  0x00000261InputData                            609  0x00000261 (mem) word[1] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 8)
-InternalInputControls                597  0x00000255InternalInputControls                597  0x00000255 (mem) word[6] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
+InputControls                        733  0x000002ddInputControls                        733  0x000002dd (mem) word[1] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+InputCS                              640  0x00000280 (mem) word (global)  (usage 15)
+InputData                            751  0x000002efInputData                            751  0x000002ef (mem) word[1] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 8)
+InternalInputControls                735  0x000002dfInternalInputControls                735  0x000002df (mem) word[8] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 6)
 INVERSE                               64  0x00000040 (const dword)  (not used)
 IPDatasize                            22  0x00000016 (const dword)  (not used)
 IROTARYIP_COLOR1                      10  0x0000000a (const dword)  (not used)
@@ -8098,6 +8257,7 @@ isspace                              -43  0xffffffd5 (PmmC func) args[1] r=1  (n
 iStatictext0                           0  0x00000000 (const ??? 0)  (usage 3)
 iStatictext1                           1  0x00000001 (const ??? 0)  (usage 3)
 iStatictext2                           2  0x00000002 (const ??? 0)  (usage 3)
+iStatictext3                           3  0x00000003 (const ??? 0)  (usage 3)
 isupper                              -38  0xffffffda (PmmC func) args[1] r=1  (not used)
 iswhite                              -44  0xffffffd4 (PmmC func) args[1] r=1  (not used)
 isxdigit                             -37  0xffffffdb (PmmC func) args[1] r=1  (not used)
@@ -8147,7 +8307,7 @@ IUSERGAUGE_X                           0  0x00000000 (const dword)  (not used)
 IUSERGAUGE_Y                           2  0x00000002 (const dword)  (not used)
 IVORY                              65534  0x0000fffe (const dword)  (not used)
 KHAKI                              63281  0x0000f731 (const dword)  (not used)
-kKeyboardKeystrokes                  651  0x0000028bkKeyboardKeystrokes                  651  0x0000028b (mem) word[1] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (not used)
+kKeyboardKeystrokes                  803  0x00000323kKeyboardKeystrokes                  803  0x00000323 (mem) word[1] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (not used)
 LANDSCAPE                              0  0x00000000 (const dword)  (not used)
 LANDSCAPE_R                            1  0x00000001 (const dword)  (not used)
 LAVENDER                           59199  0x0000e73f (const dword)  (not used)
@@ -8211,7 +8371,7 @@ LIGHTSKYBLUE                       34431  0x0000867f (const dword)  (not used)
 LIGHTSLATEGRAY                     29779  0x00007453 (const dword)  (not used)
 LIGHTSTEELBLUE                     46651  0x0000b63b (const dword)  (not used)
 LIGHTYELLOW                        65532  0x0000fffc (const dword)  (not used)
-LIME                                2016  0x000007e0 (const dword)  (usage 21)
+LIME                                2016  0x000007e0 (const dword)  (usage 39)
 LIMEGREEN                          13926  0x00003666 (const dword)  (not used)
 LINE_PATTERN                          26  0x0000001a (const dword)  (not used)
 LINEN                              65436  0x0000ff9c (const dword)  (not used)
@@ -8241,7 +8401,7 @@ M_PA7                                128  0x00000080 (const dword)  (not used)
 M_PA8                                256  0x00000100 (const dword)  (not used)
 M_PA9                                512  0x00000200 (const dword)  (not used)
 MAGENTA                            63519  0x0000f81f (const dword)  (not used)
-main                                 745  0x000002e9 (User func) args[0] r=0  (not used)
+main                                 897  0x00000381 (User func) args[0] r=0  (not used)
 MAROON                             32768  0x00008000 (const dword)  (usage 9)
 MAX                                  -55  0xffffffc9 (PmmC func) args[2] r=1  (not used)
 MaxIntObjects                         27  0x0000001b (const dword)  (usage 3)
@@ -8292,7 +8452,7 @@ MINTCREAM                          63487  0x0000f7ff (const dword)  (not used)
 MISTYROSE                          65340  0x0000ff3c (const dword)  (not used)
 MOCCASIN                           65334  0x0000ff36 (const dword)  (not used)
 NAK                                   21  0x00000015 (const dword)  (usage 3)
-nak0                                3234  0x00000ca2 (User func) args[0] r=0  (usage 12)
+nak0                                3386  0x00000d3a (User func) args[0] r=0  (usage 12)
 nAniTimers                             0  0x00000000 (const dword)  (not used)
 NAVAJOWHITE                        65269  0x0000fef5 (const dword)  (not used)
 NAVY                                  16  0x00000010 (const dword)  (not used)
@@ -8324,7 +8484,7 @@ NEEDLE_w                               4  0x00000004 (const dword)  (not used)
 NEEDLE_x                               0  0x00000000 (const dword)  (not used)
 NEEDLE_y                               2  0x00000002 (const dword)  (not used)
 nInputs                                0  0x00000000 (const dword)  (not used)
-nObjects                               3  0x00000003 (const dword)  (not used)
+nObjects                               4  0x00000004 (const dword)  (not used)
 NOTOUCH                                0  0x00000000 (const dword)  (not used)
 NP_565                                 0  0x00000000 (const dword)  (not used)
 NP_RGB                                 1  0x00000001 (const dword)  (not used)
@@ -8332,9 +8492,9 @@ NP_Write                            -535  0xfffffde9 (PmmC func) args[7] r=1  (n
 NP_XRGB                                2  0x00000002 (const dword)  (not used)
 NybleSwap                            -50  0xffffffce (PmmC func) args[1] r=1  (not used)
 OBJECT_COLOUR                         18  0x00000012 (const dword)  (not used)
-oDipSwitchs                          611  0x00000263oDipSwitchs                          611  0x00000263 (mem) word[1] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 189)
+oDipSwitchs                          753  0x000002f1oDipSwitchs                          753  0x000002f1 (mem) word[1] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 189)
 OFF                                    0  0x00000000 (const dword)  (not used)
-oForms                               613  0x00000265oForms                               613  0x00000265 (mem) word[4] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+oForms                               755  0x000002f3oForms                               755  0x000002f3 (mem) word[5] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 Ofs_Digits_Digits                      2  0x00000002 (const dword)  (not used)
 Ofs_Digits_LeadingBlanks               8  0x00000008 (const dword)  (not used)
 Ofs_Digits_Left                        0  0x00000000 (const dword)  (not used)
@@ -8364,16 +8524,16 @@ Ofs_String_x1                          6  0x00000006 (const dword)  (not used)
 Ofs_String_x2                         10  0x0000000a (const dword)  (not used)
 Ofs_String_y1                          8  0x00000008 (const dword)  (not used)
 Ofs_String_y2                         12  0x0000000c (const dword)  (not used)
-oiAngularMeters                      629  0x00000275oiAngularMeters                      629  0x00000275 (mem) word[4] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
-oiLedDigitss                         637  0x0000027doiLedDigitss                         637  0x0000027d (mem) word[4] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
-oiviAngularMeter                     181  0x000000b5oiviAngularMeter                     181  0x000000b5 (mem) word[3] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
-oiviLedDigits                        187  0x000000bboiviLedDigits                        187  0x000000bb (mem) word[3] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+oiAngularMeters                      775  0x00000307oiAngularMeters                      775  0x00000307 (mem) word[5] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+oiLedDigitss                         785  0x00000311oiLedDigitss                         785  0x00000311 (mem) word[5] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+oiviAngularMeter                     181  0x000000b5oiviAngularMeter                     181  0x000000b5 (mem) word[4] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+oiviLedDigits                        189  0x000000bdoiviLedDigits                        189  0x000000bd (mem) word[4] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 OLDLACE                            65468  0x0000ffbc (const dword)  (not used)
-oldn                                 340  0x00000154 (mem) word (global)  (usage 42)
+oldn                                 384  0x00000180 (mem) word (global)  (usage 42)
 OLIVE                              33792  0x00008400 (const dword)  (not used)
 OLIVEDRAB                          27748  0x00006c64 (const dword)  (not used)
 ON                                     1  0x00000001 (const dword)  (not used)
-oObjects                             202  0x000000ca (mem) word[68] (global)  (usage 216)
+oObjects                             246  0x000000f6 (mem) word[68] (global)  (usage 216)
 OP1_ADD                                5  0x00000005 (const dword)  (not used)
 OP1_AND                                2  0x00000002 (const dword)  (not used)
 OP1_BLACKEN                           16  0x00000010 (const dword)  (not used)
@@ -8403,10 +8563,10 @@ OP2_MUL                                6  0x00000006 (const dword)  (not used)
 OP2_SUB                                5  0x00000005 (const dword)  (not used)
 OP2_XOR                                3  0x00000003 (const dword)  (not used)
 OPAQUE                                 1  0x00000001 (const dword)  (not used)
-ORANGE                             64800  0x0000fd20 (const dword)  (not used)
+ORANGE                             64800  0x0000fd20 (const dword)  (usage 3)
 ORANGERED                          64032  0x0000fa20 (const dword)  (not used)
 ORCHID                             56218  0x0000db9a (const dword)  (not used)
-oStaticTexts                         621  0x0000026doStaticTexts                         621  0x0000026d (mem) word[4] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+oStaticTexts                         765  0x000002fdoStaticTexts                         765  0x000002fd (mem) word[5] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 OT_ACTIVATE                          103  0x00000067 (const dword)  (usage 2)
 OT_MAGIC                             108  0x0000006c (const dword)  (usage 2)
 OT_NEXTFRAME                         104  0x00000068 (const dword)  (usage 2)
@@ -8418,7 +8578,7 @@ OT_SETANOTHER                        102  0x00000066 (const dword)  (usage 2)
 OT_SETCONST                          101  0x00000065 (const dword)  (usage 2)
 OUTLINE                                1  0x00000001 (const dword)  (not used)
 OUTLINE_COLOUR                        24  0x00000018 (const dword)  (not used)
-OutputCS                             598  0x00000256 (mem) word (global)  (usage 9)
+OutputCS                             642  0x00000282 (mem) word (global)  (usage 9)
 OVF                                  -63  0xffffffc1 (PmmC func) args[0] r=1  (not used)
 OW_Read                             -523  0xfffffdf5 (PmmC func) args[1] r=1  (not used)
 OW_Read9                            -524  0xfffffdf4 (PmmC func) args[1] r=1  (not used)
@@ -8484,7 +8644,7 @@ pin_Read                            -116  0xffffff8c (PmmC func) args[1] r=1  (n
 pin_Set                             -112  0xffffff90 (PmmC func) args[2] r=1  (not used)
 pin_Val                             -115  0xffffff8d (PmmC func) args[2] r=0  (not used)
 PINK                               65049  0x0000fe19 (const dword)  (not used)
-pInputIndex                          354  0x00000162 (mem) word (global)  (usage 6)
+pInputIndex                          398  0x0000018e (mem) word (global)  (usage 6)
 PLUM                               56603  0x0000dd1b (const dword)  (not used)
 pokeW                                -35  0xffffffdd (PmmC func) args[2] r=0  (not used)
 PORTRAIT                               2  0x00000002 (const dword)  (usage 3)
@@ -8556,21 +8716,20 @@ Qencoder1                           -515  0xfffffdfd (PmmC func) args[3] r=1  (n
 Qencoder1Reset                      -517  0xfffffdfb (PmmC func) args[0] r=0  (not used)
 Qencoder2                           -516  0xfffffdfc (PmmC func) args[3] r=1  (not used)
 Qencoder2Reset                      -518  0xfffffdfa (PmmC func) args[0] r=0  (not used)
-R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS    2806  0x00000af6 (const ??? 0)  (not used)
 RAND                                 -59  0xffffffc5 (PmmC func) args[0] r=1  (not used)
 RANDOM_HI                             33  0x00000021 (const dword)  (not used)
 RANDOM_LO                             32  0x00000020 (const dword)  (not used)
 RANDVAL                              -60  0xffffffc4 (PmmC func) args[2] r=1  (not used)
 READ_OBJ                               0  0x00000000 (const dword)  (usage 3)
 ReadCmd                              128  0x00000080 (const dword)  (not used)
-ReadObject                          3010  0x00000bc2 (User func) args[2] r=0  (usage 3)
+ReadObject                          3162  0x00000c5a (User func) args[2] r=0  (usage 3)
 RED                                63488  0x0000f800 (const dword)  (not used)
 REPORT_EVENT                           7  0x00000007 (const dword)  (usage 2)
 REPORT_MAGIC_EVENT_BYTES              10  0x0000000a (const dword)  (not used)
 REPORT_MAGIC_EVENT_DBYTES             11  0x0000000b (const dword)  (not used)
 REPORT_OBJ                             5  0x00000005 (const dword)  (usage 3)
 RIGHT_POS                              4  0x00000004 (const dword)  (not used)
-rKeyboardRoutines                    653  0x0000028drKeyboardRoutines                    653  0x0000028d (mem) word[1] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (not used)
+rKeyboardRoutines                    805  0x00000325rKeyboardRoutines                    805  0x00000325 (mem) word[1] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (not used)
 ROSYBROWN                          48241  0x0000bc71 (const dword)  (not used)
 ROYALBLUE                          17244  0x0000435c (const dword)  (not used)
 RULERGAUGE_F_ORIENT_VERT               2  0x00000002 (const dword)  (not used)
@@ -8631,7 +8790,7 @@ SCREEN_MODE                           23  0x00000017 (const dword)  (not used)
 SEAGREEN                           11338  0x00002c4a (const dword)  (not used)
 SEASHELL                           65469  0x0000ffbd (const dword)  (not used)
 SEED                                 -61  0xffffffc3 (PmmC func) args[1] r=0  (not used)
-SendReport                          3167  0x00000c5f (User func) args[4] r=0  (usage 5)
+SendReport                          3319  0x00000cf7 (User func) args[4] r=0  (usage 5)
 serin                               -236  0xffffff14 (PmmC func) args[0] r=1  (usage 3)
 serin1                              -237  0xffffff13 (PmmC func) args[0] r=1  (not used)
 serin2                              -238  0xffffff12 (PmmC func) args[0] r=1  (not used)
@@ -8641,12 +8800,12 @@ serout                              -240  0xffffff10 (PmmC func) args[1] r=0  (u
 serout1                             -241  0xffffff0f (PmmC func) args[1] r=0  (not used)
 serout2                             -242  0xffffff0e (PmmC func) args[1] r=0  (not used)
 serout3                             -243  0xffffff0d (PmmC func) args[1] r=0  (not used)
-seroutCS                            3250  0x00000cb2 (User func) args[1] r=0  (usage 15)
-seroutOcs                           3217  0x00000c91 (User func) args[0] r=0  (usage 3)
+seroutCS                            3402  0x00000d4a (User func) args[1] r=0  (usage 15)
+seroutOcs                           3369  0x00000d29 (User func) args[0] r=0  (usage 3)
 seroutX                              N/A         N/A (macro) serout   (not used)
 setbaud                             -224  0xffffff20 (PmmC func) args[1] r=0  (not used)
 SIENNA                             41605  0x0000a285 (const dword)  (not used)
-SILVER                             50712  0x0000c618 (const dword)  (usage 18)
+SILVER                             50712  0x0000c618 (const dword)  (usage 12)
 SIN                                  -57  0xffffffc7 (PmmC func) args[1] r=1  (not used)
 SKYBLUE                            34429  0x0000867d (const dword)  (not used)
 SLATEBLUE                          27353  0x00006ad9 (const dword)  (not used)
@@ -8977,9 +9136,9 @@ TOUCH_XMAXCAL                         80  0x00000050 (const dword)  (not used)
 TOUCH_XMINCAL                         78  0x0000004e (const dword)  (not used)
 TOUCH_YMAXCAL                         81  0x00000051 (const dword)  (not used)
 TOUCH_YMINCAL                         79  0x0000004f (const dword)  (not used)
-TouchState                           350  0x0000015e (mem) word (global)  (usage 14)
-TouchXpos                            344  0x00000158 (mem) word (global)  (usage 12)
-TouchYpos                            346  0x0000015a (mem) word (global)  (usage 9)
+TouchState                           394  0x0000018a (mem) word (global)  (usage 14)
+TouchXpos                            388  0x00000184 (mem) word (global)  (usage 12)
+TouchYpos                            390  0x00000186 (mem) word (global)  (usage 9)
 toupper                              -45  0xffffffd3 (PmmC func) args[1] r=1  (not used)
 tPinInput                             29  0x0000001d (const dword)  (usage 6)
 tPinOutput                            28  0x0000001c (const dword)  (usage 6)
@@ -9063,13 +9222,15 @@ usub_3232                            -72  0xffffffb8 (PmmC func) args[3] r=1  (n
 vIAngularMeter0                        2  0x00000002 (mem) word[10] (global)  (usage 3)
 vIAngularMeter1                       46  0x0000002e (mem) word[10] (global)  (usage 3)
 vIAngularMeter2                       90  0x0000005a (mem) word[10] (global)  (usage 3)
+vIAngularMeter3                      134  0x00000086 (mem) word[10] (global)  (usage 3)
 vILedDigits0                          22  0x00000016 (mem) word[12] (global)  (usage 3)
 vILedDigits1                          66  0x00000042 (mem) word[12] (global)  (usage 3)
 vILedDigits2                         110  0x0000006e (mem) word[12] (global)  (usage 3)
+vILedDigits3                         154  0x0000009a (mem) word[12] (global)  (usage 3)
 VIOLET                             60445  0x0000ec1d (const dword)  (not used)
-vObjects                             134  0x00000086 (mem) word[28] (global)  (usage 15)
+vObjects                             178  0x000000b2 (mem) word[28] (global)  (usage 15)
 WHEAT                              63222  0x0000f6f6 (const dword)  (not used)
-WHITE                              65535  0x0000ffff (const dword)  (usage 18)
+WHITE                              65535  0x0000ffff (const dword)  (usage 24)
 WHITESMOKE                         63422  0x0000f7be (const dword)  (not used)
 widget_Add                          -590  0xfffffdb2 (PmmC func) args[3] r=1  (usage 3)
 widget_ClearAttributes              -599  0xfffffda9 (PmmC func) args[3] r=1  (usage 3)
@@ -9092,7 +9253,7 @@ widget_GetWord                      -593  0xfffffdaf (PmmC func) args[3] r=1  (n
 WIDGET_HEIGHT                          3  0x00000003 (const dword)  (not used)
 WIDGET_HI_WORD                         5  0x00000005 (const dword)  (not used)
 WIDGET_LO_WORD                         4  0x00000004 (const dword)  (not used)
-WIDGET_RAM_SPACE                      10  0x0000000a (const dword)  (usage 18)
+WIDGET_RAM_SPACE                      10  0x0000000a (const dword)  (usage 24)
 widget_Realloc                      -592  0xfffffdb0 (PmmC func) args[2] r=1  (not used)
 widget_SetAttributes                -598  0xfffffdaa (PmmC func) args[3] r=1  (usage 3)
 widget_Setposition                  -594  0xfffffdae (PmmC func) args[4] r=1  (not used)
@@ -9107,7 +9268,7 @@ WIDGET_XOTHER                          4  0x00000004 (const dword)  (not used)
 WIDGET_XPOS                            0  0x00000000 (const dword)  (not used)
 WIDGET_YOTHER                          5  0x00000005 (const dword)  (not used)
 WIDGET_YPOS                            1  0x00000001 (const dword)  (not used)
-wp                                   600  0x00000258 (mem) word (global)  (usage 21)
+wp                                   644  0x00000284 (mem) word (global)  (usage 21)
 WRITE_CONTRAST                         4  0x00000004 (const dword)  (usage 3)
 WRITE_LABEL                           12  0x0000000c (const dword)  (not used)
 WRITE_MAGIC_BYTES                      8  0x00000008 (const dword)  (not used)
@@ -9116,11 +9277,11 @@ WRITE_OBJ                              1  0x00000001 (const dword)  (usage 3)
 WRITE_STR                              2  0x00000002 (const dword)  (not used)
 WRITE_STRU                             3  0x00000003 (const dword)  (not used)
 WriteCmd                               0  0x00000000 (const dword)  (not used)
-WriteObject                         2836  0x00000b14 (User func) args[3] r=0  (usage 13)
+WriteObject                         2988  0x00000bac (User func) args[3] r=0  (usage 13)
 X_MAX                                  0  0x00000000 (const dword)  (not used)
 X_ORG                                  6  0x00000006 (const dword)  (not used)
 X_ORIGIN                              30  0x0000001e (const dword)  (not used)
-xobj2iobj                            193  0x000000c1xobj2iobj                            193  0x000000c1 (mem) word[6] (member of R:\Test4d\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
+xobj2iobj                            197  0x000000c5xobj2iobj                            197  0x000000c5 (mem) word[8] (member of C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoostGauge.4DWork\VolvoBoostGauge.4DGenieS)  (usage 3)
 XYLIN_X                                1  0x00000001 (const dword)  (not used)
 XYLIN_Y                                0  0x00000000 (const dword)  (not used)
 XYROT_EAST                             0  0x00000000 (const dword)  (not used)
