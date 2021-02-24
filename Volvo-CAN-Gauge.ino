@@ -1,5 +1,5 @@
-#include <SPI.h>
-#include "src/can/mcp_can.h"
+#include "variant.h"
+#include <due_can.h>
 #include <Arduino.h>
 #include <genieArduino.h>
 
@@ -12,6 +12,71 @@ unsigned char COL[8] = {0xCD, 0x7a, 0xa6, 0x10, 0xd8, 0x01, 0x00, 0x00};
 unsigned char IAT[8] = {0xCD, 0x7a, 0xa6, 0x10, 0xCE, 0x01, 0x00, 0x00};
 unsigned char IA[8] = {0xCD, 0x7a, 0xa6, 0x10, 0x36, 0x01, 0x00, 0x00};
 unsigned char VHS[8] = {0xCD, 0x7a, 0xa6, 0x11, 0x40, 0x01, 0x00, 0x00};
+CAN_FRAME BP
+BP.id = 0x000FFFFE;
+BP.extended = 1;
+BP.length = 8;
+BP.data.bytes[1]=0xCD;
+BP.data.bytes[2]=0x7a;
+BP.data.bytes[3]=0xa6;
+BP.data.bytes[4]=0x12;
+BP.data.bytes[5]=0x9d;
+BP.data.bytes[6]=0x01;
+BP.data.bytes[7]=0x00;
+BP.data.bytes[8]=0x00;
+CAN_FRAME RPM
+RPM.id = 0x000FFFFE;
+RPM.extended = 1;
+RPM.length = 8;
+RPM.data.bytes[1]=0xCD;
+RPM.data.bytes[2]=0x7a;
+RPM.data.bytes[3]=0xa6;
+RPM.data.bytes[4]=0x10;
+RPM.data.bytes[5]=0x1d;
+RPM.data.bytes[6]=0x01;
+RPM.data.bytes[7]=0x00;
+RPM.data.bytes[8]=0x00;
+CAN_FRAME COL
+COL.id = 0x000FFFFE;
+COL.extended = 1;
+COL.length = 8;
+COL.data.bytes[1]=0xCD;
+COL.data.bytes[2]=0x7a;
+COL.data.bytes[3]=0xa6;
+COL.data.bytes[4]=0x10;
+COL.data.bytes[5]=0xd8;
+COL.data.bytes[6]=0x01;
+COL.data.bytes[7]=0x00;
+COL.data.bytes[8]=0x00;
+CAN_FRAME IAT
+IAT.id = 0x000FFFFE;
+IAT.extended = 1;
+IAT.length = 8;
+IAT.data.bytes[1]=0xCD;
+IAT.data.bytes[2]=0x7a;
+IAT.data.bytes[3]=0xa6;
+IAT.data.bytes[4]=0x10;
+IAT.data.bytes[5]=0xce;
+IAT.data.bytes[6]=0x01;
+IAT.data.bytes[7]=0x00;
+IAT.data.bytes[8]=0x00;
+CAN_FRAME IA
+IA.id = 0x000FFFFE;
+IA.extended = 1;
+IA.length = 8;
+IA.data.bytes[1]=0xCD;
+IA.data.bytes[2]=0x7a;
+IA.data.bytes[3]=0xa6;
+IA.data.bytes[4]=0x10;
+IA.data.bytes[5]=0x36;
+IA.data.bytes[6]=0x01;
+IA.data.bytes[7]=0x00;
+IA.data.bytes[8]=0x00;
+CAN_FRAME VHS
+VHS.id = 0x000FFFFE;
+VHS.extended = 1;
+VHS.length = 8;
+
 int x, Brightness;
 unsigned char len = 0, flagRecv = 0, Page = 0, Index = 0;
 unsigned char buf[8];
@@ -21,32 +86,27 @@ static int gaugeAddVal = 1;
 static int gaugeVal = 0;
 static int gaugeCurrentValue = 0;
 Genie genie;
-#define RESETLINE 8
+#define RESETLINE 2
 
 MCP_CAN CAN(10); // Normally where the CS pin is set. Because the CAN library has been hacked to use direct port manipulation, this no longer matters.
 
 void setup()
 {
-  //Serial.begin(115200);
-  Serial1.begin(115200);  // Serial1 @ 200000 (200K) Baud
-  genie.Begin(Serial1);   // Use Serial1 for talking to the Genie Library, and to the 4D Systems display
+  Serial.begin(115200);
+  //Serial1.begin(115200);  // Serial1 @ 200000 (200K) BaudNuu
+  genie.Begin(Serial);   // Use Serial1 for talking to the Genie Library, and to the 4D Systems display
    pinMode(RESETLINE, OUTPUT);  // Set D4 on Arduino to Output (4D Arduino Adaptor V2 - Display Reset)
   digitalWrite(RESETLINE, 0);  // Reset the Display via D4
   delay(100);
   digitalWrite(RESETLINE, 1);  // unReset the Display via D4
+  Can0.begin(CAN_BPS_500K);
+  //Can1.begin(CAN_BPS_125K);
   delay (5000); 
-  while (CAN_OK != CAN.begin(CAN_500KBPS))              // init can bus : baudrate = 500k
-  {
-    delay(100);
-  }
-  CAN.init_Mask(0, 1, 0xFFFFFFFF);                         // Masks and filters setup for the can interface. We use these to keep resource usage low by only looking for traffic we care about.
-  CAN.init_Mask(1, 1, 0xFFFFFFFF);
-  CAN.init_Filt(0, 1, 0x00400021);                          
-  CAN.init_Filt(1, 1, 0x00000000);                          
-  CAN.init_Filt(2, 1, 0x19E00006);                          
-  CAN.init_Filt(3, 1, 0x0100082C);                          
-  CAN.init_Filt(4, 1, 0x19000026);                          
-  CAN.init_Filt(5, 1, 0x00000000);
+  // Masks and filters setup for the can interface. We use these to keep resource usage low by only looking for traffic we care about.
+  Can0.setRXFilter(0x00400021, 0xFFFFFFFF, 1)
+  Can0.setRXFilter(0x19E00006, 0xFFFFFFFF, 1)
+  Can0.setRXFilter(0x0100082C, 0xFFFFFFFF, 1)
+  Can0.setRXFilter(0x19000026, 0xFFFFFFFF, 1)
   genie.WriteContrast(0);
 }
 
