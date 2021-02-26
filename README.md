@@ -8,14 +8,13 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 # Hardware:
 - 2011 Volvo C30 T5
 - 4D Systems ULCD-220RD round LCD Display (https://4dsystems.com.au/ulcd-220rd)
-- Machinna M1.1 (Old, no longer manufactured) (More info here: https://www.macchina.cc/guide/m1/software/software-setup-arduino-ide-1516)
+- Arduino Due
+- Copperhill Technologies Dual CAN Interface For Arduino Due With Extended Power Range (https://copperhilltech.com/dual-can-bus-interface-for-arduino-due-with-extended-power-range/)
 - Custom designed 3d-printed LCD mount designed to fit the shape of the bottom left corner of the dashboard bezel. (STL is in the Display Mount folder)
-
-**NOTE: The Machinna M1.1 is basically an Arduino Mega with a buck style regulator and a few built in interfaces. In this project, we're only using the CAN bus interface, which is identical to a regular CAN bus shield based on the MCP2515. The only change you'll need to make in order for this to run on a regular Mega + a CAN shield is to change the CS pin of the CAN shield, as the Machinna uses a 'non-arduino' pin for this purpose.**
 
 # Libraries:
 - geneArduino: Used to send data to the 4D Systems display.
-- Seeed CAN bus shield: CAN shield library with modifications to allow it to work with the Machinna M1.1
+- due_can: Used to easily access the built in CAN interfaces on the Arduino Due (https://github.com/collin80/due_can)
 
 # Basic Functional Description:
 
@@ -41,9 +40,8 @@ When the gauge switches pages, the needle will smoothly sweep to the next positi
 
 - Compatibility with other vehicles is unknown at this point. Most likely, any other cars using the Volvo Bosch ME9 implementation will work with no modifications (although I have heard some reports that the broadcast IDs change from vehicle to vehicle, so that may need to be tweaked)
 - Volvo uses extended IDs for their CAN frames. I am not 100% sure why they do this yet.
-- Volvos of this vintage have 2 CAN networks, a High Speed bus at 500kbps and a Low Speed bus at 125kbps. The high speed bus is connected to the ECU, steering modules, braking and other modules. The low speed bus is connected to the radio, door modules, instrument cluster and other associated accessories. The CEM (Central Electronics Module) acts as a gateway between the high and low speed busses. This project connects directly to the high speed bus.
+- Volvos of this vintage have 2 CAN networks, a High Speed bus at 500kbps and a Low Speed bus at 125kbps. The high speed bus is connected to the ECU, steering modules, braking and other modules. The low speed bus is connected to the radio, door modules, instrument cluster and other associated accessories. The CEM (Central Electronics Module) acts as a gateway between the high and low speed busses. This project connects to both the high and low speed busses.
 - Older vehicles have a diagnostic relay that needs to be activated via K-line in order to access the CAN buses via the OBD2 port. Because mine does not require this, I don't have much information about it.
-- The Arduino Mega is not fast enough to recieve all the traffic on the bus. I strongly suspect that we miss a lot of traffic with this implementation, espically because we don't use inturrupt based message handling.
 
 # Other Resources:
 - http://hackingvolvo.blogspot.com/
