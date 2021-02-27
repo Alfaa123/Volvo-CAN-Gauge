@@ -13,7 +13,7 @@ CAN_FRAME VHS;
 
 int x, Brightness;
 unsigned char len = 0, flagRecv = 0, Page = 0, Index = 0;
-bool NightMode, Ignition;
+bool NightMode, Ignition, GaugeSweep;
 static long updatePeriod = millis();
 static int gaugeAddVal = 1;
 static int gaugeVal = 0;
@@ -23,7 +23,7 @@ Genie genie;
 
 void setup()
 {
-  Serial.begin(115200);
+  Serial.begin(256000);
   //SerialUSB.begin(115200);  // Serial1 @ 200000 (200K) BaudNuu
   
   genie.Begin(Serial);   // Use Serial1 for talking to the Genie Library, and to the 4D Systems display
@@ -32,7 +32,7 @@ void setup()
   delay(100);
   digitalWrite(RESETLINE, 1);  // unReset the Display via D4
   Can0.begin(CAN_BPS_500K);
-  //Can1.begin(CAN_BPS_125K);
+  Can1.begin(CAN_BPS_125K);
   CanFrames();
   delay (5000); 
   //while(!SerialUSB);
@@ -42,11 +42,34 @@ void setup()
   Can0.setRXFilter(1,0x19E00006, 0xFFFFFFFF, 1);
   Can0.setRXFilter(2,0x0100082C, 0xFFFFFFFF, 1);
   Can0.setRXFilter(3,0x19000026, 0xFFFFFFFF, 1);
+  Can1.watchFor(0x09C050B8);
+  Can1.setGeneralCallback(sendModifiedFrame);
   genie.WriteContrast(0);
 }
 
 void loop()    //The main loop sends all the various CAN messages to the ECU so we can get data back. It also calls the MessageRecieve and UpdateDisplay functions periodically. This method of 'multitasking' is painful and needs to be rewritten.
 {
+   /*if (Can1.rx_avail()){
+   CAN_FRAME INCOMING;
+   Can1.get_rx_buff(INCOMING);
+   SerialUSB.print(INCOMING.id,HEX);
+   SerialUSB.print(" ");
+   SerialUSB.print(INCOMING.data.bytes[0],HEX);
+   SerialUSB.print(" ");
+   SerialUSB.print(INCOMING.data.bytes[1],HEX);
+   SerialUSB.print(" ");
+   SerialUSB.print(INCOMING.data.bytes[2],HEX);
+   SerialUSB.print(" ");
+   SerialUSB.print(INCOMING.data.bytes[3],HEX);
+   SerialUSB.print(" ");
+   SerialUSB.print(INCOMING.data.bytes[4],HEX);
+   SerialUSB.print(" ");
+   SerialUSB.print(INCOMING.data.bytes[5],HEX);
+   SerialUSB.print(" ");
+   SerialUSB.print(INCOMING.data.bytes[6],HEX);
+   SerialUSB.print(" ");
+   SerialUSB.println(INCOMING.data.bytes[7],HEX);
+   }*/
   if (Ignition == 0) {
     PowerSaveLoop();
   }
@@ -232,6 +255,7 @@ void UpdateIgnition() {               //This is where we go if the ignition stat
     genie.WriteContrast(11);
     Page = 0;
     genie.WriteObject(GENIE_OBJ_FORM, Page, 0);
+    GaugeSweep = 1;
     for (int i = 0; i < 150; i++){
       delay(1);
       gaugeVal = i;
@@ -244,7 +268,7 @@ void UpdateIgnition() {               //This is where we go if the ignition stat
       
     }
     }
-    
+    GaugeSweep=0;
   }
   else {
     for (int i = Brightness; i > 1; i--) {
@@ -323,4 +347,14 @@ VHS.data.bytes[4]=0x40;
 VHS.data.bytes[5]=0x01;
 VHS.data.bytes[6]=0x00;
 VHS.data.bytes[7]=0x00;
+}
+void sendModifiedFrame(CAN_FRAME *incoming){
+  if(GaugeSweep){
+  CAN_FRAME modified = *incoming;
+  //Can1.read((*incoming));
+  //modified.data.bytes[3]=gaugeVal*1.7;
+  modified.data.bytes[3]=0xff;
+  modified.data.bytes[4]=0xff;
+  Can1.sendFrame(modified);
+  }
 }

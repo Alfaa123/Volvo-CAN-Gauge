@@ -5753,7 +5753,7 @@ file C:\Program Files (x86)\4D Labs\4D Workshop 4 IDE\include\Diablo16_Functions
 005747  000003  //#constant OLDCOMPILE
 005748  000004        
 005749  000005        
-005750  000006  // generated 2/18/2021 5:24:22 PM
+005750  000006  // generated 2/26/2021 1:32:20 PM
 005751  000007  // uSDRequired:- 1   InternalRequired:- 1
 005752  000008        
 005753  000009  #MODE FLASHBANK_0
@@ -5793,7 +5793,7 @@ file C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoos
 
 005782  000016  #inherit "VolvoBoostGaugeConst.inc"
 005783  000016  #inherit "VolvoBoostGaugeConst.inc"
-005784  000001  // File generated 2/18/2021 5:24:22 PM
+005784  000001  // File generated 2/26/2021 1:32:20 PM
 005785  000002  // Warning! This is a generated file, any manual changes will be
 005786  000003  // lost during the next generation.
 005787  000004        
@@ -6974,7 +6974,7 @@ file C:\Users\0xxxa\Desktop\Volvo-CAN-Gauge\4D Systems Display Project\VolvoBoos
 006962  000574        
 006963  000575      // init comms
 006964  000576      com_Init(comRX,CMDLenMAX,0);
-006965  000577      com_SetBaud(COM0,11520);
+006965  000577      com_SetBaud(COM0,25600);
 006966  000578      com_TXbuffer(comTX, 100, 0);
 006967  000579      // tag 'real' objects
 006968  000580      for (i := 0; i <= MaxTotObjects; i++)

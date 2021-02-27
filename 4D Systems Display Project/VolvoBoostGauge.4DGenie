@@ -5,7 +5,7 @@ Depends
 end
 Options
     Genie
-    Speed                        115200
+    Speed                        256000
     Checksum                     No
     ResponseSize                 2
     Multidrop                    No
