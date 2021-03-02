@@ -49,27 +49,6 @@ void setup()
 
 void loop()    //The main loop sends all the various CAN messages to the ECU so we can get data back. It also calls the MessageRecieve and UpdateDisplay functions periodically. This method of 'multitasking' is painful and needs to be rewritten.
 {
-   /*if (Can1.rx_avail()){
-   CAN_FRAME INCOMING;
-   Can1.get_rx_buff(INCOMING);
-   SerialUSB.print(INCOMING.id,HEX);
-   SerialUSB.print(" ");
-   SerialUSB.print(INCOMING.data.bytes[0],HEX);
-   SerialUSB.print(" ");
-   SerialUSB.print(INCOMING.data.bytes[1],HEX);
-   SerialUSB.print(" ");
-   SerialUSB.print(INCOMING.data.bytes[2],HEX);
-   SerialUSB.print(" ");
-   SerialUSB.print(INCOMING.data.bytes[3],HEX);
-   SerialUSB.print(" ");
-   SerialUSB.print(INCOMING.data.bytes[4],HEX);
-   SerialUSB.print(" ");
-   SerialUSB.print(INCOMING.data.bytes[5],HEX);
-   SerialUSB.print(" ");
-   SerialUSB.print(INCOMING.data.bytes[6],HEX);
-   SerialUSB.print(" ");
-   SerialUSB.println(INCOMING.data.bytes[7],HEX);
-   }*/
   if (Ignition == 0) {
     PowerSaveLoop();
   }
@@ -77,20 +56,21 @@ void loop()    //The main loop sends all the various CAN messages to the ECU so 
   if (Ignition) {
     UpdateDisplay();
   }
+  //We send different messages at different intervals. Slow updating variables don't need to be polled nearly as fast as fast updating ones.
   x++;
-  if (x > 10 && (Page==0)){
+  if (x > 1000 && (Page==0)){
      Can0.sendFrame(BP);
      x = 0;
   }
-  if (x > 1000 && (Page==2)){
+  if (x > 10000 && (Page==2)){
      Can0.sendFrame(COL);
      x = 0;
   }
-    if (x > 500 && (Page==1)){
+    if (x > 5000 && (Page==1)){
      Can0.sendFrame(IAT);
      x = 0;
   }
-      if (x > 1 && (Page==3)){
+      if (x > 1000 && (Page==3)){
      Can0.sendFrame(IA);
      x = 0;
   }
