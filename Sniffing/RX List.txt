@@ -8,7 +8,7 @@ ID       DLC Data                    Period Count  Comment
 0730302E 8   00 00 00 00 00 42 52 F0 50     102128 
 080030AE 8   80 00 03 40 11 03 52 F1 50     102961 
 08E2300E 8   80 82 68 AC FF 04 00 18 75     101577 Center Console Phone
-09C050B8 8   4F 00 0A 00 00 16 00 4C 52     91376  Gauge Stuff and Milage Counter N2=Brighness B2=Milage Increment B4 B5 = Tacho B6N1=Some Messages CRITICAL FOR CLUSTER
+09C050B8 8   4F 00 0A 00 00 16 00 4C 52     91376  Gauge Stuff and Milage Counter | B1N2=Brighness | B2=Milage Increment | B4&B5 = Tacho B6N1=Some Messages CRITICAL FOR CLUSTER
 0A90F698 8   FA FF 00 00 80 00 00 00 50     94666  Belt Minder
 0C505226 8   00 32 00 00 00 00 00 B0 60     88124  FROM GAUGE CLUSTER Fasten Belt Sign and Radio Beeps
 0C800010 8   00 00 00 00 00 00 00 00 103    49960  
@@ -26,7 +26,7 @@ ID       DLC Data                    Period Count  Comment
 18805048 8   00 00 00 00 00 00 00 00 97     45185  
 19F010FC 8   99 2C 00 60 01 90 DE 24 201    25299  Cruise Control Buttons
 1A621000 8   0C 00 00 00 00 00 00 00 194    20067  
-1AD10068 8   00 04 00 52 B3 B8 4C 95 600    12205  
+1AD10068 8   00 04 00 52 B3 B8 4C 95 600    12205  B1=Fuel Level B2=0x04 when cluster on 0x07 when cluster off | B7&B8 = Counting up (message ordering?)
 1BD00004 8   00 00 00 00 00 00 00 00 201    24115  FROM CLUSTER
 1C810066 8   20 09 90 72 02 24 00 00 350    13847  
 1D604008 8   00 17 14 00 00 00 00 00 1088   13943  

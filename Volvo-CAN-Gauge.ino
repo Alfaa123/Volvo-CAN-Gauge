@@ -23,17 +23,17 @@ Genie genie;
 
 void setup()
 {
-  Serial.begin(256000);
-  //SerialUSB.begin(115200);  // Serial1 @ 200000 (200K) BaudNuu
+  Serial.begin(256000); //Start serial comms for the LCD display
+  //SerialUSB.begin(115200);
   
-  genie.Begin(Serial);   // Use Serial1 for talking to the Genie Library, and to the 4D Systems display
-   pinMode(RESETLINE, OUTPUT);  // Set D4 on Arduino to Output (4D Arduino Adaptor V2 - Display Reset)
+  genie.Begin(Serial);   // Use Serial 1 for talking to the Genie Library, and to the 4D Systems display
+  pinMode(RESETLINE, OUTPUT);  // Set D4 on Arduino to Output (4D Arduino Adaptor V2 - Display Reset)
   digitalWrite(RESETLINE, 0);  // Reset the Display via D4
   delay(100);
   digitalWrite(RESETLINE, 1);  // unReset the Display via D4
   Can0.begin(CAN_BPS_500K);
   Can1.begin(CAN_BPS_125K);
-  CanFrames();
+  CanFrames(); //Declare our various static frames
   delay (5000); 
   //while(!SerialUSB);
   //SerialUSB.print("Test");
@@ -58,19 +58,19 @@ void loop()    //The main loop sends all the various CAN messages to the ECU so 
   }
   //We send different messages at different intervals. Slow updating variables don't need to be polled nearly as fast as fast updating ones.
   x++;
-  if (x > 1000 && (Page==0)){
+  if (x > 2000 && (Page==0)){
      Can0.sendFrame(BP);
      x = 0;
   }
-  if (x > 10000 && (Page==2)){
+  if (x > 50000 && (Page==2)){
      Can0.sendFrame(COL);
      x = 0;
   }
-    if (x > 5000 && (Page==1)){
+    if (x > 10000 && (Page==1)){
      Can0.sendFrame(IAT);
      x = 0;
   }
-      if (x > 1000 && (Page==3)){
+      if (x > 2000 && (Page==3)){
      Can0.sendFrame(IA);
      x = 0;
   }
