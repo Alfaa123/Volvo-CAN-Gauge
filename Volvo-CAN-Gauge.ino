@@ -14,7 +14,6 @@ CAN_FRAME VHS;
 int x, Brightness;
 unsigned char len = 0, flagRecv = 0, Page = 0, Index = 0;
 bool NightMode, Ignition, GaugeSweep;
-static long updatePeriod = millis();
 static int gaugeAddVal = 1;
 static int gaugeVal = 0;
 static int gaugeCurrentValue = 0;
@@ -58,7 +57,7 @@ void loop()    //The main loop sends all the various CAN messages to the ECU so 
   }
   //We send different messages at different intervals. Slow updating variables don't need to be polled nearly as fast as fast updating ones.
   x++;
-  if (x > 2000 && (Page==0)){
+  if (x > 3000 && (Page==0)){
      Can0.sendFrame(BP);
      x = 0;
   }
@@ -70,7 +69,7 @@ void loop()    //The main loop sends all the various CAN messages to the ECU so 
      Can0.sendFrame(IAT);
      x = 0;
   }
-      if (x > 2000 && (Page==3)){
+      if (x > 3000 && (Page==3)){
      Can0.sendFrame(IA);
      x = 0;
   }
@@ -83,48 +82,44 @@ void UpdateDisplay() {               //This function takes the data retrieved in
   if (Page == 0){
     gaugeVal = (Boost-101.352) * 1.45;
     if (gaugeVal < 0){gaugeVal = 0;}
-      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+      if (gaugeCurrentValue != gaugeVal){
         if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
           if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
       gaugeCurrentValue += gaugeAddVal;
       genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 0, gaugeCurrentValue);
       genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 0, gaugeCurrentValue);
-      updatePeriod = millis() + 0;
   }
     }
   else if (Page == 1){
     gaugeVal = IntakeTemp;
     if (gaugeVal < 0){gaugeVal = 0;}
-      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+      if (gaugeCurrentValue != gaugeVal){
         if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
           if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
       gaugeCurrentValue += gaugeAddVal;
       genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 1, gaugeCurrentValue);
       genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 1, gaugeCurrentValue);
-      updatePeriod = millis() + 0;
     }
   }
   else if (Page == 2){
     gaugeVal = CoolantTemp;
     if (gaugeVal < 0){gaugeVal = 0;}
-      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+      if (gaugeCurrentValue != gaugeVal){
         if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
           if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
       gaugeCurrentValue += gaugeAddVal;
       genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 2, gaugeCurrentValue);
       genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 2, gaugeCurrentValue);
-      updatePeriod = millis() + 0;
     }
   }
     else if (Page == 3){
     gaugeVal = (IgnitionAngle);
-      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+      if (gaugeCurrentValue != gaugeVal){
         if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
           if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
       gaugeCurrentValue += gaugeAddVal;
       genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 3, 50 - (gaugeCurrentValue*.55));
       genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 3, gaugeCurrentValue);
-      updatePeriod = millis() + 0;
     }
   }
   }
@@ -239,7 +234,7 @@ void UpdateIgnition() {               //This is where we go if the ignition stat
     for (int i = 0; i < 150; i++){
       delay(1);
       gaugeVal = i;
-      if ((gaugeCurrentValue != gaugeVal)&(updatePeriod < millis())){
+      if (gaugeCurrentValue != gaugeVal){
         if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
           if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
       gaugeCurrentValue += gaugeAddVal;
@@ -253,7 +248,7 @@ void UpdateIgnition() {               //This is where we go if the ignition stat
   else {
     for (int i = Brightness; i > 1; i--) {
      genie.WriteContrast(i/15);
-     delay(10);
+     delay(5);
     }
    
   }
