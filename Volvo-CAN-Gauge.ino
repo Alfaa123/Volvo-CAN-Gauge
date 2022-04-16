@@ -18,14 +18,14 @@ static int gaugeAddVal = 1;
 static int gaugeVal = 0;
 static int gaugeCurrentValue = 0;
 Genie genie;
-#define RESETLINE 2
+#define RESETLINE 45
 
 void setup()
 {
-  Serial.begin(256000); //Start serial comms for the LCD display
+  Serial3.begin(256000); //Start serial comms for the LCD display
   //SerialUSB.begin(115200);
   
-  genie.Begin(Serial);   // Use Serial 1 for talking to the Genie Library, and to the 4D Systems display
+  genie.Begin(Serial3);   // Use Serial 1 for talking to the Genie Library, and to the 4D Systems display
   pinMode(RESETLINE, OUTPUT);  // Set D4 on Arduino to Output (4D Arduino Adaptor V2 - Display Reset)
   digitalWrite(RESETLINE, 0);  // Reset the Display via D4
   delay(100);
@@ -34,8 +34,7 @@ void setup()
   Can1.begin(CAN_BPS_125K);
   CanFrames(); //Declare our various static frames
   delay (5000); 
-  //while(!SerialUSB);
-  //SerialUSB.print("Test");
+
   // Masks and filters setup for the can interface. We use these to keep resource usage low by only looking for traffic we care about.
   Can0.setRXFilter(0,0x00400021, 0xFFFFFFFF, 1);
   Can0.setRXFilter(1,0x19E00006, 0xFFFFFFFF, 1);
@@ -225,7 +224,9 @@ void MessageRecieveLoop(){                                                  //I 
   }
 }  
 
-void UpdateIgnition() {               //This is where we go if the ignition status changes. If it goes high to low (car turns off) then we fade the display out, blank it and put it to sleep for the power save loop. If it goes low to high (car turns on) we wake the display and write a welcome message to the display and proceed to the main loop.
+void UpdateIgnition() {
+//This is where we go if the ignition status changes. If it goes high to low (car turns off) then we fade the display out, blank it and put it to sleep for the power save loop. If it goes low to high (car turns on) we wake the display and write a welcome message to the display and proceed to the main loop.
+
   if (Ignition) {
     genie.WriteContrast(11);
     Page = 0;
