@@ -1,5 +1,8 @@
 #include <due_can.h>
 #include <genieArduino.h>
+#include <Arduino.h>
+#include <pins_arduino.h>
+#include <stdint.h>
 
 long Boost, EngineSpeed, CoolantTemp, IntakeTemp, VehicleSpeed, ButtonHeld, IgnitionAngle;
 
@@ -17,31 +20,36 @@ bool NightMode, Ignition, GaugeSweep;
 static int gaugeAddVal = 1;
 static int gaugeVal = 0;
 static int gaugeCurrentValue = 0;
+static int defaultBrightness = 255;
 Genie genie;
 #define RESETLINE 45
 
 void setup()
 {
   Serial3.begin(256000); //Start serial comms for the LCD display
-  //SerialUSB.begin(115200);
+  SerialUSB.begin(115200);
+  pinMode(DS3, OUTPUT);
+  digitalWrite(DS3, LOW);
+  delay(1000);
+  digitalWrite(DS3, HIGH);
   
   genie.Begin(Serial3);   // Use Serial 1 for talking to the Genie Library, and to the 4D Systems display
   pinMode(RESETLINE, OUTPUT);  // Set D4 on Arduino to Output (4D Arduino Adaptor V2 - Display Reset)
   digitalWrite(RESETLINE, 0);  // Reset the Display via D4
   delay(100);
   digitalWrite(RESETLINE, 1);  // unReset the Display via D4
-  Can0.begin(CAN_BPS_500K);
-  Can1.begin(CAN_BPS_125K);
+  Can0.begin(CAN_BPS_125K);
+  Can1.begin(CAN_BPS_500K);
   CanFrames(); //Declare our various static frames
   delay (5000); 
 
   // Masks and filters setup for the can interface. We use these to keep resource usage low by only looking for traffic we care about.
-  Can0.setRXFilter(0,0x00400021, 0xFFFFFFFF, 1);
-  Can0.setRXFilter(1,0x19E00006, 0xFFFFFFFF, 1);
-  Can0.setRXFilter(2,0x0100082C, 0xFFFFFFFF, 1);
-  Can0.setRXFilter(3,0x19000026, 0xFFFFFFFF, 1);
-  Can1.watchFor(0x09C050B8);
-  Can1.setGeneralCallback(sendModifiedFrame);
+  Can1.setRXFilter(0,0x00400021, 0xFFFFFFFF, 1);
+  Can1.setRXFilter(1,0x19E00006, 0xFFFFFFFF, 1);
+  Can1.setRXFilter(2,0x0100082C, 0xFFFFFFFF, 1);
+  Can1.setRXFilter(3,0x19000026, 0xFFFFFFFF, 1);
+  Can0.watchFor(0x09C050B8);
+  Can0.setGeneralCallback(sendModifiedFrame);
   genie.WriteContrast(0);
 }
 
@@ -57,26 +65,26 @@ void loop()    //The main loop sends all the various CAN messages to the ECU so 
   //We send different messages at different intervals. Slow updating variables don't need to be polled nearly as fast as fast updating ones.
   x++;
   if (x > 3000 && (Page==0)){
-     Can0.sendFrame(BP);
+     Can1.sendFrame(BP);
      x = 0;
   }
   if (x > 50000 && (Page==2)){
-     Can0.sendFrame(COL);
+     Can1.sendFrame(COL);
      x = 0;
   }
     if (x > 10000 && (Page==1)){
-     Can0.sendFrame(IAT);
+     Can1.sendFrame(IAT);
      x = 0;
   }
       if (x > 3000 && (Page==3)){
-     Can0.sendFrame(IA);
+     Can1.sendFrame(IA);
      x = 0;
   }
   
 MessageRecieveLoop();
 }
 
-void UpdateDisplay() {               //This function takes the data retrieved in the MessageRecieveLoop and writes it to the OLED. Because the OLED is so slow, this is where we spend the majority of our loop time.
+void UpdateDisplay() {               //This function takes the data retrieved in the MessageRecieveLoop and writes it to the LCD.
   //Boost Display
   if (Page == 0){
     gaugeVal = (Boost-101.352) * 1.45;
@@ -132,23 +140,23 @@ void UpdateBrightness() {                       //This function simply updates t
 }
 
 void PowerSaveLoop(){                          // This is where we come if the ignition message goes low. We loop here indefinitely until we sense the ignition has come back on. OLED is off and filters are activated to ignore any traffic except the ignition status broadcast.
-  Can0.setRXFilter(0,0x00000000, 0xFFFFFFFF, 1);
-  Can0.setRXFilter(1,0x19E00006, 0xFFFFFFFF, 1);
-  Can0.setRXFilter(2,0x00000000, 0xFFFFFFFF, 1);
-  Can0.setRXFilter(3,0x00000000, 0xFFFFFFFF, 1);
+  Can1.setRXFilter(0,0x00000000, 0xFFFFFFFF, 1);
+  Can1.setRXFilter(1,0x19E00006, 0xFFFFFFFF, 1);
+  Can1.setRXFilter(2,0x00000000, 0xFFFFFFFF, 1);
+  Can1.setRXFilter(3,0x00000000, 0xFFFFFFFF, 1);
     while (1 == 1) {
       delay(200);
-      if (Can0.rx_avail())           
+      if (Can1.rx_avail())           
       {
         CAN_FRAME INCOMING;
-        Can0.get_rx_buff(INCOMING);
+        Can1.get_rx_buff(INCOMING);
         if (INCOMING.id == 0x19E00006) {
           if ((INCOMING.data.bytes[6] & B01000000) != Ignition) {
             Ignition = (INCOMING.data.bytes[6] & B01000000);
-              Can0.setRXFilter(0,0x00400021, 0xFFFFFFFF, 1);
-              Can0.setRXFilter(1,0x19E00006, 0xFFFFFFFF, 1);
-              Can0.setRXFilter(2,0x0100082C, 0xFFFFFFFF, 1);
-              Can0.setRXFilter(3,0x19000026, 0xFFFFFFFF, 1);
+              Can1.setRXFilter(0,0x00400021, 0xFFFFFFFF, 1);
+              Can1.setRXFilter(1,0x19E00006, 0xFFFFFFFF, 1);
+              Can1.setRXFilter(2,0x0100082C, 0xFFFFFFFF, 1);
+              Can1.setRXFilter(3,0x19000026, 0xFFFFFFFF, 1);
             UpdateIgnition();
             break;
           }
@@ -158,10 +166,10 @@ void PowerSaveLoop(){                          // This is where we come if the i
 }
 
 void MessageRecieveLoop(){                                                  //I was never able to get inturrupt based frame handling working, so this loop is here to check if we have any new messages. If we do, update variables.
-    while (Can0.rx_avail())
+    while (Can1.rx_avail())
   {
    CAN_FRAME INCOMING;
-   Can0.get_rx_buff(INCOMING);
+   Can1.get_rx_buff(INCOMING);
    //SerialUSB.println(INCOMING.id,HEX);
     if (INCOMING.id == 0x00400021) {
       if (INCOMING.data.bytes[4] == 0x9d) {
@@ -188,7 +196,7 @@ void MessageRecieveLoop(){                                                  //I 
       }
     }
     if (INCOMING.id == 0x19000026){
-      if (INCOMING.data.bytes[7] && B00100000){
+      if (INCOMING.data.bytes[7] == 32){
          if (ButtonHeld < 1){
            ButtonHeld = millis();
         }
@@ -211,6 +219,7 @@ void MessageRecieveLoop(){                                                  //I 
         if (!NightMode) {
           Brightness = Brightness * 0.8;
         }
+        else { Brightness = defaultBrightness;};
         UpdateBrightness();
       }
       if ((INCOMING.data.bytes[0] & B00001111) != Brightness) {
@@ -218,6 +227,7 @@ void MessageRecieveLoop(){                                                  //I 
         if (!NightMode) {
           Brightness = Brightness * 0.8;
         }
+        else { Brightness = defaultBrightness;};
         UpdateBrightness();
       }
     }
@@ -228,7 +238,7 @@ void UpdateIgnition() {
 //This is where we go if the ignition status changes. If it goes high to low (car turns off) then we fade the display out, blank it and put it to sleep for the power save loop. If it goes low to high (car turns on) we wake the display and write a welcome message to the display and proceed to the main loop.
 
   if (Ignition) {
-    genie.WriteContrast(11);
+    genie.WriteContrast(defaultBrightness/15);
     Page = 0;
     genie.WriteObject(GENIE_OBJ_FORM, Page, 0);
     GaugeSweep = 1;
@@ -331,6 +341,6 @@ void sendModifiedFrame(CAN_FRAME *incoming){
   //modified.data.bytes[3]=gaugeVal*1.7;
   modified.data.bytes[3]=0xff;
   modified.data.bytes[4]=0xff;
-  Can1.sendFrame(modified);
+  Can0.sendFrame(modified);
   }
 }
