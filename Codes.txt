@@ -1,3 +1,19 @@
+000FFFFE is the typical CAN address for sending request commands on the 500k CAN bus.
+
+CD is C8 + number of significant bytes to follow.
+7A is the address of the ME7 ECU
+A6 is the "Read Current Data By Identifier" command
+10,0A is the Battery Voltage parameter
+01 is probably "Send the record once"
+
+00800021 is the CAN address for response
+CD is C8 + number of significant bytes to follow.
+7A is the address of the ME7 ECU
+E6 is response to A6
+10,0A is confirming the request parameter
+95 is the return value
+
+
 szTextDesc;RequestData;tszScalingDesc;tszTextDesc;tszCompare
 Security Access Mode Request relock immo (Req type AAAA);A3 30      ;*1;Positive response;
 Send Immo PIN;A3 32 43 45 4D 30 30 39;*1;Positive response;
