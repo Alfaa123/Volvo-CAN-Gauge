@@ -58,7 +58,9 @@ We also use data from some broadcasted CAN frames that are used elsewhere in the
 
 The code uses a psudo multi-tasking approach where the message recieve loop is always running if one of the other loops isn't currently running. This allows us to update/check broadcast frames in the background for brightness changes, ignition status changes and button presses and update the global variables accordingly.
 
-In the display loop, we can show boost pressure, coolant temperature, intake temperature and ignition advance.
+In the display loop, we can show boost pressure, coolant temperature, intake temperature and ignition advance:
+
+![](./Screens.jpg)
 
 We also react to the dashboard brightness broadcast frame so the display updates it's brightness along with the rest of the dashboard. If the headlights are on, the display brightness follows the rest of the dashboard.
 
