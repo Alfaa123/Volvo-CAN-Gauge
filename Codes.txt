@@ -1,18 +1,35 @@
-000FFFFE is the typical CAN address for sending request commands on the 500k CAN bus.
+The Volvo VIDA protocol is a diagnostic protocol similar to UDS. However, unlike UDS the VIDA protocol, the first byte is a DLC and the second byte is the ECU address. An example (reading boost pressure) can be found below:
+
+Request:
+
+ID: 0x000FFFFE  Data: CD 7A A6 12 9D 01 00 00
 
 CD is C8 + number of significant bytes to follow.
 7A is the address of the ME7 ECU
 A6 is the "Read Current Data By Identifier" command
 10,0A is the Battery Voltage parameter
 01 is probably "Send the record once"
+00s are padding the rest of the frame to keep it 8 bytes long
 
-00800021 is the CAN address for response
+Response:
+
+ID 0x00400021  Data: CD 7A E6 12 9D 95 00 00
+
+00400021 is the CAN address for response
 CD is C8 + number of significant bytes to follow.
 7A is the address of the ME7 ECU
 E6 is response to A6
-10,0A is confirming the request parameter
+12,9D is confirming the request parameter
 95 is the return value
+00s are padding
 
+Other known commands for 3rd byte:
+A6: Read data by identifier (or something equivalent I dunno)
+B1:
+B2:
+B8:
+B9: For reading VIN or serial number (read data by offset?)
+AE: Reading DTCs... or something
 
 szTextDesc;RequestData;tszScalingDesc;tszTextDesc;tszCompare
 Security Access Mode Request relock immo (Req type AAAA);A3 30      ;*1;Positive response;

@@ -3,13 +3,12 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 
 **Old video of the project with the OLED screen before the Due port is here:** https://www.youtube.com/watch?v=hdAKEG6ggRk
   
-![](./IMG_20210218_131622663.jpg)
+![](./Close_Up.jpg)
 
 # Hardware:
 - 2011 Volvo C30 T5
 - 4D Systems ULCD-220RD round LCD Display (https://4dsystems.com.au/ulcd-220rd)
-- Arduino Due
-- Copperhill Technologies Dual CAN Interface For Arduino Due With Extended Power Range (https://copperhilltech.com/dual-can-bus-interface-for-arduino-due-with-extended-power-range/)
+- Macchina M2 UTH )https://www.macchina.cc/catalog/m2-boards/m2-under-hood)
 - Custom designed 3d-printed LCD mount designed to fit the shape of the bottom left corner of the dashboard bezel. (STL is in the Display Mount folder)
 
 # Libraries:
@@ -18,17 +17,49 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 
 # Basic Functional Description:
 
-The Volvo VIDA protocol is a basic message/response protocol not very different from ISO 15765-4. However, unlike ISO 15765-4, VIDA can also write controller firmware, activate actuators and run diagnostic tests.
+The Volvo VIDA protocol is a diagnostic protocol similar to UDS. However, unlike UDS the VIDA protocol, the first byte is a DLC and the second byte is the ECU address. An example (reading boost pressure) can be found below:
 
-In this project, we are only concerned with recieving data that would be otherwise unavailable with ISO 15765-4. Boost pressure, for example, is not available via ISO 15765-4 on Volvo cars. (a partial list of discovered codes from the VIDA database files is in Codes.txt)
+Request:
+
+ID: 0x000FFFFE  Data: CD 7A A6 12 9D 01 00 00
+
+CD is C8 + number of significant bytes to follow.
+7A is the address of the ME7 ECU
+A6 is the "Read Current Data By Identifier" command
+10,0A is the Battery Voltage parameter
+01 is probably "Send the record once"
+00s are padding the rest of the frame to keep it 8 bytes long
+
+Response:
+
+ID 0x00400021  Data: CD 7A E6 12 9D 95 00 00
+
+00400021 is the CAN address for response
+CD is C8 + number of significant bytes to follow.
+7A is the address of the ME7 ECU
+E6 is response to A6
+12,9D is confirming the request parameter
+95 is the return value
+00s are padding
+
+Other commands for byte 3 can be found in this paper: https://hiltontuning.com/wp-content/uploads/2014/09/VolcanoResearchPaperWeb.pdf
+
+
+# Car Specific Details
+
+This Volvo uses 29-bit IDs on both high (500kbps) and low (125kbps) speed CAN busses. Every frame from every ECU is 8 bytes long. There is no gateway and both busses are pinned out at the OBD2 connector, which makes it extremely easy to interface with the vehicle's onboard systems. A Pinout is shown below:
+
+![](./OBD_Pinout.jpg)
+
+In this project, we are only concerned with recieving data that would be otherwise unavailable with OBD2. Boost pressure, for example, is not available via OBD2 on Volvo cars. (a partial list of discovered codes that you can request from ECU 7A from the VIDA database files is in Codes.txt)
 
 We also use data from some broadcasted CAN frames that are used elsewhere in the car (for dashboard brightness, ignition status and headlights). Ideally, we would capture ALL of our information from broadcast frames as that involves a lot less overhead and traffic on the bus. However, some of the information that we need never gets broadcast, so we sometimes have no choice.
 
 The code uses a psudo multi-tasking approach where the message recieve loop is always running if one of the other loops isn't currently running. This allows us to update/check broadcast frames in the background for brightness changes, ignition status changes and button presses and update the global variables accordingly.
 
-In the display loop, we can show boost pressure, coolant temperature and intake temperature.
+In the display loop, we can show boost pressure, coolant temperature, intake temperature and ignition advance.
 
-We also react to the dashboard brightness broadcast frame so the display updates it's brightness along with the rest of the dashboard. If the headlights are on, display brightness is multiplied by 0.8.
+We also react to the dashboard brightness broadcast frame so the display updates it's brightness along with the rest of the dashboard. If the headlights are on, the display brightness follows the rest of the dashboard.
 
 For right now, the only button we track is the cruise control cancel button. Holding the button for more than 2 seconds changes the currently displayed page. Perhaps in the future, a menu system could be implemented.
 
