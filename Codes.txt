@@ -24,12 +24,24 @@ E6 is response to A6
 00s are padding
 
 Other known commands for 3rd byte:
+9C: Jump to Address
+A0: Run Code Segment at Jump Point
 A6: Read data by identifier (or something equivalent I dunno)
+A8: Set End SBL
+AE: Send Data
 B1:
 B2:
+B4: End Data Get Checksum
 B8:
-B9: For reading VIN or serial number (read data by offset?)
-AE: Reading DTCs... or something
+B9:
+C0: Start PBL
+C8: Reset ECU
+F8: Erase
+
+There are a few global codes that operate on an ECU identifier of "FF"
+
+86: Whole Bus Silence
+C8: Whole Bus Reset
 
 szTextDesc;RequestData;tszScalingDesc;tszTextDesc;tszCompare
 Security Access Mode Request relock immo (Req type AAAA);A3 30      ;*1;Positive response;
