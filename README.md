@@ -31,17 +31,17 @@ This Volvo uses 29-bit IDs on both high (500kbps) and low (125kbps) speed CAN bu
 
 ![](./Network_Layout.png)
 
-In this project, we are only concerned with recieving data that would be otherwise unavailable with OBD2. Boost pressure, for example, is not available via OBD2 on Volvo cars. (a partial list of discovered codes that you can request from ECU 7A from the VIDA database files is in Codes.txt)
+In this project, we are only concerned with recieving data that would be otherwise unavailable with OBD2. Boost pressure, for example, is not available via OBD2 on Volvo cars and if it was, it definitely would've made this project a lot simpler. (a partial list of discovered codes that you can request from ECU 7A from the VIDA database files is in Codes.txt)
 
-We also use data from some broadcasted CAN frames that are used elsewhere in the car (for dashboard brightness, ignition status and headlights). Ideally, we would capture ALL of our information from broadcast frames as that involves a lot less overhead and traffic on the bus. However, some of the information that we need never gets broadcast, so we sometimes have no choice.
+We also use data from some broadcasted CAN frames that are used elsewhere in the car (for dashboard brightness, ignition status, the status of the light sensor on the dashboard and the buttons on the steering wheel). Ideally, we would capture ALL of our information from broadcast frames as that involves a lot less overhead and traffic on the bus. However, some of the information that we need never gets broadcast, so we sometimes have no choice.
 
-The code uses a psudo multi-tasking approach where the message recieve loop is always running if one of the other loops isn't currently running. This allows us to update/check broadcast frames in the background for brightness changes, ignition status changes and button presses and update the global variables accordingly.
+The code uses a psudo multi-tasking approach where the message recieve loop is always running if one of the other loops isn't currently running. This allows us to update/check broadcast frames in the background for brightness changes, ignition status changes and button presses and update the global variables accordingly to be used elsewhere in the code.
 
 In the display loop, we can show boost pressure, coolant temperature, intake temperature and ignition advance:
 
 ![](./Screens.jpg)
 
-We also react to the dashboard brightness broadcast frame so the display updates it's brightness along with the rest of the dashboard. If the headlights are on, the display brightness follows the rest of the dashboard.
+We react to the dashboard brightness broadcast frame so the display updates it's brightness along with the rest of the dashboard when the headlights are on. If the headlights are off, the display brightness is at maximum unless the brightness control is at it's minumum value as a way to shut the display off if required.
 
 ![](./Dashboard_Brightness.png)
 
@@ -54,8 +54,6 @@ In order to turn the display on and off with the ignition, we look at the igniti
 ![](./Ignition_Status.png)
 
 In order for the gauge to feel more "analog" the needle and value of the gauge will not change between distant values instantaneously. There is a built in loop that will require the needle to go through all intermediate values if the variable changes by more than 1.
-
-When the gauge switches pages, the needle will smoothly sweep to the next position instead of moving instantaneously. Again, this is for the "analog" feel.
 
 # Notes:
 

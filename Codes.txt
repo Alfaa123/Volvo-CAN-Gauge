@@ -7,7 +7,7 @@ ID: 0x000FFFFE  Data: CD 7A A6 12 9D 01 00 00
 CD is C8 + number of significant bytes to follow.
 7A is the address of the ME7 ECU
 A6 is the "Read Current Data By Identifier" command
-10,0A is the Battery Voltage parameter
+12,9D is the Boost Pressure parameter
 01 is probably "Send the record once"
 00s are padding the rest of the frame to keep it 8 bytes long
 
