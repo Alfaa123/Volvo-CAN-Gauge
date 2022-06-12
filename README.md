@@ -19,29 +19,8 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 
 The Volvo VIDA protocol is a diagnostic protocol similar to UDS. However, unlike UDS the VIDA protocol, the first byte is a DLC and the second byte is the ECU address. An example (reading boost pressure) can be found below:
 
-```Request:
-
-ID: 0x000FFFFE  Data: CD 7A A6 12 9D 01 00 00
-
-CD is C8 + number of significant bytes to follow.
-7A is the address of the ME7 ECU
-A6 is the "Read Current Data By Identifier" command
-10,0A is the Battery Voltage parameter
-01 is probably "Send the record once"
-00s are padding the rest of the frame to keep it 8 bytes long
-
-Response:
-
-ID 0x00400021  Data: CD 7A E6 12 9D 95 00 00
-
-00400021 is the CAN address for response
-CD is C8 + number of significant bytes to follow.
-7A is the address of the ME7 ECU
-E6 is response to A6
-12,9D is confirming the request parameter
-95 is the return value
-00s are padding
-```
+![](./Diag_Request.png)
+![](./Diag_Response.png)
 
 Other commands for byte 3 can be found in this paper: https://hiltontuning.com/wp-content/uploads/2014/09/VolcanoResearchPaperWeb.pdf
 
@@ -50,7 +29,7 @@ Other commands for byte 3 can be found in this paper: https://hiltontuning.com/w
 
 This Volvo uses 29-bit IDs on both high (500kbps) and low (125kbps) speed CAN busses. Every frame from every ECU is 8 bytes long. There is no gateway and both busses are pinned out at the OBD2 connector, which makes it extremely easy to interface with the vehicle's onboard systems. A Pinout is shown below:
 
-![](./OBD_Pinout.png)
+![](./Network_Layout.png)
 
 In this project, we are only concerned with recieving data that would be otherwise unavailable with OBD2. Boost pressure, for example, is not available via OBD2 on Volvo cars. (a partial list of discovered codes that you can request from ECU 7A from the VIDA database files is in Codes.txt)
 
@@ -64,7 +43,15 @@ In the display loop, we can show boost pressure, coolant temperature, intake tem
 
 We also react to the dashboard brightness broadcast frame so the display updates it's brightness along with the rest of the dashboard. If the headlights are on, the display brightness follows the rest of the dashboard.
 
+![](./Dashboard_Brightness.png)
+
 For right now, the only button we track is the cruise control cancel button. Holding the button for more than 2 seconds changes the currently displayed page. Perhaps in the future, a menu system could be implemented.
+
+![](./Cruise_Control_Buttons.png)
+
+In order to turn the display on and off with the ignition, we look at the ignition status frame:
+
+![](./Ignition_Status.png)
 
 In order for the gauge to feel more "analog" the needle and value of the gauge will not change between distant values instantaneously. There is a built in loop that will require the needle to go through all intermediate values if the variable changes by more than 1.
 
