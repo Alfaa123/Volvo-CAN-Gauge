@@ -8,7 +8,7 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 # Hardware:
 - 2011 Volvo C30 T5
 - 4D Systems ULCD-220RD round LCD Display (https://4dsystems.com.au/ulcd-220rd)
-- Macchina M2 UTH )https://www.macchina.cc/catalog/m2-boards/m2-under-hood)
+- Macchina M2 UTH (https://www.macchina.cc/catalog/m2-boards/m2-under-hood)
 - Custom designed 3d-printed LCD mount designed to fit the shape of the bottom left corner of the dashboard bezel. (STL is in the Display Mount folder)
 
 # Libraries:
