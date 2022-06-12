@@ -40,7 +40,8 @@ CD is C8 + number of significant bytes to follow.
 E6 is response to A6
 12,9D is confirming the request parameter
 95 is the return value
-00s are padding```
+00s are padding
+```
 
 Other commands for byte 3 can be found in this paper: https://hiltontuning.com/wp-content/uploads/2014/09/VolcanoResearchPaperWeb.pdf
 
