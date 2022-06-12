@@ -11,6 +11,8 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 - Macchina M2 UTH (https://www.macchina.cc/catalog/m2-boards/m2-under-hood)
 - Custom designed 3d-printed LCD mount designed to fit the shape of the bottom left corner of the dashboard bezel. (STL is in the Display Mount folder)
 
+![](./Wiring_Diagram.png)
+
 # Libraries:
 - geneArduino: Used to send data to the 4D Systems display.
 - due_can: Used to easily access the built in CAN interfaces on the Arduino Due (https://github.com/collin80/due_can)
