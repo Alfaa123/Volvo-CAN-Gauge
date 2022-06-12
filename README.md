@@ -19,7 +19,7 @@ Reverse engineering the Volvo VIDA protocol to gather diagnostic information not
 
 The Volvo VIDA protocol is a diagnostic protocol similar to UDS. However, unlike UDS the VIDA protocol, the first byte is a DLC and the second byte is the ECU address. An example (reading boost pressure) can be found below:
 
-Request:
+```Request:
 
 ID: 0x000FFFFE  Data: CD 7A A6 12 9D 01 00 00
 
@@ -40,7 +40,7 @@ CD is C8 + number of significant bytes to follow.
 E6 is response to A6
 12,9D is confirming the request parameter
 95 is the return value
-00s are padding
+00s are padding```
 
 Other commands for byte 3 can be found in this paper: https://hiltontuning.com/wp-content/uploads/2014/09/VolcanoResearchPaperWeb.pdf
 
@@ -49,7 +49,7 @@ Other commands for byte 3 can be found in this paper: https://hiltontuning.com/w
 
 This Volvo uses 29-bit IDs on both high (500kbps) and low (125kbps) speed CAN busses. Every frame from every ECU is 8 bytes long. There is no gateway and both busses are pinned out at the OBD2 connector, which makes it extremely easy to interface with the vehicle's onboard systems. A Pinout is shown below:
 
-![](./OBD_Pinout.jpg)
+![](./OBD_Pinout.png)
 
 In this project, we are only concerned with recieving data that would be otherwise unavailable with OBD2. Boost pressure, for example, is not available via OBD2 on Volvo cars. (a partial list of discovered codes that you can request from ECU 7A from the VIDA database files is in Codes.txt)
 
