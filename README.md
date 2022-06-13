@@ -1,7 +1,7 @@
 # Volvo-CAN-Gauge
 Reverse engineering the Volvo VIDA protocol to gather diagnostic information not available via OBD2 on Volvo cars.
 
-**Old video of the project with the OLED screen before the Due port is here:** https://www.youtube.com/watch?v=hdAKEG6ggRk
+[https://www.youtube.com/watch?v=hdAKEG6ggRk](https://youtu.be/kRip9_HPZf4)
   
 ![](./Close_Up.jpg)
 
