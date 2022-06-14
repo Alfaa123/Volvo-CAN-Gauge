@@ -64,7 +64,7 @@ void loop()    //The main loop sends all the various CAN messages to the ECU so 
   }
   //We send different messages at different intervals. Slow updating variables don't need to be polled nearly as fast as fast updating ones.
   x++;
-  if (x > 3000 && (Page == 0)) {
+  if (x > 100000 && (Page == 0)) {
     Can1.sendFrame(BP);
     x = 0;
   }
@@ -92,8 +92,8 @@ void UpdateDisplay() {               //This function takes the data retrieved in
       gaugeVal = 0;
     }
     if (gaugeCurrentValue != gaugeVal) {
-      if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
-      if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
+      if (gaugeCurrentValue > gaugeVal) gaugeAddVal = gaugeVal - gaugeCurrentValue;
+      if (gaugeCurrentValue < gaugeVal) gaugeAddVal = gaugeVal - gaugeCurrentValue;
       gaugeCurrentValue += gaugeAddVal;
       genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 0, gaugeCurrentValue);
       genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 0, gaugeCurrentValue);
@@ -128,8 +128,8 @@ void UpdateDisplay() {               //This function takes the data retrieved in
   else if (Page == 3) {
     gaugeVal = (IgnitionAngle);
     if (gaugeCurrentValue != gaugeVal) {
-      if (gaugeCurrentValue > gaugeVal) gaugeAddVal = -1;
-      if (gaugeCurrentValue < gaugeVal) gaugeAddVal = 1;
+      if (gaugeCurrentValue > gaugeVal) gaugeAddVal = gaugeVal - gaugeCurrentValue;
+      if (gaugeCurrentValue < gaugeVal) gaugeAddVal = gaugeVal - gaugeCurrentValue;
       gaugeCurrentValue += gaugeAddVal;
       genie.WriteObject(GENIE_OBJ_IANGULAR_METER, 3, 50 - (gaugeCurrentValue * .55));
       genie.WriteObject(GENIE_OBJ_ILED_DIGITS, 3, gaugeCurrentValue);
@@ -266,9 +266,9 @@ void UpdateIgnition() {
     GaugeSweep = 0;
   }
   else {
-    for (int i = Brightness; i > 1; i--) {
+    for (int i = Brightness; i > -1; i--) {
       genie.WriteContrast(i);
-      delay(5);
+      delay(100);
     }
 
   }
@@ -284,7 +284,7 @@ void CanFrames()
   BP.data.bytes[2] = 0xa6;
   BP.data.bytes[3] = 0x12;
   BP.data.bytes[4] = 0x9d;
-  BP.data.bytes[5] = 0x01;
+  BP.data.bytes[5] = 0x04;
   BP.data.bytes[6] = 0x00;
   BP.data.bytes[7] = 0x00;
   RPM.extended = 1;
